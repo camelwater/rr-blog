@@ -15,7 +15,7 @@ export const BlogsContainer = styled('div', {
     justifyContent: 'center',
     alignItems: 'center',
     '@media screen and (max-wdith: 700px)': {
-        width: '90%'
+        width: '85%'
     }
 })
 

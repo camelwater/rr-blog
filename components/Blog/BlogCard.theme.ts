@@ -1,5 +1,14 @@
 import { styled } from '@styles/stitches.config';
-import Image from 'next/image';
+// import Image from 'next/image';
+
+
+export const CardContainer = styled('div', {
+    display: 'flex',
+    width: '100%',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+})
 
 export const Card = styled('div', {
     display: 'flex',
@@ -9,7 +18,7 @@ export const Card = styled('div', {
     backgroundColor: '$lightBackground',
     
     transition: '0.15s linear',
-    marginBottom: '7rem',
+    // marginBottom: '7rem',
     '&:hover': {
         transform: 'translate(0, -2.5%)'
     },
@@ -24,23 +33,31 @@ export const Card = styled('div', {
 })
 
 export const CardLink = styled('a', {
-    textDecoration: 'none'
+    textDecoration: 'none',
+    display: 'flex',
+    marginBottom: '7rem',
+    alignItems: 'center',
+    justifyContent: 'center',
+    '@iPad': {
+        width: '90%',
+    }
 })
 
 export const ImgContainer = styled('div', {
     display: 'flex',
     overflow: 'hidden',
-    maxWidth: '25%',
+    maxWidth: '35%',
     borderTopLeftRadius: '1.5rem',
     borderBottomLeftRadius: '1.5rem',
     '@iPadPro': {
-        maxWidth: '30%'
+        maxWidth: '40%'
     },
     '@iPad': {
         maxWidth: '100%',
         borderRadius: '0',
         borderTopRightRadius: '1.5rem',
-        borderTopLeftRadius: '1.5rem'
+        borderTopLeftRadius: '1.5rem',
+        // height: '25rem'
     },
     // border: '1px solid white'
 })
@@ -50,8 +67,8 @@ export const StyledImage = styled('img', {
     height: '100%',
     // borderRadius: '1.5rem',
     '@iPad': {
-        width: '30rem',
-        height: '25rem'
+        // width: 'min-content',
+        // height: 'min-content'
     },
     '&:hover': {
         transform: 'scale(1.1, 1.1)',
@@ -69,12 +86,13 @@ export const TextContainer = styled('div', {
     paddingTop: '1rem',
     paddingBottom: '1rem',
     '@iPad': {
-        width: 'calc(25rem)',
+        width: '85%',
         alignItems: 'center',
         padding: 0,
         paddingTop: '1.5rem',
         paddingBottom: '1rem'
     },
+    // border: '1px solid white'
 })
 
 export const InfoContainer = styled('div', {
@@ -87,7 +105,7 @@ export const InfoContainer = styled('div', {
     '@iPad': {
         alignItems: 'center',
         textAlign: 'center',
-        paddingBottom: '2rem'
+        // paddingBottom: '2rem',
     }
 })
 
@@ -100,7 +118,13 @@ export const TitleText = styled('h1', {
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    marginBottom: '2rem'
+    marginBottom: '3rem',
+    '@iPad': {
+        fontSize: '$5'
+    },
+    '@media screen and (max-width: 550px)': {
+        fontSize: '$4'
+    }
 })
 
 export const Description = styled('p', {
@@ -125,6 +149,7 @@ export const BottomContainer = styled('div', {
     '@iPad': {
         margin: 0,
         alignItems: 'center',
+        paddingTop: 0
     }
 })
 

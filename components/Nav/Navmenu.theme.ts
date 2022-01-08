@@ -33,7 +33,8 @@ export const Menu = styled('div', {
     position: 'fixed',
     left: 0,
     top: 0,
-    width: '300px',
+    width: '60vw',
+    maxWidth: '250px',
     height: '90%',
     background: '$primary',
     zIndex: 999999,
@@ -139,10 +140,11 @@ export const BottomMenu = styled('div', {
     alignItems: 'center',
     justifyContent: 'space-around',
     height: '10%',
+    maxWidth: '250px',
     variants: {
         variant: {
             first: {
-                width: '300px'
+                width: '60vw',
             },
             sub: {
                 width: '65%',

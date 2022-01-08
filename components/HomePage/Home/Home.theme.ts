@@ -52,7 +52,7 @@ export const Container = styled('div', {
   })
 
 export const NameText = styled('h1', {
-    display: 'flex',
+    // display: 'flex',
     width: 'fit-content',
     fontFamily: '$main',
     // color: '#e2e2e2',

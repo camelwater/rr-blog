@@ -36,7 +36,7 @@ export const NavContainer = styled('div', {
         width: '50%',
     },
     '@media only screen and (max-width: 700px)': {
-        width: '80%',
+        width: '100%',
         justifyContent: 'space-around !important',
     },
     height: '100%',

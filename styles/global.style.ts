@@ -16,11 +16,13 @@ const globalStyle = globalCss({
   },
   html: {
     overflowX: 'hidden',
+    height: '100%'
   },
   body: {
     background: '$background',
     overflowX: 'hidden',
     fontFamily: 'GTWalsheimPro',
+    // height: '100%'
   },
   '::selection': {
     background: '$highlight'
