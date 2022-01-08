@@ -7,26 +7,50 @@ const DescriptionComponent: React.FC = () => {
     return (
         <Theme.Container>
             <Theme.DescriptionContainer>
-                <Theme.TitleText>
-                    What is this?
-                </Theme.TitleText>
-                <Theme.TextContainer> 
-                    <Theme.DescText>
-                        FILLER
-                    </Theme.DescText>
-                </Theme.TextContainer>
+                <ScrollAnimation
+                    animateIn='animate__fadeInUp'
+                    animateOnce={true}
+                    animatePreScroll={false}
+                >
+                    <Theme.TitleText>
+                        What is this?
+                    </Theme.TitleText>
+                </ScrollAnimation>
+                <ScrollAnimation
+                    animateIn='animate__backInUp'
+                    animateOnce={true}
+                    animatePreScroll={false}
+                >
+                    <Theme.TextContainer> 
+                        <Theme.DescText>
+                            FILLER
+                        </Theme.DescText>
+                    </Theme.TextContainer>
+                </ScrollAnimation>
                 <Divider />
-                <Theme.TitleText>
-                    Why?
-                </Theme.TitleText>
-                <Theme.TextContainer> 
-                    <Theme.DescText>
-                        FILLER
-                    </Theme.DescText>
-                    <Theme.DescText>
-                        FILLER #2
-                    </Theme.DescText>
-                </Theme.TextContainer>
+                <ScrollAnimation
+                    animateIn='animate__fadeInUp'
+                    animateOnce={true}
+                    animatePreScroll={false}
+                >
+                    <Theme.TitleText>
+                        Why?
+                    </Theme.TitleText>
+                </ScrollAnimation>
+                <ScrollAnimation
+                    animateIn='animate__backInUp'
+                    animateOnce={true}
+                    animatePreScroll={false}
+                >
+                    <Theme.TextContainer> 
+                        <Theme.DescText>
+                            FILLER
+                        </Theme.DescText>
+                        <Theme.DescText>
+                            FILLER #2
+                        </Theme.DescText>
+                    </Theme.TextContainer>
+                </ScrollAnimation>
             </Theme.DescriptionContainer>
         </Theme.Container>
     );

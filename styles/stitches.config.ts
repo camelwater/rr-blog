@@ -61,7 +61,7 @@ export const lightTheme = createTheme(({
     dark: '#F4F4F5',
     white: '#2c2c2c',
     lightBackground: '#e3e3ec',
-    background: '#eeeeee',
+    background: '#e9e9e9',
     navBackground: '#e8e8ee',
     lightBorder: '#dfdfdf',
     dropdownBackground: '#f5f5f5',
