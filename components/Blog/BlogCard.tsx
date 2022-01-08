@@ -34,7 +34,7 @@ export const BlogCard: React.FC<Card> = ({
             duration={0.5}
         >
         <Theme.CardContainer>
-                {/* <Link href={`/posts/${id}`} passHref={true}> */}
+                <Link href={`/posts/${id}`} passHref={true}>
                     <Theme.CardLink>
                         <Theme.Card>
                             <Theme.ImgContainer>
@@ -72,7 +72,7 @@ export const BlogCard: React.FC<Card> = ({
                             </Theme.TextContainer>
                         </Theme.Card>
                     </Theme.CardLink>
-                {/* </Link> */}
+                </Link>
             </Theme.CardContainer>
         </ScrollAnimation>
     );

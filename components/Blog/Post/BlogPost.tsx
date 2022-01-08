@@ -1,16 +1,23 @@
 import React from 'react';
 import * as Theme from './BlogPost.theme';
-import { TopicText } from './BlogPost.theme';
 // import TableOfContentsComponent from '@components/TableOfContents';
 import * as Icons from 'react-icons/fi';
 import { MDXRemote } from 'next-mdx-remote';
-import ReactMarkdown from 'react-markdown';
+// import ReactMarkdown from 'react-markdown';
+import { 
+    TopicText,
+     
+} from './BlogPost.theme';
+
+
+const mdxComponents = { 
+    TopicText,
+};
 
 
 const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
     
     const topicList = blogData.topics.split(",");
-    const mdxComponents = { TopicText }
 
     return (
         <Theme.Container>

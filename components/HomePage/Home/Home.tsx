@@ -10,20 +10,20 @@ const HomeComponent: React.FC = () => {
 
             <Theme.IntroContainer>
                 
-                <ScrollAnimation
+                {/* <ScrollAnimation
                     animateIn='animate__bounceInLeft'
                     delay={200}
                     animateOnce={true}
-                >
-                    <Theme.NameText>BLOG</Theme.NameText>
-                </ScrollAnimation>
-                <ScrollAnimation
+                > */}
+                <Theme.NameText>BLOG</Theme.NameText>
+                {/* </ScrollAnimation> */}
+                {/* <ScrollAnimation
                     animateIn='animate__flipInX'
                     animateOnce={true}
                     delay={200}
-                >
-                    <Theme.IntroText>very cool stuff going on</Theme.IntroText>
-                </ScrollAnimation>
+                > */}
+                <Theme.IntroText>very cool stuff going on</Theme.IntroText>
+                {/* </ScrollAnimation> */}
                     {/* {!isMobile() && 
                         <Theme.VideoContainer>
                             <ReactPlayer
