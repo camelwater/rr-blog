@@ -2,6 +2,8 @@ import * as fs from 'fs';
 import * as path from 'path';
 import matter from 'gray-matter';
 import time from 'reading-time';
+import { serialize } from 'next-mdx-remote/serialize';
+
 
 const blogsDir = path.join(process.cwd(), 'content', 'blogs');
 
@@ -11,7 +13,7 @@ const blogsDir = path.join(process.cwd(), 'content', 'blogs');
 export const getAllBlogsData = () => {
     const files = fs.readdirSync(blogsDir)
     const blogs = files.map((fileName) => {
-      const title = fileName.replace('.md', '')
+      const id = fileName.replace('.md', '')
   
       const fullPath = path.join(blogsDir, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -21,12 +23,12 @@ export const getAllBlogsData = () => {
       const date = Date.parse(fileMatter.data.date);
       
       return {
-        title,
+        id,
         readingTime,
         date,
         ...fileMatter.data,
       }
-    })
+    });
   
     return blogs.sort((a, b) => {
       if (a.date < b.date) {
@@ -34,20 +36,31 @@ export const getAllBlogsData = () => {
       } else {
         return -1
       }
-    })
+    });
 }
 
-export const getBlog = (title: string) => {
-    const fullPath = path.join(blogsDir, title + '.md');
+export const getBlog = async (id: string) => {
+    const fullPath = path.join(blogsDir, id + '.md');
     const fileContent = fs.readFileSync(fullPath, 'utf8');
     const fileMatter = matter(fileContent);
-    const content = fileMatter.content;
-    const readingTime = Math.floor(time(content).minutes) + 1
+    const content = await serialize(fileMatter.content);
+    const readingTime = Math.floor(time(fileMatter.content).minutes) + 1
 
     return {
-        title,
+        id,
         readingTime,
         content,
         ...fileMatter.data,
+    };
+}
+
+export const getBlogIDs = () => {
+  const fileNames = fs.readdirSync(blogsDir);
+  return fileNames.map(fileName => {
+    return {
+      params: {
+        id: fileName.replace(/\.md$/, '')
+      }
     }
+  })
 }

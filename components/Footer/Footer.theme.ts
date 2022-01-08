@@ -71,6 +71,7 @@ export const FooterLinkText = styled('a', {
     fontSize: '$2',
     alignItems: 'center',
     color: '$main',
+    position: 'relative',
     svg: {
         margin: '0 10px'
     },

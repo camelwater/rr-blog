@@ -4,9 +4,10 @@ import Image from 'next/image';
 export const Card = styled('div', {
     display: 'flex',
     cursor: 'pointer',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     borderRadius: '2rem',
-    backgroundColor: '$primary',
+    backgroundColor: '$lightBackground',
+    
     transition: '0.15s linear',
     marginBottom: '7rem',
     '&:hover': {
@@ -22,37 +23,53 @@ export const Card = styled('div', {
     },
 })
 
+export const CardLink = styled('a', {
+    textDecoration: 'none'
+})
+
 export const ImgContainer = styled('div', {
     display: 'flex',
     overflow: 'hidden',
-    width: 'max-content',
-    height: 'max-content'
+    maxWidth: '25%',
+    borderTopLeftRadius: '1.5rem',
+    borderBottomLeftRadius: '1.5rem',
+    '@iPadPro': {
+        maxWidth: '30%'
+    },
+    '@iPad': {
+        maxWidth: '100%',
+        borderRadius: '0',
+        borderTopRightRadius: '1.5rem',
+        borderTopLeftRadius: '1.5rem'
+    },
+    // border: '1px solid white'
 })
 
 export const StyledImage = styled('img', {
-    width: 'stretch',
-    height: '',
-    borderRadius: '1.5rem',
+    width: '100%',
+    height: '100%',
+    // borderRadius: '1.5rem',
     '@iPad': {
-        width: '350px',
-        height: '300px'
+        width: '30rem',
+        height: '25rem'
     },
     '&:hover': {
-        transform: 'scale(1.05, 1.05)',
+        transform: 'scale(1.1, 1.1)',
         filter: 'blur(1px)',
-        borderRadius: '3rem'
     },
 })
 
 export const TextContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'space-between',
-    width: '70%',
+    justifyContent: 'flex-start',
+    width: '75%',
     wordWrap: 'break-word',
-    paddingLeft: '3rem',
+    paddingLeft: '2.5rem',
+    paddingTop: '1rem',
+    paddingBottom: '1rem',
     '@iPad': {
-        width: '300px',
+        width: 'calc(25rem)',
         alignItems: 'center',
         padding: 0,
         paddingTop: '1.5rem',
@@ -83,7 +100,7 @@ export const TitleText = styled('h1', {
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    marginBottom: '1rem'
+    marginBottom: '2rem'
 })
 
 export const Description = styled('p', {
@@ -91,6 +108,9 @@ export const Description = styled('p', {
     fontFamily: '$main',
     color: '$main',
     paddingRight: '1rem',
+    '@iPadPro': {
+        fontSize: '$2'
+    },
     '@iPad': {
         padding: 0
     },
@@ -100,10 +120,11 @@ export const BottomContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     marginRight: '1.5rem',
+    paddingTop: '1rem',
     paddingBottom: '1rem',
     '@iPad': {
         margin: 0,
-        alignItems: 'center'
+        alignItems: 'center',
     }
 })
 
@@ -117,7 +138,7 @@ export const BottomInfoContainer = styled('div', {
 export const BottomInfoText = styled('div', {
     display: 'flex',
     fontFamily: '$primary',
-    fontSize: '$3',
+    fontSize: '$2',
     color: '$white',
     alignItems: 'center',
     variants: {
@@ -130,7 +151,8 @@ export const BottomInfoText = styled('div', {
             }
         }
     },
-    '@iPad': {
+    '@iPadPro': {
+        fontSize: '$2'
     }
 
 })
@@ -139,6 +161,10 @@ export const TopicsContainer = styled('div', {
     display: 'flex',
     marginBottom: '1rem',
     flexWrap: 'wrap',
+    alignItems: 'center',
+    '@iPad': {
+        justifyContent: 'center',
+    }
 })
 
 export const Topic = styled('div', {
@@ -162,4 +188,7 @@ export const TopicText = styled('p', {
     fontFamily: '$main',
     fontSize: '$2',
     color: '$white',
+    '@iPadPro': {
+        fontSize: '$1'
+    }
 })

@@ -26,8 +26,8 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
 
     const Links = [
         {
-            name: 'Blog',
-            link: '/blog'
+            name: 'Posts',
+            link: '/posts'
         },
         {
             name: 'About',
@@ -60,17 +60,17 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                 <NavBar.NavContainer>
                     <NavBar.LinksContainer>
                         <Link href='/' passHref={true}>
-                            <NavBar.TitleLinkText>RR.</NavBar.TitleLinkText>
+                            <NavBar.TitleLinkText variant={isHome?'home':'rest'}>RR.</NavBar.TitleLinkText>
                         </Link>
                         <NavBar.NavItems>
                             {Links.map((entry, index) => (
-                                <NavBar.LinkBox key={index}>
-                                    <Link href={entry.link} passHref={true}>
+                                <Link href={entry.link} passHref={true} key={index}>
+                                    <NavBar.LinkBox key={index}>
                                         <NavBar.NavLink>
                                             {entry.name}
                                         </NavBar.NavLink> 
-                                    </Link>
-                                </NavBar.LinkBox>
+                                    </NavBar.LinkBox>
+                                </Link>
                             ))}
                         </NavBar.NavItems>
                     </NavBar.LinksContainer>

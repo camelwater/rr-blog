@@ -58,29 +58,37 @@ export const TitleLinkText = styled('a', {
     color: '$main3',
     textDecoration: 'none',
     transition: '0.1s linear',
-    '&:hover': {
-        background: '$gradient',
-        backgroundClip: 'text',
-        WebkitBackgroundClip: 'text',
-        WebkitTextFillColor: 'transparent',
-        animation: 'color-rotation 2.5s',
-        animationIterationCount: 'infinite',
-        animationDirection: 'alternate',
-        transform: 'scale(1.1, 1.1)'
-    },
+    variants: {
+        variant: {
+            rest: {
+                '&:hover': {
+                    background: '$gradient',
+                    backgroundClip: 'text',
+                    WebkitBackgroundClip: 'text',
+                    WebkitTextFillColor: 'transparent',
+                    animation: 'color-rotation 2.5s',
+                    animationIterationCount: 'infinite',
+                    animationDirection: 'alternate',
+                    transform: 'scale(1.1, 1.1)'
+                },
+            },
+            home: {
+                '&:hover': {
+                    transform: 'scale(1.1, 1.1)',
+                    color: '$hover'
+                },
+            }
+        }
+    },  
     '&:active': {
         transform: 'scale(0.95, 0.95)'
     },
-    // '@Flip': {
-    // //   fontSize: '$2',
-    //   display: 'flex !important',
-    // },
     '@iPhoneSE': {
       fontSize: '$2',
     },
   })
 
-export const NavLink = styled('a', {
+export const NavLink = styled('p', {
     color: '$main',
     fontSize: '$2',
     fontWeight: 'bold',
@@ -98,6 +106,8 @@ export const NavLink = styled('a', {
 })
 
 export const LinkBox = styled('div', {
+    textDecoration: 'none',
+    cursor: 'pointer',
     display: 'flex',
     height: '100%',
     justifyContent: 'center',

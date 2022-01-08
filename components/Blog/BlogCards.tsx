@@ -2,7 +2,6 @@ import { Divider } from '@components/SharedComponents';
 import React from 'react';
 import * as Theme from './BlogCards.theme';
 import BlogCard from './BlogCard';
-import ScrollAnimation from 'react-animate-on-scroll';
 
 
 const BlogCards: React.FC<{ data }> = ({ data }) => {
@@ -23,6 +22,7 @@ const BlogCards: React.FC<{ data }> = ({ data }) => {
                         {data.map((blog, index) => (
                             <BlogCard
                                 key={index}
+                                id={blog.id}
                                 title={blog.title}
                                 readingTime={blog.readingTime}
                                 date={blog.date}

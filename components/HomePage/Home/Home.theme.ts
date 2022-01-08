@@ -55,10 +55,11 @@ export const NameText = styled('h1', {
     width: 'fit-content',
     fontFamily: '$main',
     // color: '#e2e2e2',
+    textDecoration: 'none',
     color: '$white',
     fontSize: 75,
     margin: '30px 0',
-    transition: '.125s linear',
+    transition: '.15s linear',
     cursor: 'cell',
     '@media screen and (max-width: 700px)': {
       color: "$white"
@@ -70,6 +71,13 @@ export const NameText = styled('h1', {
         fontSize: 50
     },
     '&:hover': {
+      background: '$gradient',
+      backgroundClip: 'text',
+      WebkitBackgroundClip: 'text',
+      WebkitTextFillColor: 'transparent',
+      animation: 'color-rotation 2.5s',
+      animationIterationCount: 'infinite',
+      animationDirection: 'alternate',
       transform: 'scale(1.025, 1.025)'
     }
 })
