@@ -6,6 +6,7 @@ export const Container = styled('div', {
     justifyContent: 'center',
     alignItems: 'center',
     width: '100vw',
+    height: '100vh',
     marginBottom: '10vw',
     maxHeight: 1280,
     background: '$lightBackground',
