@@ -30,7 +30,7 @@ export const Card = styled('div', {
             transform: 'scale(1.02, 1.02)'
         }
     },
-})
+}) 
 
 export const CardLink = styled('a', {
     textDecoration: 'none',
