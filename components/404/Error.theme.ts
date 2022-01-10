@@ -4,6 +4,7 @@ export const Container = styled('div', {
     display: 'flex',
     width: '100vw', 
     height: '100vh',
+    minHeight: '500px',
     justifyContent: 'center',
     alignItems: 'center',
 })
@@ -34,7 +35,9 @@ export const SuggestionText = styled('p', {
     display: 'flex',
     fontFamily: '$main',
     fontSize: '$3',
-    color: '$white'
+    color: '$white',
+    wordWrap: 'break-word',
+    flexWrap: 'wrap',
 })
 
 export const LinkText = styled('a', {

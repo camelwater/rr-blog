@@ -140,6 +140,7 @@ export const BottomMenu = styled('div', {
     alignItems: 'center',
     justifyContent: 'space-around',
     height: '10%',
+    minHeight: '50px',
     maxWidth: '250px',
     variants: {
         variant: {

@@ -20,14 +20,14 @@ export const Card = styled('div', {
     transition: '0.15s linear',
     // marginBottom: '7rem',
     '&:hover': {
-        transform: 'translate(0, -2.5%)'
+        transform: 'translate(0, -1.75%)'
     },
     '@iPad': {
         flexWrap: 'wrap',
         flexDirection: 'column',
         alignItems: 'center',
         '&:hover': {
-            transform: 'scale(1.02, 1.02)'
+            transform: 'scale(1.01, 1.01)'
         }
     },
 }) 
@@ -71,7 +71,7 @@ export const StyledImage = styled('img', {
         // height: 'min-content'
     },
     '&:hover': {
-        transform: 'scale(1.1, 1.1)',
+        transform: 'scale(1.05, 1.05)',
         filter: 'blur(1px)',
     },
 })
