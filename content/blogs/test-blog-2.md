@@ -6,7 +6,7 @@ img: test2.png
 topics: Something good, Creativity, Money
 ---
 
-## Test Header {#test-header}
+## Test Header
 
 Hello what is going on ajas;lkdjsad
 as;ldkjas;dlkjads
@@ -17,4 +17,14 @@ sd;alskdja;lskdjasd
 asd;lkja;lskdjal;skdjasdasd
 ;lksdja;lksjd
 
-<TopicText>Hello</TopicText>
+<InfoCardComponent title="Cool Card" previewContent={`hello what is going on
+what is going on
+alskdja;ldskja ;sldkjas ;dlkajsd ;alksdja;lskdjau238u34u23423o42uo34i2u3`}
+>
+This is the extended content. This is the extended content. This is the extended content. This is the extended content.
+This is the extended content.
+
+This is the extended content.
+This is the extended content.
+This is the extended content.
+</InfoCardComponent>

@@ -48,18 +48,30 @@ export const ContentContainer = styled('div', {
     justifyContent: 'space-between', 
     alignItems: 'flex-start', 
     paddingTop: '7.5rem',
+    '@iPad': {
+        width: '90%'
+    }
     // border: '1px solid white'
  
+})
+
+export const AbstractPostContainer = styled('div', {
+    display: 'flex',
+    width: '70%', 
+    '@iPad': {
+        width: '100%'
+    },
+    alignItems: 'center',
+    justifyContent: 'center',
 })
 
 export const PostContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
-    width: '70%',
-    '@iPad': {
-        width: '100%'
-    },
+    width: '95%',
     alignItems: 'flex-start',
+    justifyContent: 'center',
+    fontSize: 'calc(1.25rem)',
 
     'h1, h2, h3, h4, h5, h6, h7, p, a, strong': {
         fontFamily: '$main',
@@ -101,11 +113,11 @@ export const PostContainer = styled('div', {
     code: {},
     p: {
         color: '$white',
-        fontSize: '$3',
+        // fontSize: 'calc(1.2rem)',
         margin: '10px 0 15px 0',
-        '@iPadPro': {
-            fontSize: '$2'
-        }
+        // '@iPadPro': {
+        //     fontSize: '$2'
+        // }
     },
     img: {
         borderRadius: 10,
@@ -140,6 +152,7 @@ export const PostContainer = styled('div', {
             color: '$hover',
         }
     },
+    
 })
 
 export const TitleText = styled('h1', {
@@ -177,6 +190,7 @@ export const TopicsContainer = styled('div', {
 
 export const Topic = styled('div', {
     display: 'flex',
+    cursor: 'default',
     background: '$dark',
     borderRadius: '0.75rem',
     padding: '0.5rem',
@@ -227,5 +241,80 @@ export const TopicText = styled('p', {
     color: '$white',
     '@iPadPro': {
         fontSize: '$1'
+    }
+})
+
+// MDX component styles (MDX remote)
+export const H1 = styled('h1', {
+    margin: '0px 0',
+    display: 'inline-block',
+    background: '$gradient',
+    width: 'fit-content',
+    backgroundClip: 'text',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    fontSize: '$6',
+    fontFamily: '$main',
+    alignText: 'left'
+})
+
+export const H2 = styled('h2', {
+    // marginTop: 100,
+    marginBottom: 30,
+    color: '$hover',
+    fontSize: '$5',
+    '@iPadPro': {
+        fontSize: '30px'
+    }
+})
+
+export const H3 = styled('h3', {
+    marginTop: 35,
+    marginBottom: 25,
+    color: '$white',
+    fontSize: '$4'
+})
+
+export const P = styled('p', {
+    color: '$white',
+    fontSize: '$3',
+    margin: '10px 0 15px 0',
+    '@iPadPro': {
+        fontSize: '$2'
+    }
+})
+
+export const IMG = styled('p', {
+    borderRadius: 10,
+    maxWidth: '110%',
+})
+
+export const A = styled('a', {
+    color: '$dividerColor',
+    position: 'relative',
+    textDecoration: 'none',
+    zIndex: 99,
+    '@iPadPro': {
+        fontSize: '$2'
+    },
+    '&:before': {
+        zIndex: 9,
+        content: '',
+        width: 0,
+        height: '0.075em',
+        position: 'absolute',
+        bottom: -1,
+        left: 0,
+        background: '$hover',
+        transition: '0.3s all',
+    },
+    '&:hover:before': {
+        zIndex: 9,
+        width: '100%',
+        left: 0,
+        background: '$dividerColor',
+    },
+    '&:hover': {
+        color: '$hover',
     }
 })

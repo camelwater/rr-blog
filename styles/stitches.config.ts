@@ -16,6 +16,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         hover: '#3f30c4',
         linkHover: '#313131',
         dividerColor: '#5f55f0',
+        cardColor: '#282546',
         lightBackground: '#1f1f30',
         background: '#181820',
         navBackground: '#1b1b24',
@@ -69,6 +70,7 @@ export const lightTheme = createTheme(({
     hover: '#5932e6',
     linkHover: '#dddddd',
     dividerColor: '#8379df',
+    cardColor: '#d2d2ee',
     dropdownHover: '#e9e9e9',
     highlight: '#2e2e2e30',
     gradient:

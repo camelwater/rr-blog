@@ -12,7 +12,7 @@ const globalStyle = globalCss({
 
   },
   svg: {
-    transition: '0s'
+    transition: 'none'
   },
   html: {
     overflowX: 'hidden',
@@ -22,6 +22,7 @@ const globalStyle = globalCss({
     background: '$background',
     overflowX: 'hidden',
     fontFamily: 'GTWalsheimPro',
+    // transition: '.15s linear'
     // height: '100%'
   },
   '::selection': {
