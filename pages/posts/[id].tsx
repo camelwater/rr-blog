@@ -5,6 +5,7 @@ import { getBlog, getBlogIDs } from '@utils/blogUtils';
 import Head from 'next/head';
 import React from 'react';
 import BlogPost from '@components/Blog/Post/BlogPost';
+import 'animate.css/animate.min.css';
 
 const BlogPage: React.FC<{  blogData }> = ({ blogData }) => {
 

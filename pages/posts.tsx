@@ -5,7 +5,7 @@ import BlogCards from '@components/Blog/BlogCards';
 import Head from 'next/head';
 import React from 'react';
 import { getAllBlogsData } from '@utils/blogUtils';
-import 'animate.css';
+import 'animate.css/animate.min.css';
 
 const BlogPage: React.FC<{ blogData }> = ({ blogData }) => {
     return (
