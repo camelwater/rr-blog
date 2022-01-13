@@ -13,7 +13,7 @@ as;ldkjas;dlkjads
 as;lkjasd;lkajsda
 sd;lkj lkj slakdjlkj lkaj lksjd laksdj laksj oqiue oqiu e1o23123l k123l1k3j 
 
-[hello](www.google.com)
+[hello](https://www.google.com)
 
 
 asd;lkja;lskdjal;skdjasdasd
@@ -25,7 +25,7 @@ alskdja;ldskja ;sldkjas ;dlkajsd ;alksdja;lskdjau238u34u23423o42uo34i2u3`}>
 This is the extended content. This is the extended content. This is the extended content. This is the extended content.
 This is the extended content.
 
-This is the extended content. [hello](www.google.com).
+This is the extended content. [hello](https://www.google.com).
 This is the extended content.
 This is the extended content.
 </InfoCardComponent>

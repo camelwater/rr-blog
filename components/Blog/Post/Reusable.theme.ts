@@ -75,7 +75,6 @@ export const CardTitleText = styled('h4', {
     fontWeight: 'bolder',
     '@iPhonePlus': {
         fontSize: 'calc(1.1rem)',
-        fontWeight: '10rem'
     },
     flexWrap: 'wrap',
     overflowWrap: 'anywhere'
@@ -117,7 +116,7 @@ export const ExtendButton = styled('div', {
     fontFamily: '$main',
     fontSize: '$2',
     color: '$white',
-    fontWeight: 'bold',
+    // fontWeight: 550,
     transition: 'all .15s linear',
     alignItems: 'center',
     svg: {
