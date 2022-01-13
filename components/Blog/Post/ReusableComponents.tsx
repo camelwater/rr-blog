@@ -4,7 +4,7 @@ import * as Theme from './Reusable.theme';
 import { motion } from 'framer-motion';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { HiOutlineInformationCircle } from 'react-icons/hi';
-
+import { HiOutlineCheckCircle } from 'react-icons/hi';
 
 export const ExpandableCardComponent: React.FC<{ 
 children?,
@@ -27,6 +27,7 @@ type?: string,
         },
         expanded: {
             height: "100%",
+            display: 'flex',
             transition: {
               when: "beforeChildren",
             },
@@ -48,14 +49,19 @@ type?: string,
         }
     };
     const previewContentList = previewContent.split('\n');
+    const CornerIcon = type==="info"?HiOutlineInformationCircle:HiOutlineCheckCircle
+    const isInfoCard = type==='info';
 
     return (
-        <Theme.InfoCardContainer>
+        <Theme.InfoCardContainer variant={isInfoCard?'info':'check'}>
+            <Theme.IconContainer variant={isInfoCard?'info':'check'}>
+                    <CornerIcon size={'2.5rem'}/>
+            </Theme.IconContainer>
             <Theme.InfoCard>
                 <Theme.InfoCardHeaderContainer>
                     <Theme.CardTitleText>{title}</Theme.CardTitleText>
                     {children !== null &&
-                        <Theme.ExtendButton onClick={ToggleOpen}>
+                        <Theme.ExtendButton variant={isInfoCard?'info':'check'} onClick={ToggleOpen} >
                             Show{isOpen?' less':' more'}{isOpen?<FiChevronUp />:<FiChevronDown />}
                         </Theme.ExtendButton>
                     }
@@ -78,13 +84,24 @@ title: string,
 previewContent: string, 
 }> = ({ children=null, title, previewContent }) => {
     return (
-        <Theme.HighLevelCardContainer>
-        {/* <> */}
-            <ExpandableCardComponent title={title} previewContent={previewContent}>
+        <Theme.HighLevelCardContainer>            
+            <ExpandableCardComponent title={title} previewContent={previewContent} type='info'>
                 {children}
             </ExpandableCardComponent>
-            <Theme.IconContainer><HiOutlineInformationCircle size={'2.5rem'}/></Theme.IconContainer>
-        {/* </> */}
+        </Theme.HighLevelCardContainer>
+    );
+}
+
+export const CheckCardComponent: React.FC<{ 
+children?,
+title: string, 
+previewContent: string, 
+}> = ({ children=null, title, previewContent }) => {
+    return (
+        <Theme.HighLevelCardContainer>            
+            <ExpandableCardComponent title={title} previewContent={previewContent} type='check'>
+                {children}
+            </ExpandableCardComponent>
         </Theme.HighLevelCardContainer>
     );
 }

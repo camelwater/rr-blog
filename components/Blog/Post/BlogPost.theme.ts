@@ -124,7 +124,7 @@ export const PostContainer = styled('div', {
         maxWidth: '60vw',
     },
     a: {
-        color: '$dividerColor',
+        color: '$hover',
         position: 'relative',
         textDecoration: 'none',
         zIndex: 99,
@@ -139,7 +139,7 @@ export const PostContainer = styled('div', {
             position: 'absolute',
             bottom: -1,
             left: 0,
-            background: '$hover',
+            background: '$dividerColor',
             transition: '0.3s all',
         },
         '&:hover:before': {
@@ -149,7 +149,7 @@ export const PostContainer = styled('div', {
             background: '$dividerColor',
         },
         '&:hover': {
-            color: '$hover',
+            color: '$dividerColor',
         }
     },
     
@@ -245,76 +245,76 @@ export const TopicText = styled('p', {
 })
 
 // MDX component styles (MDX remote)
-export const H1 = styled('h1', {
-    margin: '0px 0',
-    display: 'inline-block',
-    background: '$gradient',
-    width: 'fit-content',
-    backgroundClip: 'text',
-    WebkitBackgroundClip: 'text',
-    WebkitTextFillColor: 'transparent',
-    fontSize: '$6',
-    fontFamily: '$main',
-    alignText: 'left'
-})
+// export const H1 = styled('h1', {
+//     margin: '0px 0',
+//     display: 'inline-block',
+//     background: '$gradient',
+//     width: 'fit-content',
+//     backgroundClip: 'text',
+//     WebkitBackgroundClip: 'text',
+//     WebkitTextFillColor: 'transparent',
+//     fontSize: '$6',
+//     fontFamily: '$main',
+//     alignText: 'left'
+// })
 
-export const H2 = styled('h2', {
-    // marginTop: 100,
-    marginBottom: 30,
-    color: '$hover',
-    fontSize: '$5',
-    '@iPadPro': {
-        fontSize: '30px'
-    }
-})
+// export const H2 = styled('h2', {
+//     // marginTop: 100,
+//     marginBottom: 30,
+//     color: '$hover',
+//     fontSize: '$5',
+//     '@iPadPro': {
+//         fontSize: '30px'
+//     }
+// })
 
-export const H3 = styled('h3', {
-    marginTop: 35,
-    marginBottom: 25,
-    color: '$white',
-    fontSize: '$4'
-})
+// export const H3 = styled('h3', {
+//     marginTop: 35,
+//     marginBottom: 25,
+//     color: '$white',
+//     fontSize: '$4'
+// })
 
-export const P = styled('p', {
-    color: '$white',
-    fontSize: '$3',
-    margin: '10px 0 15px 0',
-    '@iPadPro': {
-        fontSize: '$2'
-    }
-})
+// export const P = styled('p', {
+//     color: '$white',
+//     fontSize: '$3',
+//     margin: '10px 0 15px 0',
+//     '@iPadPro': {
+//         fontSize: '$2'
+//     }
+// })
 
-export const IMG = styled('p', {
-    borderRadius: 10,
-    maxWidth: '110%',
-})
+// export const IMG = styled('p', {
+//     borderRadius: 10,
+//     maxWidth: '110%',
+// })
 
-export const A = styled('a', {
-    color: '$dividerColor',
-    position: 'relative',
-    textDecoration: 'none',
-    zIndex: 99,
-    '@iPadPro': {
-        fontSize: '$2'
-    },
-    '&:before': {
-        zIndex: 9,
-        content: '',
-        width: 0,
-        height: '0.075em',
-        position: 'absolute',
-        bottom: -1,
-        left: 0,
-        background: '$hover',
-        transition: '0.3s all',
-    },
-    '&:hover:before': {
-        zIndex: 9,
-        width: '100%',
-        left: 0,
-        background: '$dividerColor',
-    },
-    '&:hover': {
-        color: '$hover',
-    }
-})
+// export const A = styled('a', {
+//     color: '$dividerColor',
+//     position: 'relative',
+//     textDecoration: 'none',
+//     zIndex: 99,
+//     '@iPadPro': {
+//         fontSize: '$2'
+//     },
+//     '&:before': {
+//         zIndex: 9,
+//         content: '',
+//         width: 0,
+//         height: '0.075em',
+//         position: 'absolute',
+//         bottom: -1,
+//         left: 0,
+//         background: '$hover',
+//         transition: '0.3s all',
+//     },
+//     '&:hover:before': {
+//         zIndex: 9,
+//         width: '100%',
+//         left: 0,
+//         background: '$dividerColor',
+//     },
+//     '&:hover': {
+//         color: '$hover',
+//     }
+// })

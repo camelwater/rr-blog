@@ -13,7 +13,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         dark: '#191919',
         white: '#F4F4F5',
         dropdownHover: '#050505',
-        hover: '#3f30c4',
+        hover: '#5145bd',
         linkHover: '#313131',
         dividerColor: '#5f55f0',
         cardColor: '#282546',
@@ -26,6 +26,9 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         highlight: '#f3f6f040',
         gradient:
           'linear-gradient(93.05deg, #EF9797 3.98%, rgba(206, 126, 199, 0.801616) 35.29%, #A364D6 68.78%, #A1D0F9 97.44%)',
+        dividerColorGreen: '#2cf787',
+        greenColor: '#2985483f',
+        greenHover: '#40c77d'
       },
       fontSizes: {
         1: '14px',
@@ -75,6 +78,9 @@ export const lightTheme = createTheme(({
     highlight: '#2e2e2e30',
     gradient:
       'linear-gradient(93.05deg, #EF9797 3.98%, rgba(206, 126, 199, 0.801616) 35.29%, #A364D6 68.78%, #A1D0F9 97.44%)',
+    dividerColorGreen: '#31d488',
+    greenColor: '#aceec23f',
+    greenHover: '#67b48a'
   }, 
 }))
 
