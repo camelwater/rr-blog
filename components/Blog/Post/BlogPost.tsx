@@ -3,6 +3,7 @@ import * as Theme from './BlogPost.theme';
 // import TableOfContentsComponent from '@components/TableOfContents';
 import * as Icons from 'react-icons/fi';
 import { MDXRemote } from 'next-mdx-remote';
+import ScrollAnimation from 'react-animate-on-scroll';
 // import ReactMarkdown from 'react-markdown';
 
 import { InfoCardComponent, CheckCardComponent } from './ReusableComponents';
@@ -22,9 +23,15 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
         <Theme.Container>
             <Theme.HeaderContainer>
                 <Theme.HeaderInnerContainer>
-                    <Theme.TitleText>
-                        {blogData.title}
-                    </Theme.TitleText>
+                    <ScrollAnimation
+                        animateOnce={true}
+                        animateIn='animate__flipInX'
+                        delay={200}
+                    >
+                        <Theme.TitleText>
+                            {blogData.title}
+                        </Theme.TitleText>
+                    </ScrollAnimation>
                     <Theme.InfoContainer>
                         <Theme.TopicsContainer>
                             {

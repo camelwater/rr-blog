@@ -29,7 +29,7 @@ export const HeaderInnerContainer = styled('div', {
     display: 'flex',
     flexDirection: 'row',
     height: '100%',
-    width: '70%',
+    width: '75%',
     maxWidth: '1200px',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
@@ -37,20 +37,22 @@ export const HeaderInnerContainer = styled('div', {
     '@iPad': {
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        width: '90%'
     }
 })
 
 export const ContentContainer = styled('div', {
     display: 'flex',
-    width: '70%',
+    width: '75%',
     maxWidth: '1200px',
     justifyContent: 'space-between', 
     alignItems: 'flex-start', 
     paddingTop: '7.5rem',
     '@iPad': {
-        width: '90%'
-    }
+        width: '90%',
+        alignItems: 'center'
+    },
     // border: '1px solid white'
  
 })
@@ -58,11 +60,15 @@ export const ContentContainer = styled('div', {
 export const AbstractPostContainer = styled('div', {
     display: 'flex',
     width: '70%', 
-    '@iPad': {
-        width: '100%'
-    },
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
+    '@iPadPro': {
+        width: '100%',
+    },
+    '@iPad': {
+        justifyContent: 'center'
+    }
+    
 })
 
 export const PostContainer = styled('div', {
@@ -72,6 +78,7 @@ export const PostContainer = styled('div', {
     alignItems: 'flex-start',
     justifyContent: 'center',
     fontSize: 'calc(1.25rem)',
+
 
     'h1, h2, h3, h4, h5, h6, h7, p, a, strong': {
         fontFamily: '$main',
@@ -128,9 +135,9 @@ export const PostContainer = styled('div', {
         position: 'relative',
         textDecoration: 'none',
         zIndex: 99,
-        '@iPadPro': {
-            fontSize: '$2'
-        },
+        // '@iPadPro': {
+        //     fontSize: '$2'
+        // },
         '&:before': {
             zIndex: 9,
             content: '',
@@ -167,6 +174,9 @@ export const TitleText = styled('h1', {
     '@iPad': {
         fontSize: '$6',
         paddingBottom: '5rem'
+    },
+    '@iPhonePlus': {
+        fontSize: '$5'
     }
 })
 

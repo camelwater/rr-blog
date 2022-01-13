@@ -64,14 +64,21 @@ export const InfoCardHeaderContainer = styled('div', {
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
+    // flexWrap: 'wrap'
 })
 
 export const CardTitleText = styled('h4', {
     fontFamily: '$main',
-    fontSize: '$3',
+    // fontSize: '$2',
     color: '$white',
     // paddingBottom: '1rem',
-    fontWeight: 'bolder'
+    fontWeight: 'bolder',
+    '@iPhonePlus': {
+        fontSize: 'calc(1.1rem)',
+        fontWeight: '10rem'
+    },
+    flexWrap: 'wrap',
+    overflowWrap: 'anywhere'
 })
 
 export const MainText = styled('div', {
@@ -96,11 +103,16 @@ export const ExpandedText = styled(motion.div, {
     overflowWrap: 'anywhere',
 })
 
-export const ExtendButton = styled(motion.div, {
+export const ExtendButtonContainer = styled('div', {
+    display: 'flex',
+    minWidth: '60%',
+    justifyContent: 'flex-end'
+})
+export const ExtendButton = styled('div', {
     display: 'flex',
     padding: '0.55rem',
     cursor: 'pointer',
-    backgroundColor: '$background',
+    backgroundColor: '$primary',
     borderRadius: '0.5rem',
     fontFamily: '$main',
     fontSize: '$2',
@@ -112,6 +124,9 @@ export const ExtendButton = styled(motion.div, {
         marginLeft: '5px',
         transition: '0s'
     }, 
+    '@iPhonePlus': {
+        fontSize: 'calc(0.85rem)'
+    },
     variants: {
         variant: {
             info: {
@@ -157,8 +172,11 @@ export const IconContainer = styled('div', {
 })
 
 export const HighLevelCardContainer = styled('div', {
-    width: '110%',
+    width: '107.5%',
     alignSelf: 'center',
+    '@iPadPro': {
+        width: '110%'
+    },
     '@iPad': {
         width: '100%'
     },
