@@ -57,6 +57,7 @@ export const ExpandedContainer = styled(motion.div, {
     width: '100%', 
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
+
 })
 
 export const InfoCardHeaderContainer = styled('div', {
@@ -76,6 +77,13 @@ export const CardTitleText = styled('h4', {
     '@iPhonePlus': {
         fontSize: 'calc(1.1rem)',
     },
+    flexWrap: 'wrap',
+    overflowWrap: 'anywhere'
+})
+
+export const PreviewBlockContainer = styled('div', {
+    display: 'flex',
+    flexDirection: 'column',
     flexWrap: 'wrap',
     overflowWrap: 'anywhere'
 })
@@ -100,6 +108,7 @@ export const ExpandedText = styled(motion.div, {
     paddingTop: '1rem',
     flexWrap: 'wrap',
     overflowWrap: 'anywhere',
+    // border: '1px solid white'
 })
 
 export const ExtendButtonContainer = styled('div', {

@@ -1,1 +1,1 @@
-Personal blog for school project built with Next.js 
+Personal blog for school project, built with Next.js and deployed using Vercel.

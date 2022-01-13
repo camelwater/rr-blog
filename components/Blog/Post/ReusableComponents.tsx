@@ -69,10 +69,12 @@ type?: string,
                             
                     }
                 </Theme.InfoCardHeaderContainer>
-                {
-                    previewContentList.map((paragraph, index) => (
-                        <Theme.PreviewText key={index}>{paragraph}</Theme.PreviewText>
-                ))}
+                    <Theme.PreviewBlockContainer>
+                    {
+                        previewContentList.map((paragraph, index) => (
+                            <Theme.PreviewText key={index}>{paragraph}</Theme.PreviewText>
+                    ))}
+                    </Theme.PreviewBlockContainer>
             </Theme.InfoCard>
             <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={false}>
                 <Theme.ExpandedText variants={textFade} animate={isOpen ? "visible":"hidden"} initial={false}>{children}</Theme.ExpandedText>
