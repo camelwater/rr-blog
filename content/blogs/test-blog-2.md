@@ -22,15 +22,18 @@ asd;lkja;lskdjal;skdjasdasd
 <InfoCardComponent title="Cool Card" previewContent={`hello what is going on
 what is going on
 alskdja;ldskja ;sldkjas ;dlkajsd ;alksdja;lskdjau238u34u23423o42uo34i2u3`}>
+
 This is the extended content. This is the extended content. This is the extended content. This is the extended content.
 This is the extended content.
 
-This is the extended content. [hello](https://www.google.com).
+This is the extended content. <a href='https://www.google.com' target='_blank'>do something cool</a>.
 This is the extended content.
 This is the extended content.
+
 </InfoCardComponent>
 
 <CheckCardComponent title="Checkmark card" previewContent={"Hello, you don't know what you're doing, do you?"}>
+
 There's nothing in here, stupid. Go back to the other cards.
 
 I said go back.
@@ -39,5 +42,6 @@ I said go back.
 
 
 
-STOP: [what are you doing](www.google.com)
+STOP: <a href='https://cloudwave3.vercel.app/' target='_blank'>you need to check this out</a>
+
 </CheckCardComponent>
