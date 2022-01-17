@@ -11,7 +11,7 @@ export const Slideshow = styled('div', {
 
 export const Slider = styled('div', {
     whiteSpace: 'nowrap',
-    transition: 'ease 750ms',
+    transition: 'ease 1000ms',
     width: '100%',
     height: '100%'
 })
