@@ -19,8 +19,8 @@ export const HeaderContainer = styled('div', {
     justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundAttachment: 'fixed',
-    backgroundSize: 'contain',
-    backgroundImage: 'url(/assets/test.jpg)',
+    backgroundSize: 'cover',
+    backgroundImage: 'url(/assets/images/about.jpg)',
     // backgroundRepeat: 'no-repeat',
 })
 
@@ -99,29 +99,13 @@ export const LinkText = styled('a', {
         //     transform: 'scale(1.01, 1.01)'
         // }
     },
-    '&:before': {
-        zIndex: 9,
-        content: '',
-        width: 0,
-        height: '0.08em',
-        position: 'absolute',
-        bottom: -1,
-        left: 0,
-        background: '$hover',
-        transition: '0.2s all',
-    },
-    '&:hover:before': {
-        zIndex: 9,
-        width: '100%',
-        left: 0,
-        background: '$hover',
-    },
     '@iPhone': {
         fontSize: '$1'
     }
 })
 
 export const LinkIcon = styled('a', {
+    all: 'revert',
     textDecoration: 'none',
     fontFamily: '$main', 
     display: 'flex',

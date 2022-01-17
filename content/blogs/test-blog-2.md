@@ -6,7 +6,7 @@ img: test2.png
 topics: Something good, Creativity, Money
 ---
 
-## Test Header
+## Test Header {#test-header}
 
 Hello what is going on ajas;lkdjsad
 as;ldkjas;dlkjads
@@ -32,7 +32,7 @@ This is the extended content.
 
 </InfoCardComponent>
 
-<CheckCardComponent title="Checkmark card" previewContent={"Hello, you don't know what you're doing, do you?"}>
+<CheckCardComponent title="Checkmark carddddddddddd" previewContent={"Hello, you don't know what you're doing, do you?"}>
 
 There's nothing in here, stupid. Go back to the other cards.
 
@@ -45,3 +45,6 @@ I said go back.
 STOP: <a href='https://cloudwave3.vercel.app/' target='_blank'>you need to check this out</a>
 
 </CheckCardComponent>
+
+
+### Header 2 {#header-2}

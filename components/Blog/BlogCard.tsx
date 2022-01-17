@@ -24,7 +24,7 @@ export const BlogCard: React.FC<Card> = ({
     topics
 }) => {
     const topicList = topics.split(",");
-    const imgSrc = '/assets/' + img;
+    const imgSrc = '/assets/images' + img;
 
     return (
         <ScrollAnimation
@@ -42,6 +42,7 @@ export const BlogCard: React.FC<Card> = ({
                                     src={imgSrc}
                                     alt={img}
                                 />
+                                <Theme.ImageHoverDarken />
                             </Theme.ImgContainer>
                             <Theme.TextContainer>
                                 <Theme.InfoContainer>

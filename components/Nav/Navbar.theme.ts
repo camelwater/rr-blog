@@ -1,4 +1,5 @@
 import { styled } from '@styles/stitches.config';
+import { motion } from 'framer-motion';
 
 
 export const Nav = styled('nav', {
@@ -52,6 +53,7 @@ export const LinksContainer = styled('div', {
 
 
 export const TitleLinkText = styled('a', {
+    all: 'revert',
     fontFamily: '$mono',
     fontSize: '$4',
     fontWeight: 'bold',
@@ -105,7 +107,7 @@ export const NavLink = styled('p', {
     }
 })
 
-export const LinkBox = styled('div', {
+export const LinkBox = styled(motion.div, {
     textDecoration: 'none',
     cursor: 'pointer',
     display: 'flex',

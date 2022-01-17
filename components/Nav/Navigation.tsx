@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import * as NavBar from './Navbar.theme';
 import * as NavMenu from './Navmenu.theme';
-import React from 'react';
+import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 // import SmoothScroll from '@components/Scroll';
 import { ThemeToggle } from '@components/ThemeToggle';
@@ -34,7 +34,6 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
             link: '/about'
         }
     ];
-
 
     return (
         <> 

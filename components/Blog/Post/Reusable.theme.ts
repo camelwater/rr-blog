@@ -26,14 +26,16 @@ export const InfoCardContainer = styled('aside', {
                 backgroundColor: '$greenColor',
                 a: {
                     color: '$greenHover',
-                    '&:before': {
-                        background: '$dividerColorGreen'
-                    },
-                    '&:hover:before': {
-                        background: '$dividerColorGreen'
-                    },
-                    '&:hover': {
-                        color: '$dividerColorGreen',
+                    position: 'relative',
+                    textDecoration: 'none',
+                    zIndex: 99,
+                    paddingBottom: '0.1rem',
+                    background: 'linear-gradient(0deg, $dividerColorGreen, $dividerColorGreen) no-repeat left bottom / 0 .1rem',
+                    transition: 'background-size 250ms',
+                    '&:where(:hover, :focus-visible)': {
+                      backgroundSize: '100% .1rem',
+                      backgroundPositionX: 'left',
+                      color: '$dividerColorGreen',
                     }
                 }
             }
@@ -65,27 +67,27 @@ export const InfoCardHeaderContainer = styled('div', {
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
-    // flexWrap: 'wrap'
+    wordWrap: 'break-word'
+    // flexWrap: 'wrap',
 })
 
 export const CardTitleText = styled('h4', {
     fontFamily: '$main',
     // fontSize: '$2',
     color: '$white',
-    // paddingBottom: '1rem',
+    maxWidth: '60%',
     fontWeight: 'bolder',
     '@iPhonePlus': {
         fontSize: 'calc(1.1rem)',
     },
-    flexWrap: 'wrap',
-    overflowWrap: 'anywhere'
+    wordWrap: 'break-word',
 })
 
 export const PreviewBlockContainer = styled('div', {
     display: 'flex',
+    maxWidth: '100%',
     flexDirection: 'column',
-    flexWrap: 'wrap',
-    overflowWrap: 'anywhere'
+    wordWrap: 'break-word',
 })
 
 export const MainText = styled('div', {
@@ -93,8 +95,9 @@ export const MainText = styled('div', {
     fontSize: 'calc(1.1rem)',
     color: '$white',
     paddingTop: '1rem',
-    flexWrap: 'wrap',
-    overflowWrap: 'anywhere',
+    // flexWrap: 'wrap',
+    // overflowWrap: 'break-word',
+    // wordWrap: 'break-word',
 })
 
 export const PreviewText = styled(MainText, {
@@ -106,15 +109,15 @@ export const ExpandedText = styled(motion.div, {
     fontSize: 'calc(1.1rem)',
     color: '$white',
     paddingTop: '1rem',
-    flexWrap: 'wrap',
-    overflowWrap: 'anywhere',
-    // border: '1px solid white'
+    // flexWrap: 'wrap',
+    // overflowWrap: 'break-word',
+    // wordWrap: 'break-word'
 })
 
 export const ExtendButtonContainer = styled('div', {
     display: 'flex',
-    minWidth: '60%',
-    justifyContent: 'flex-end'
+    // minWidth: '60%',
+    justifyContent: 'flex-end',
 })
 export const ExtendButton = styled('div', {
     display: 'flex',
@@ -125,13 +128,10 @@ export const ExtendButton = styled('div', {
     fontFamily: '$main',
     fontSize: '$2',
     color: '$white',
-    // fontWeight: 550,
+    // minWidth: '50px',
     transition: 'all .15s linear',
     alignItems: 'center',
-    svg: {
-        marginLeft: '5px',
-        transition: '0s'
-    }, 
+    // flexWrap: 'wrap', 
     '@iPhonePlus': {
         fontSize: 'calc(0.85rem)'
     },
@@ -150,6 +150,19 @@ export const ExtendButton = styled('div', {
         }
     }
         
+})
+
+export const ExtendText = styled('div', {
+    display: 'flex',
+    wordWrap: 'break-word',
+    wordBreak: 'keep-all',
+
+})
+
+export const ExtendSVG = styled('div', {
+    display: 'flex',
+    marginLeft: '5px',
+    transition: '0s'
 })
 
 

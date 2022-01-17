@@ -22,6 +22,9 @@ export const Card = styled('div', {
     '&:hover': {
         transform: 'translate(0, -1.75%)'
     },
+    '&:active': {
+        transform: 'scale(0.975, 0.975)'
+    },
     '@iPad': {
         flexWrap: 'wrap',
         flexDirection: 'column',
@@ -32,7 +35,7 @@ export const Card = styled('div', {
     },
 }) 
 
-export const CardLink = styled('a', {
+export const CardLink = styled('div', {
     textDecoration: 'none',
     display: 'flex',
     marginBottom: '7rem',
@@ -43,8 +46,31 @@ export const CardLink = styled('a', {
     }
 })
 
+export const StyledImage = styled('img', {
+    width: '100%',
+    height: '100%',
+    '@iPad': {
+        // width: 'min-content',
+        // height: 'min-content'
+    },
+    '&:hover': {
+        
+        // filter: 'blur(1px) sepia(50%)',
+    },
+})
+
+export const ImageHoverDarken = styled('div', {
+    display: 'flex',
+    position: 'absolute',
+    backgroundColor: '#000000',
+    width: '100%',
+    height: '100%',
+    opacity: '0',
+})
+
 export const ImgContainer = styled('div', {
     display: 'flex',
+    position: 'relative',
     overflow: 'hidden',
     maxWidth: '35%',
     borderTopLeftRadius: '1.5rem',
@@ -59,21 +85,14 @@ export const ImgContainer = styled('div', {
         borderTopLeftRadius: '1.5rem',
         // height: '25rem'
     },
-    // border: '1px solid white'
-})
-
-export const StyledImage = styled('img', {
-    width: '100%',
-    height: '100%',
-    // borderRadius: '1.5rem',
-    '@iPad': {
-        // width: 'min-content',
-        // height: 'min-content'
-    },
     '&:hover': {
-        transform: 'scale(1.05, 1.05)',
-        filter: 'blur(1px)',
-    },
+        [`${ImageHoverDarken}`]: {
+            opacity: '0.35',
+        },
+        [`${StyledImage}`]: {
+            transform: 'scale(1.05, 1.05)',
+        }
+    }
 })
 
 export const TextContainer = styled('div', {

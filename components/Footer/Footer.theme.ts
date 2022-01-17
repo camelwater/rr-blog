@@ -6,6 +6,10 @@ export const FooterCenter = styled('div', {
     alignItems: 'center',
     width: '85%',
     maxWidth: '1200px',
+    '@media screen and (max-width: 250px)': {
+        flexWrap: 'wrap',
+        justifyContent: 'center'
+    }
 })
 export const Footer = styled('div', {
     display: 'flex',
@@ -14,7 +18,7 @@ export const Footer = styled('div', {
     alignItems: 'center',
     zIndex: 999,
     marginTop: '10rem',
-    marginBottom: 25,
+    marginBottom: '25px',
     '@iPadPro': {
       flexDirection: 'column',
       justifyContent: 'center',
@@ -28,6 +32,7 @@ export const FooterContainer = styled('div', {
 })
 
 export const LinkText = styled('a', {
+    all: 'revert',
     fontFamily: '$mono', 
     display: 'flex',
     fontSize: '$1',
@@ -65,6 +70,7 @@ export const FooterText = styled('p', {
 })
 
 export const FooterLinkText = styled('a', {
+    // all: 'revert',
     textDecoration: 'none',
     fontFamily: '$mono', 
     display: 'flex',
@@ -72,29 +78,13 @@ export const FooterLinkText = styled('a', {
     alignItems: 'center',
     color: '$main',
     position: 'relative',
+    transition: '.15s linear',
     svg: {
         margin: '0 10px'
     },
     '&:hover': {
         transform: 'scale(1.1, 1.1)',
         color: '$hover'
-    },
-    '&:before': {
-        zIndex: 9,
-        content: '',
-        width: 0,
-        height: '0.08em',
-        position: 'absolute',
-        bottom: -1,
-        left: 0,
-        background: '$hover',
-        transition: '0.2s all',
-    },
-    '&:hover:before': {
-        zIndex: 9,
-        width: '100%',
-        left: 0,
-        background: '$hover',
     },
     '@iPhone': {
         fontSize: '$1'

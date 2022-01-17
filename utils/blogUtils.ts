@@ -43,12 +43,14 @@ export const getBlog = async (id: string) => {
     const fullPath = path.join(blogsDir, id + '.md');
     const fileContent = fs.readFileSync(fullPath, 'utf8');
     const fileMatter = matter(fileContent);
+    const rawContent = fileMatter.content;
     const content = await serialize(fileMatter.content);
     const readingTime = Math.floor(time(fileMatter.content).minutes) + 1
 
     return {
         id,
         readingTime,
+        rawContent,
         content,
         ...fileMatter.data,
     };

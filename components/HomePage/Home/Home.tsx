@@ -1,43 +1,16 @@
 import * as Theme from './Home.theme';
-import ScrollAnimation from 'react-animate-on-scroll';
+// import ScrollAnimation from 'react-animate-on-scroll';
 import React from 'react';
-import ReactPlayer from 'react-player/file';
-import { isMobile } from '@utils/isMobile';
+import BackgroundSlideshow from './BackgroundSlideshow';
+// import ReactPlayer from 'react-player/file';
 
-const HomeComponent: React.FC = () => {
+const HomeComponent: React.FC<{ images }> = ({ images }) => {
     return (
         <Theme.Container id='home'>
-
+            <BackgroundSlideshow images={images}/>
             <Theme.IntroContainer>
-                
-                {/* <ScrollAnimation
-                    animateIn='animate__bounceInLeft'
-                    delay={200}
-                    animateOnce={true}
-                > */}
                 <Theme.NameText>BLOG</Theme.NameText>
-                {/* </ScrollAnimation> */}
-                {/* <ScrollAnimation
-                    animateIn='animate__flipInX'
-                    animateOnce={true}
-                    delay={200}
-                > */}
-                <Theme.IntroText>very cool stuff going on</Theme.IntroText>
-                {/* </ScrollAnimation> */}
-                    {/* {!isMobile() && 
-                        <Theme.VideoContainer>
-                            <ReactPlayer
-                                playing={true}
-                                volume={0}
-                                muted={true}
-                                loop={true}
-                                playsinline={true}
-                                url='/assets/background_video.mp4'
-                                height='100%'
-                                width='100%'
-                            />
-                        </Theme.VideoContainer>
-                    } */}
+                <Theme.IntroText>very cool happening here</Theme.IntroText>
             </Theme.IntroContainer>
         </Theme.Container>
 

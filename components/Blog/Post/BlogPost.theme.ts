@@ -1,6 +1,7 @@
-import { styled } from '@styles/stitches.config';
+import { styled as sstyled } from '@styles/stitches.config';
+import styled from 'styled-components';
 
-export const Container = styled('div', {
+export const Container = sstyled('div', {
     display: 'flex',
     flexDirection: 'column',
     width: '100vw',
@@ -8,7 +9,7 @@ export const Container = styled('div', {
     alignItems: 'center',
 })
 
-export const BlogContainer = styled('div', {
+export const BlogContainer = sstyled('div', {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
@@ -16,7 +17,7 @@ export const BlogContainer = styled('div', {
     alignItems: 'center'
 })
 
-export const HeaderContainer = styled('div', {
+export const HeaderContainer = sstyled('div', {
     paddingTop: '7.5rem',
     display: 'flex',
     width: '100%',
@@ -25,11 +26,11 @@ export const HeaderContainer = styled('div', {
     justifyContent: 'center'
 })
 
-export const HeaderInnerContainer = styled('div', {
+export const HeaderInnerContainer = sstyled('div', {
     display: 'flex',
     flexDirection: 'row',
     height: '100%',
-    width: '75%',
+    width: '80%',
     maxWidth: '1200px',
     justifyContent: 'space-between',
     alignItems: 'flex-end',
@@ -42,9 +43,9 @@ export const HeaderInnerContainer = styled('div', {
     }
 })
 
-export const ContentContainer = styled('div', {
+export const ContentContainer = sstyled('div', {
     display: 'flex',
-    width: '75%',
+    width: '80%',
     maxWidth: '1200px',
     justifyContent: 'space-between', 
     alignItems: 'flex-start', 
@@ -57,9 +58,9 @@ export const ContentContainer = styled('div', {
  
 })
 
-export const AbstractPostContainer = styled('div', {
+export const AbstractPostContainer = sstyled('div', {
     display: 'flex',
-    width: '70%', 
+    width: '65%', 
     alignItems: 'center',
     justifyContent: 'flex-start',
     '@iPadPro': {
@@ -71,20 +72,21 @@ export const AbstractPostContainer = styled('div', {
     
 })
 
-export const PostContainer = styled('div', {
+export const PostContainer = sstyled('article', {
     display: 'flex',
     flexDirection: 'column',
     width: '95%',
     alignItems: 'flex-start',
     justifyContent: 'center',
     fontSize: 'calc(1.25rem)',
-
+    wordWrap: 'break-word',
+    wordBreak: 'break-word',
 
     'h1, h2, h3, h4, h5, h6, h7, p, a, strong': {
         fontFamily: '$main',
     },
     'h1, pre': {
-        margin: '0px 0',
+        margin: '0',
         display: 'inline-block',
         background: '$gradient',
         width: 'fit-content',
@@ -95,20 +97,8 @@ export const PostContainer = styled('div', {
         fontFamily: '$main',
         alignText: 'left'
     },
-    h2: {
-        // marginTop: 100,
-        marginBottom: 30,
-        color: '$hover',
-        fontSize: '$5',
-        '@iPadPro': {
-            fontSize: '30px'
-        }
-    },
-    h3: {
-        marginTop: 35,
-        marginBottom: 25,
-        color: '$white',
-        fontSize: '$4'
+    'h2, h3': {
+        scrollMarginTop: '7.5rem'
     },
     pre: {
         borderRadius: 12,
@@ -122,47 +112,17 @@ export const PostContainer = styled('div', {
         color: '$white',
         // fontSize: 'calc(1.2rem)',
         margin: '10px 0 15px 0',
-        // '@iPadPro': {
-        //     fontSize: '$2'
-        // }
+        // overflowWrap: 'anywhere',
+        // wordWrap: 'break-word',
     },
     img: {
         borderRadius: 10,
         maxWidth: '60vw',
     },
-    a: {
-        color: '$hover',
-        position: 'relative',
-        textDecoration: 'none',
-        zIndex: 99,
-        // '@iPadPro': {
-        //     fontSize: '$2'
-        // },
-        '&:before': {
-            zIndex: 9,
-            content: '',
-            width: 0,
-            height: '0.075em',
-            position: 'absolute',
-            bottom: -1,
-            left: 0,
-            background: '$dividerColor',
-            transition: '0.3s all',
-        },
-        '&:hover:before': {
-            zIndex: 9,
-            width: '100%',
-            left: 0,
-            background: '$dividerColor',
-        },
-        '&:hover': {
-            color: '$dividerColor',
-        }
-    },
     
 })
 
-export const TitleText = styled('h1', {
+export const TitleText = sstyled('h1', {
     color: '$white',
     fontFamily: '$primary',
     fontSize: '$6',
@@ -180,7 +140,7 @@ export const TitleText = styled('h1', {
     }
 })
 
-export const InfoContainer = styled('div', {
+export const InfoContainer = sstyled('div', {
     alignItems: 'flex-end',
     justifyContent: 'center',
     display: 'flex',
@@ -191,14 +151,14 @@ export const InfoContainer = styled('div', {
     }
 })
 
-export const TopicsContainer = styled('div', {
+export const TopicsContainer = sstyled('div', {
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'wrap',
     paddingBottom: '1rem'
 })
 
-export const Topic = styled('div', {
+export const Topic = sstyled('div', {
     display: 'flex',
     cursor: 'default',
     background: '$dark',
@@ -216,14 +176,14 @@ export const Topic = styled('div', {
     }
 })
 
-export const BottomInfoContainer = styled('div', {
+export const BottomInfoContainer = sstyled('div', {
     display: 'flex',
     justifyContent: 'flex-end',
     '@iPad': {
         alignItems: 'center'
     }
 })
-export const BottomInfoText = styled('div', {
+export const BottomInfoText = sstyled('div', {
     display: 'flex',
     fontFamily: '$primary',
     fontSize: '$2',
@@ -245,7 +205,7 @@ export const BottomInfoText = styled('div', {
 
 })
 
-export const TopicText = styled('p', {
+export const TopicText = sstyled('p', {
     fontFamily: '$main',
     fontSize: '$2',
     color: '$white',
@@ -254,8 +214,26 @@ export const TopicText = styled('p', {
     }
 })
 
+export const AbstractTableContentsContainer = sstyled('div', {
+    display: 'flex',
+    width: '30%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    '@iPadPro': {
+        display: 'none'
+    },
+    position: 'sticky',
+    top: '20%',
+})
+
+export const TableContentsContainer = styled(AbstractTableContentsContainer)`
+    position: sticky;
+    position: -webkit-sticky;
+`
+
 // MDX component styles (MDX remote)
-// export const H1 = styled('h1', {
+
+// export const H1 = sstyled('h1', {
 //     margin: '0px 0',
 //     display: 'inline-block',
 //     background: '$gradient',
@@ -265,66 +243,75 @@ export const TopicText = styled('p', {
 //     WebkitTextFillColor: 'transparent',
 //     fontSize: '$6',
 //     fontFamily: '$main',
-//     alignText: 'left'
+//     alignText: 'left',
 // })
 
-// export const H2 = styled('h2', {
-//     // marginTop: 100,
-//     marginBottom: 30,
-//     color: '$hover',
-//     fontSize: '$5',
-//     '@iPadPro': {
-//         fontSize: '30px'
-//     }
-// })
+export const H2 = sstyled('h2', {
+    // marginTop: 100,
+    marginBottom: 30,
+    color: '$hover',
+    fontSize: '$5',
+    '@iPadPro': {
+        fontSize: '30px'
+    },
+   
+})
 
-// export const H3 = styled('h3', {
-//     marginTop: 35,
-//     marginBottom: 25,
-//     color: '$white',
-//     fontSize: '$4'
-// })
+export const H3 = sstyled('h3', {
+    marginTop: 35,
+    marginBottom: 25,
+    color: '$white',
+    fontSize: '$4',
+})
 
-// export const P = styled('p', {
-//     color: '$white',
-//     fontSize: '$3',
-//     margin: '10px 0 15px 0',
-//     '@iPadPro': {
-//         fontSize: '$2'
-//     }
-// })
+export const H4 = sstyled('h4', {
+    color: '$white',
+    fontSize: '$3',
+    marginTop: '3rem',
+    marginBottom: '2.5rem',
+    
+})
 
-// export const IMG = styled('p', {
-//     borderRadius: 10,
-//     maxWidth: '110%',
-// })
+export const P = sstyled('p', {
+    color: '$white',
+    fontSize: '$3',
+    margin: '10px 0 15px 0',
+    '@iPadPro': {
+        fontSize: '$2'
+    }
+})
 
-// export const A = styled('a', {
-//     color: '$dividerColor',
-//     position: 'relative',
-//     textDecoration: 'none',
-//     zIndex: 99,
-//     '@iPadPro': {
-//         fontSize: '$2'
-//     },
-//     '&:before': {
-//         zIndex: 9,
-//         content: '',
-//         width: 0,
-//         height: '0.075em',
-//         position: 'absolute',
-//         bottom: -1,
-//         left: 0,
-//         background: '$hover',
-//         transition: '0.3s all',
-//     },
-//     '&:hover:before': {
-//         zIndex: 9,
-//         width: '100%',
-//         left: 0,
-//         background: '$dividerColor',
-//     },
-//     '&:hover': {
-//         color: '$hover',
-//     }
-// })
+export const IMG = sstyled('p', {
+    borderRadius: 10,
+    maxWidth: '110%',
+})
+
+export const A = sstyled('a', {
+    color: '$dividerColor',
+    position: 'relative',
+    textDecoration: 'none',
+    zIndex: 99,
+    '@iPadPro': {
+        fontSize: '$2'
+    },
+    '&:before': {
+        zIndex: 9,
+        content: '',
+        width: 0,
+        height: '0.075em',
+        position: 'absolute',
+        bottom: -1,
+        left: 0,
+        background: '$hover',
+        transition: '0.3s all',
+    },
+    '&:hover:before': {
+        zIndex: 9,
+        width: '100%',
+        left: 0,
+        background: '$dividerColor',
+    },
+    '&:hover': {
+        color: '$hover',
+    }
+})

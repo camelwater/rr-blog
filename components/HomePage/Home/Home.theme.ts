@@ -2,6 +2,7 @@ import { styled } from '@styles/stitches.config';
 
 export const Container = styled('div', {
     display: 'flex',
+    position: 'relative',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -27,6 +28,7 @@ export const Container = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    position: 'relative'
   })
   
   export const IntroText = styled('p', {

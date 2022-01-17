@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Theme from './Error.theme';
+import * as Theme from './404.theme';
 import Link from 'next/link';
 
 const ErrorComponent: React.FC = () => {

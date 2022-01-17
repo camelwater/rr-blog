@@ -16,17 +16,31 @@ const globalStyle = globalCss({
   },
   html: {
     overflowX: 'hidden',
-    height: '100%'
+    // height: '100%'
   },
   body: {
     background: '$background',
-    overflowX: 'hidden',
+    // overflowX: 'hidden',
     fontFamily: 'GTWalsheimPro',
     // transition: '.15s linear'
     // height: '100%'
   },
   '::selection': {
     background: '$highlight'
+  },
+  a: {
+    color: '$hover',
+    position: 'relative',
+    textDecoration: 'none',
+    zIndex: 99,
+    paddingBottom: '0.1rem',
+    background: 'linear-gradient(0deg, $dividerColor, $dividerColor) no-repeat left bottom / 0 .1rem',
+    transition: 'background-size 250ms',
+    '&:where(:hover, :focus-visible)': {
+      backgroundSize: '100% .1rem',
+      backgroundPositionX: 'left',
+      color: '$dividerColor',
+    }
   },
   img: {
     userSelect: 'none',
@@ -64,10 +78,6 @@ const globalStyle = globalCss({
     fontStyle: 'normal',
     fontWeight: 400,
     fontDisplay: 'swap',
-  },
-  '.ring.hovered': {
-    width: 80,
-    height: 80,
   },
 });
 

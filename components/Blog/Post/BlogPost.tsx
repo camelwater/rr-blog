@@ -1,15 +1,39 @@
 import React from 'react';
 import * as Theme from './BlogPost.theme';
-// import TableOfContentsComponent from '@components/TableOfContents';
+import { TableOfContents, trimHeader, getHeaderID } from '@components/TableOfContents';
 import * as Icons from 'react-icons/fi';
 import { MDXRemote } from 'next-mdx-remote';
 import ScrollAnimation from 'react-animate-on-scroll';
-// import ReactMarkdown from 'react-markdown';
-
 import { InfoCardComponent, CheckCardComponent } from './ReusableComponents';
+import {
+    H2,
+    H3,
+    H4
+} from './BlogPost.theme';
+import Progress from './Progress';
 
+const Header2 = props => (
+    <H2 id={getHeaderID(props.children)}>
+        {trimHeader(props.children)}
+    </H2>
+)
+
+const Header3 = props => (
+    <H3 id={getHeaderID(props.children)}>
+        {trimHeader(props.children)}
+    </H3>
+)
+
+const Header4 = props => (
+    <H4 id={getHeaderID(props.children)}>
+        {trimHeader(props.children)}
+    </H4>
+)
 
 const mdxComponents = {
+    h2: Header2,
+    h3: Header3,
+    h4: Header4,
     InfoCardComponent,
     CheckCardComponent
 };
@@ -21,6 +45,7 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
 
     return (
         <Theme.Container>
+            <Progress />
             <Theme.HeaderContainer>
                 <Theme.HeaderInnerContainer>
                     <ScrollAnimation
@@ -61,9 +86,9 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
                         <MDXRemote {...blogData.content} components={mdxComponents} />
                     </Theme.PostContainer>
                 </Theme.AbstractPostContainer>
-                {/* <Theme.TableContentsContainer>
-                    <TableOfContentsComponent items={blogData.}
-                </Theme.TableContentsContainer> */}
+                <Theme.TableContentsContainer>
+                    <TableOfContents textSource={blogData.rawContent}/>
+                </Theme.TableContentsContainer>
             </Theme.ContentContainer>
         </Theme.Container>
     );

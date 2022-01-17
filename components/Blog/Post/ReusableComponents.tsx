@@ -61,11 +61,10 @@ type?: string,
                 <Theme.InfoCardHeaderContainer>
                     <Theme.CardTitleText>{title}</Theme.CardTitleText>
                     {children !== null &&
-                        <Theme.ExtendButtonContainer>
-                            <Theme.ExtendButton variant={isInfoCard?'info':'check'} onClick={ToggleOpen} >
-                                Show{isOpen?' less':' more'}{isOpen?<FiChevronUp />:<FiChevronDown />}
-                            </Theme.ExtendButton>
-                        </Theme.ExtendButtonContainer>
+                        <Theme.ExtendButton variant={isInfoCard?'info':'check'} onClick={ToggleOpen} >
+                            <Theme.ExtendText>Show{isOpen?' less':' more'}</Theme.ExtendText>
+                            <Theme.ExtendSVG>{isOpen?<FiChevronUp />:<FiChevronDown />}</Theme.ExtendSVG>
+                        </Theme.ExtendButton>
                             
                     }
                 </Theme.InfoCardHeaderContainer>
