@@ -30,6 +30,11 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         greenColor: '#2985483f',
         greenHover: '#40c77d'
       },
+      shadows: {
+        medium: '1px 2px 2px #1a1920, 2px 4px 4px #17161d, 3px 6px 6px #19171d',
+        mediumDrop: 'drop-shadow(1px 2px 2px #17161d) drop-shadow(2px 4px 4px #17161d) drop-shadow(4px 6px 6px #17161d)'
+
+      },
       fontSizes: {
         1: '14px',
         2: '18px',
@@ -64,7 +69,7 @@ export const lightTheme = createTheme(({
     primary: '#dadae2',
     dark: '#F4F4F5',
     white: '#2c2c2c',
-    lightBackground: '#d9d9f0',
+    lightBackground: '#d6d6eb',
     background: '#e9e9e9',
     navBackground: '#e9e9f1',
     lightBorder: '#dfdfdf',
@@ -82,6 +87,10 @@ export const lightTheme = createTheme(({
     greenColor: '#aceec23f',
     greenHover: '#67b48a'
   }, 
+  shadows: {
+    medium: '1px 2px 2px #777581, 2px 4px 6px #9c9ba5, 3px 6px 6px #8e8999',
+    mediumDrop: 'drop-shadow(1px 4px 3px #7e7c86) drop-shadow(4px 8px 8px #9c9ba5)'
+  },
 }))
 
 
@@ -102,6 +111,19 @@ export const globalStyles = globalCss({
 
         return {
           [currentColor.variable]: currentColorValue,
+          ...varSet,
+        };  
+      }, {}),
+
+      ...Object.keys(lightTheme.shadows).reduce((varSet, curShadowKey) => {
+        const currentShadow = lightTheme.shadows[curShadowKey];
+        const currentShadowValue =
+          currentShadow.value.substring(0, 1) === "$"
+            ? `$shadows${currentShadow.value}`
+            : currentShadow.value;
+
+        return {
+          [currentShadow.variable]: currentShadowValue,
           ...varSet,
         };
       }, {}),

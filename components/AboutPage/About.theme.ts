@@ -15,7 +15,7 @@ export const HeaderContainer = styled('div', {
     flexDirection: 'column',
     width: '100%',
     minHeight: '15rem',
-    height: '20vw',
+    height: '25rem',
     justifyContent: 'flex-end',
     alignItems: 'center',
     backgroundAttachment: 'fixed',

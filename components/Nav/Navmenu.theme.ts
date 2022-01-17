@@ -101,6 +101,7 @@ export const SubMenuLevel = styled('div', {
 })
 
 export const MenuLink = styled('a', {
+    all: 'revert',
     cursor: 'pointer',
     textDecoration: 'none',
     color: '$white',
@@ -115,6 +116,7 @@ export const MenuLink = styled('a', {
 })
 
 export const SubMenuLink = styled('a', {
+    all: 'revert',
     cursor: 'pointer',
     textDecoration: 'none',
     color: '$main',

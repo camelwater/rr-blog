@@ -1,11 +1,11 @@
 import { styled } from '@styles/stitches.config';
 
 export const Slideshow = styled('div', {
-    margin: '0',
     overflow: 'hidden',
     width: '100%',
     height: '100%',
     position: 'fixed',
+    left: 0,
     zIndex: -9,
 })
 
@@ -19,5 +19,5 @@ export const Slider = styled('div', {
 export const IMG = styled('img', {
     width: '100%',
     height: '100%',
-    opacity: '0.2',
+    opacity: '0.15',
 })

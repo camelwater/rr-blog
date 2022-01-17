@@ -18,12 +18,17 @@ export const Card = styled('div', {
     backgroundColor: '$lightBackground',
     
     transition: '0.15s linear',
-    // marginBottom: '7rem',
+    willChange: 'transform',
     '&:hover': {
-        transform: 'translate(0, -1.75%)'
+        transform: 'translate(0, -1.75%)',
+        // boxShadow: '$medium',
+        '$$mediumDropShadow': '$shadows$mediumDrop',
+        filter: '$$mediumDropShadow'
+        
     },
     '&:active': {
-        transform: 'scale(0.975, 0.975)'
+        transform: 'scale(0.975, 0.975)',
+        
     },
     '@iPad': {
         flexWrap: 'wrap',
