@@ -32,7 +32,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
       },
       shadows: {
         medium: '1px 2px 2px #1a1920, 2px 4px 4px #17161d, 3px 6px 6px #19171d',
-        mediumDrop: 'drop-shadow(1px 4px 3px #1a1920) drop-shadow(4px 8px 8px #1a1920)'
+        mediumDrop: 'drop-shadow(1px 4px 3px #1a1920) drop-shadow(4px 8px 8px #17161d)'
 
       },
       fontSizes: {
