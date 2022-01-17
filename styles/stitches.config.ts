@@ -31,7 +31,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         greenHover: '#40c77d'
       },
       shadows: {
-        medium: '1px 2px 2px #1a1920, 2px 4px 4px #17161d, 3px 6px 6px #19171d',
+        medium: '1px 2px 2px #17161b, 2px 4px 6px #17161b, 4px 8px 8px #17161b',
         mediumDrop: 'drop-shadow(1px 4px 3px #17161b) drop-shadow(4px 8px 8px #17161b)'
 
       },
@@ -88,7 +88,7 @@ export const lightTheme = createTheme(({
     greenHover: '#67b48a'
   }, 
   shadows: {
-    medium: '1px 2px 2px #777581, 2px 4px 6px #9c9ba5, 3px 6px 6px #8e8999',
+    medium: '1px 2px 2px #777581, 2px 4px 6px #9c9ba5, 4px 8px 8px #8e8999',
     mediumDrop: 'drop-shadow(1px 4px 3px #7e7c86) drop-shadow(4px 8px 8px #9c9ba5)'
   },
 }))
