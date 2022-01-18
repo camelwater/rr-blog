@@ -18,9 +18,7 @@ const AboutComponent: React.FC = () => {
                     <Theme.Paragraph>17.</Theme.Paragraph>
                     <Theme.Paragraph><TiLocation />&nbsp;Katy, TX.</Theme.Paragraph>
                     <Theme.Paragraph>
-                        <Theme.LinkIcon href='https://www.github.com/camelwater' target='_blank' >
-                            <VscGithub />
-                        </Theme.LinkIcon>
+                        Enjoys coding, F1, soccer.
                     </Theme.Paragraph>
                     <Theme.H2>Contact</Theme.H2>
                     <Theme.Paragraph>

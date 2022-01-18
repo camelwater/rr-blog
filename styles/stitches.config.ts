@@ -76,7 +76,7 @@ export const lightTheme = createTheme(({
     dropdownBackground: '#f5f5f5',
     dropdownBorder: '#e0e0e0',
     hover: '#5932e6',
-    linkHover: '#dddddd',
+    linkHover: '#dbdbdb',
     dividerColor: '#8379df',
     cardColor: '#d2d2ee',
     dropdownHover: '#e9e9e9',
@@ -88,8 +88,8 @@ export const lightTheme = createTheme(({
     greenHover: '#67b48a'
   }, 
   shadows: {
-    medium: '1px 2px 2px #777581, 2px 4px 6px #9c9ba5, 4px 8px 8px #8e8999',
-    mediumDrop: 'drop-shadow(1px 4px 3px #7e7c86) drop-shadow(4px 8px 8px #9c9ba5)'
+    medium: '1px 2px 2px #777581, 2px 4px 6px #9c9ba5, 4px 8px 8px #b2acbd',
+    mediumDrop: 'drop-shadow(0px 2px 6px #a09cb3af) drop-shadow(0px 4px 12px #b1aec7ff)'
   },
 }))
 

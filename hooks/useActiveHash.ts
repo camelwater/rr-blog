@@ -26,10 +26,8 @@ export const useActiveHash = (itemIDs, rootMargin = `0% 0% -45% 0%`) => {
                 }
             });
 
-            
-
             if (visibleHeadings.length>0) {
-                setActiveHash(visibleHeadings[0].target.id)
+                setActiveHash(visibleHeadings[0].target.id);
             }
         }
 

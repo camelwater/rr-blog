@@ -21,9 +21,9 @@ export const Card = styled('div', {
     // willChange: 'transform',
     '&:hover': {
         transform: 'translate(0, -1.75%)',
-        boxShadow: '$medium',
-        // '$$mediumDropShadow': '$shadows$mediumDrop',
-        // filter: '$$mediumDropShadow'
+        // boxShadow: '$medium',
+        '$$mediumDropShadow': '$shadows$mediumDrop',
+        filter: '$$mediumDropShadow'
         
     },
     '&:active': {

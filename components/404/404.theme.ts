@@ -48,23 +48,7 @@ export const LinkText = styled('a', {
     color: '$dividerColor',
     zIndex: 99,
     position: 'relative',
-    '&:before': {
-        zIndex: 9,
-        content: '',
-        width: 0,
-        height: '0.08em',
-        position: 'absolute',
-        bottom: -2,
-        left: 0,
-        background: '$hover',
-        transition: '0.2s all',
-    },
-    '&:hover:before': {
-        zIndex: 9,
-        width: '100%',
-        left: 0,
-        background: '$hover',
-    },
+    transition: '.15s linear',
     '&:hover':{
         color: '$hover',
         transform: 'scale(1.025, 1.025)'

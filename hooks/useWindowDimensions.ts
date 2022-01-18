@@ -23,9 +23,9 @@ const useWindowDimensions = (): WindowDimensions => {
     }
  
     useEffect(() => {
-        handleResize()
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
+        handleResize();
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
  
     return windowDimensions;

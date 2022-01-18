@@ -41,6 +41,7 @@ export const NavContainer = styled('div', {
         justifyContent: 'space-around !important',
     },
     height: '100%',
+    // border: '1px solid green'
 
 })
 
@@ -48,9 +49,21 @@ export const LinksContainer = styled('div', {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '50%'
+    height: '50%',
+    // border: '1px solid white'
 })
 
+export const RightLinksContainer = styled('div', {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '50%',
+    columnGap: '15px',
+    '@media screen and (max-width:700px)': {
+        display: 'none'
+    },
+    // border: '1px solid white'
+})
 
 export const TitleLinkText = styled('a', {
     all: 'revert',
@@ -104,7 +117,7 @@ export const NavLink = styled('p', {
     // },
     '@iPad': {
         margin: '0 10px'
-    }
+    },
 })
 
 export const LinkBox = styled(motion.div, {
@@ -115,12 +128,36 @@ export const LinkBox = styled(motion.div, {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '0.75rem',
-    // opacity: 0.5,
     '&:hover': {
         backgroundColor: '$linkHover',
         [`${NavLink}`]: {
             color: '$white'
         }
+    },
+    '&.active': {
+        [`${NavLink}`]: {
+            color: '$hover'
+        }
+    },
+})
+
+export const ButtonLink = styled('a', {
+    all: 'revert',
+    textDecoration: 'none',
+    backgroundColor: '$hover',
+    color: '$navBackground',
+    border: '1px solid $hover',
+    borderRadius: '5px',
+    fontFamily: '$main',
+    fontSize: '$2',
+    padding: '5px',
+    paddingLeft: '12px',
+    paddingRight: '12px',
+    textAlign: 'center',
+    transition: 'ease 200ms',
+    '&:hover': {
+        backgroundColor: '$navBackground',
+        color: '$hover'
     }
 })
 

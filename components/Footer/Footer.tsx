@@ -19,7 +19,7 @@ const FooterComponent: React.FC = () => {
 
                 <Theme.FooterContainer>
                     <Theme.FooterText>Ryan Z&nbsp;</Theme.FooterText>
-                    <Theme.LinkText href='https://www.github.com/camelwater/english-blog' target='_blank'>
+                    <Theme.LinkText href='https://www.github.com/camelwater' target='_blank'>
                         <Icons.FiGithub size={'1.5rem'}/>
                     </Theme.LinkText>
                 </Theme.FooterContainer>

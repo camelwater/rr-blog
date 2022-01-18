@@ -11,15 +11,18 @@ const DescriptionComponent: React.FC = () => {
                     animateIn='animate__fadeInUp'
                     animateOnce={true}
                     animatePreScroll={false}
+                    duration={0.5}
                 >
                     <Theme.TitleText>
                         What is this?
                     </Theme.TitleText>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    animateIn='animate__backInUp'
+                    animateIn='animate__fadeInUp'
                     animateOnce={true}
                     animatePreScroll={false}
+                    duration={0.5}
+                    delay={150}
                 >
                     <Theme.TextContainer> 
                         <Theme.DescText>
@@ -32,15 +35,18 @@ const DescriptionComponent: React.FC = () => {
                     animateIn='animate__fadeInUp'
                     animateOnce={true}
                     animatePreScroll={false}
+                    duration={0.5}
                 >
                     <Theme.TitleText>
                         Why?
                     </Theme.TitleText>
                 </ScrollAnimation>
                 <ScrollAnimation
-                    animateIn='animate__backInUp'
+                    animateIn='animate__fadeInUp'
                     animateOnce={true}
                     animatePreScroll={false}
+                    duration={0.5}
+                    delay={150}
                 >
                     <Theme.TextContainer> 
                         <Theme.DescText>

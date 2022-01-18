@@ -6,11 +6,13 @@ import { CSSTransition } from 'react-transition-group';
 // import SmoothScroll from '@components/Scroll';
 import { ThemeToggle } from '@components/ThemeToggle';
 import { HiMenuAlt4 } from 'react-icons/hi';
+import useActiveLocation from '@hooks/useActiveLocation';
+// import getActiveLocation from '@utils/getActiveLocation';
 
 
 const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
-
-    const [nav, setNav] = React.useState<boolean>(false);
+    const [nav, setNav] = useState<boolean>(false);
+    const activePage = useActiveLocation();
     // const [menu, setMenu] = React.useState<string>(null);
 
     const ToggleNav = () => {
@@ -64,7 +66,7 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                         <NavBar.NavItems>
                             {Links.map((entry, index) => (
                                 <Link href={entry.link} passHref={true} key={index}>
-                                    <NavBar.LinkBox key={index}>
+                                    <NavBar.LinkBox  className={activePage===entry.link?'active':''}>
                                         <NavBar.NavLink>
                                             {entry.name}
                                         </NavBar.NavLink> 
@@ -73,7 +75,14 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                             ))}
                         </NavBar.NavItems>
                     </NavBar.LinksContainer>
-                    <ThemeToggle type='desktop' />
+                    <NavBar.RightLinksContainer>
+                        <NavBar.ButtonLink 
+                            href='https://www.github.com/camelwater/english-blog' target='_blank'
+                        >
+                            Repo
+                        </NavBar.ButtonLink>
+                        <ThemeToggle type='desktop' />
+                    </NavBar.RightLinksContainer>
                     <NavMenu.MenuButton onClick={ToggleNav}>
                         <HiMenuAlt4 size={30}/>
                     </NavMenu.MenuButton>
