@@ -20,22 +20,31 @@ type?: string,
     const cardExpansion = {
         collapsed: {
             height: '0px',
+            // y:-100,
+            // opacity:0,
+            display: 'none',
             transition: {
-                type: "spring",
-                damping: 2.5,
-                mass: 0.2,
-                stiffness: 50,
-                when: "afterChildren",
+                // type: "spring",
+                // damping: 2.5,
+                // mass: 0.2,
+                // stiffness: 50,
+                when: "beforeChildren",
+                duration: 0.15
             }
         },
         expanded: {
-            height: '100%',
+            height: 'max-content',
+            display: 'flex',
+            // y: 0,
+            // opacity:1,
             transition: {
                 type: "spring",
                 damping: 2.5,
                 mass: 0.2,
                 stiffness: 50,
                 when: "beforeChildren",
+                duration: 0.25
+
             }
         }
     };
