@@ -24,7 +24,7 @@ const Progress: React.FC = () => {
         <motion.path
           fill="none"
           strokeWidth="7.5"
-          stroke={isComplete?"#40c77d":"white"}
+          stroke={isComplete?"#40c77d":"#8379df"}
           strokeDasharray="0 1"
           d={`M 0,2.5 h -${width}`} 
           style={{

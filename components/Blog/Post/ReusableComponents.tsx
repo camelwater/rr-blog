@@ -19,37 +19,53 @@ type?: string,
 
     const cardExpansion = {
         collapsed: {
-            height: 0,
-            display: 'none',
+            height: '0px',
             transition: {
+                type: "spring",
+                damping: 2.5,
+                mass: 0.2,
+                stiffness: 50,
                 when: "afterChildren",
-            },
+            }
         },
         expanded: {
-            height: "100%",
-            display: 'flex',
+            height: '100%',
             transition: {
-              when: "beforeChildren",
-            },
+                type: "spring",
+                damping: 2.5,
+                mass: 0.2,
+                stiffness: 50,
+                when: "beforeChildren",
+            }
         }
     };
     
     const textFade = {
         hidden: {
             opacity: 0,
+            y: -40,
             transition: {
-                duration: 0.1,
-            },
+                type: "spring",
+                damping: 2.5,
+                mass: 0.2,
+                stiffness: 50,
+                // duration: 0.15
+            }
         },
         visible: {
             opacity: 1,
+            y: 0,
             transition: {
-                duration: 0.25,
-            },
+                type: "spring",
+                damping: 2.5,
+                mass: 0.2,
+                stiffness: 50,
+                // duration: 0.15
+            }
         }
     };
     const previewContentList = previewContent.split('\n');
-    const CornerIcon = type==="info"?HiOutlineInformationCircle:HiOutlineCheckCircle
+    const CornerIcon = type==="info"?HiOutlineInformationCircle:HiOutlineCheckCircle;
     const isInfoCard = type==='info';
 
     return (
@@ -75,8 +91,8 @@ type?: string,
                     ))}
                     </Theme.PreviewBlockContainer>
             </Theme.InfoCard>
-            <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={false}>
-                <Theme.ExpandedText variants={textFade} animate={isOpen ? "visible":"hidden"} initial={false}>{children}</Theme.ExpandedText>
+            <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'}>
+                <Theme.ExpandedText variants={textFade} animate={isOpen ? "visible":"hidden"} initial={'hidden'}>{children}</Theme.ExpandedText>
             </Theme.ExpandedContainer>
         </Theme.InfoCardContainer>
     );

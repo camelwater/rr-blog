@@ -56,7 +56,7 @@ export const InfoCard = styled('div', {
 export const ExpandedContainer = styled(motion.div, {
     display: 'flex', 
     flexDirection: 'column', 
-    width: '100%', 
+    width: '100%',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
 
