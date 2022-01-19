@@ -19,6 +19,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         cardColor: '#282546',
         lightBackground: '#1f1f30',
         background: '#181820',
+        // background: '#553131',
         navBackground: '#1b1b24',
         dropdownBackground: '#141414',
         dropdownBorder: '#303030',
@@ -32,7 +33,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
       },
       shadows: {
         medium: '1px 2px 2px #17171f, 2px 4px 6px #17171f, 4px 8px 8px #17171f',
-        mediumDrop: 'drop-shadow(1px 4px 3px #17161b) drop-shadow(4px 8px 8px #17161b)'
+        mediumDrop: 'drop-shadow(0px 2px 6px #1c1a24af) drop-shadow(0px 4px 12px #080711af)'
 
       },
       fontSizes: {
