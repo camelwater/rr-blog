@@ -145,7 +145,6 @@ export const ButtonLink = styled('a', {
     all: 'revert',
     textDecoration: 'none',
     backgroundColor: '$hover',
-    color: '$navBackground',
     border: '1px solid $hover',
     borderRadius: '5px',
     fontFamily: '$main',
@@ -155,10 +154,25 @@ export const ButtonLink = styled('a', {
     paddingRight: '12px',
     textAlign: 'center',
     transition: 'ease 200ms',
-    '&:hover': {
-        backgroundColor: '$navBackground',
-        color: '$hover'
+    variants: {
+        variant: {
+            desktop: {
+                color: '$navBackground',
+                '&:hover': {
+                    backgroundColor: '$navBackground',
+                    color: '$hover'
+                }
+            },
+            mobile: {
+                color: '$primary',
+                '&:hover': {
+                    backgroundColor: '$primary',
+                    color: '$hover'
+                }
+            }
+        }
     }
+    
 })
 
 export const NavItems = styled('div', {

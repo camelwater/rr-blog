@@ -18,7 +18,7 @@ export const Card = styled('div', {
     backgroundColor: '$lightBackground',
     
     transition: '0.15s linear',
-    // willChange: 'transform',
+    willChange: 'transform',
     '&:hover': {
         transform: 'translate(0, -1.75%)',
         // boxShadow: '$medium',

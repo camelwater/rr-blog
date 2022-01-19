@@ -53,6 +53,9 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                     <NavMenu.ProxyMenuContainer onClick={ToggleNav} />
                     <NavMenu.BottomMenu variant='first' >
                         <ThemeToggle type='mobile' />
+                        <NavBar.ButtonLink href='https://www.github.com/camelwater/english-blog' target='_blank' variant='mobile'>
+                            Repo
+                        </NavBar.ButtonLink>
                     </NavMenu.BottomMenu>
                 </NavMenu.MenuContainer>
             </CSSTransition>
@@ -77,6 +80,7 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                     </NavBar.LinksContainer>
                     <NavBar.RightLinksContainer>
                         <NavBar.ButtonLink 
+                            variant='desktop'
                             href='https://www.github.com/camelwater/english-blog' target='_blank'
                         >
                             Repo
