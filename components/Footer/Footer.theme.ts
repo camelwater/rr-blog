@@ -65,7 +65,7 @@ export const FooterText = styled('p', {
     svg: {
         margin: '0 7px'
     },
-    '@iPhone': {
+    '@Flip': {
         fontSize: '$1'
     },
     paddingRight: '1rem'

@@ -178,8 +178,7 @@ export const TopicsContainer = sstyled('div', {
     alignItems: 'center',
     flexWrap: 'wrap',
     paddingBottom: '1rem',
-    columnGap: '5px',
-    rowGap: '5px',
+    gap: '0.5rem',
     '@iPad': {
         justifyContent: 'center'
     }

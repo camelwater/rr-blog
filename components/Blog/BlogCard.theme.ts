@@ -228,7 +228,7 @@ export const TopicsContainer = styled('div', {
     display: 'flex',
     marginBottom: '1rem',
     flexWrap: 'wrap',
-    rowGap: '.25rem',
+    gap: '.25rem',
     alignItems: 'center',
     '@iPad': {
         justifyContent: 'center',
