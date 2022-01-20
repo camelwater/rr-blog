@@ -6,8 +6,9 @@ export const FooterCenter = styled('div', {
     alignItems: 'center',
     width: '85%',
     maxWidth: '1200px',
-    '@media screen and (max-width: 250px)': {
+    '@media screen and (max-width: 400px)': {
         flexWrap: 'wrap',
+        rowGap: '5px',
         justifyContent: 'center'
     }
 })

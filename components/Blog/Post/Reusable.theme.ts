@@ -67,7 +67,8 @@ export const InfoCardHeaderContainer = styled('div', {
     width: '100%',
     alignItems: 'center',
     justifyContent: 'space-between',
-    wordWrap: 'break-word'
+    wordWrap: 'break-word',
+    // border: '1px solid white'
     // flexWrap: 'wrap',
 })
 

@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
  * @param {*} rootMargin
  * @returns id of the element currently in viewport
  */
-export const useActiveHash = (itemIDs, rootMargin = `0% 0% -45% 0%`) => {
+export const useActiveHash = (itemIDs, rootMargin = `0% 0% -40% 0%`) => {
     const headingElementsRef = useRef({});
     const [activeHash, setActiveHash] = useState('');
 

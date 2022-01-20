@@ -177,7 +177,12 @@ export const TopicsContainer = sstyled('div', {
     display: 'flex',
     alignItems: 'center',
     flexWrap: 'wrap',
-    paddingBottom: '1rem'
+    paddingBottom: '1rem',
+    columnGap: '0.5rem',
+    rowGap: '0.25rem',
+    '@iPad': {
+        justifyContent: 'center'
+    }
 })
 
 export const Topic = sstyled('div', {
@@ -186,16 +191,16 @@ export const Topic = sstyled('div', {
     background: '$dark',
     borderRadius: '1rem',
     padding: '0.5rem',
-    variants: {
-        variant: {
-            first: {
-                margin: 0
-            },
-            rest: {
-                marginLeft: '0.5rem'
-            }
-        }
-    }
+    // variants: {
+    //     variant: {
+    //         first: {
+    //             margin: 0
+    //         },
+    //         rest: {
+    //             marginLeft: '0.5rem'
+    //         }
+    //     }
+    // }
 })
 
 export const BottomInfoContainer = sstyled('div', {

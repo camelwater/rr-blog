@@ -59,11 +59,11 @@ export const BlogCard: React.FC<Card> = ({
                                     }
                                 </Theme.TopicsContainer>
                                 <Theme.BottomInfoContainer>
-                                    <Theme.BottomInfoText variant='first'>
+                                    <Theme.BottomInfoText>
                                         <Icons.FiClock />
                                         &nbsp;{readingTime} min
                                     </Theme.BottomInfoText>
-                                    <Theme.BottomInfoText variant='last'>
+                                    <Theme.BottomInfoText>
                                         <Icons.FiCalendar />
                                         &nbsp;{date}
                                     </Theme.BottomInfoText>

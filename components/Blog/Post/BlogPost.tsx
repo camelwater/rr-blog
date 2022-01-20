@@ -72,7 +72,7 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
                         <Theme.TopicsContainer>
                             {
                                 topicList.map((topic, index) => (
-                                    <Theme.Topic key={index} variant={index==0?'first':'rest'}>
+                                    <Theme.Topic key={index}>
                                         <Theme.TopicText>{topic.trim()}</Theme.TopicText>
                                     </Theme.Topic>
                                 ))

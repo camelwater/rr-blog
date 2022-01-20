@@ -192,8 +192,11 @@ export const BottomContainer = styled('div', {
 export const BottomInfoContainer = styled('div', {
     display: 'flex',
     '@iPad': {
-        alignItems: 'center'
-    }
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    columnGap: '1.5rem',
+    flexWrap: 'wrap'
 })
 
 export const BottomInfoText = styled('div', {
@@ -202,18 +205,21 @@ export const BottomInfoText = styled('div', {
     fontSize: '$2',
     color: '$white',
     alignItems: 'center',
-    variants: {
-        variant: {
-            first: {
-                marginRight: '2rem',
-            },
-            last: {
-                margin: 0
-            }
-        }
-    },
+    // variants: {
+    //     variant: {
+    //         first: {
+    //             marginRight: '2rem',
+    //         },
+    //         last: {
+    //             margin: 0
+    //         }
+    //     }
+    // },
     '@iPad': {
         fontSize: '$1'
+    },
+    '@iPhone': {
+        fontSize: 'calc(.75rem)'
     }
 
 })
@@ -222,6 +228,7 @@ export const TopicsContainer = styled('div', {
     display: 'flex',
     marginBottom: '1rem',
     flexWrap: 'wrap',
+    rowGap: '.25rem',
     alignItems: 'center',
     '@iPad': {
         justifyContent: 'center',
