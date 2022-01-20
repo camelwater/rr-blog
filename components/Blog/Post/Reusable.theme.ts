@@ -120,6 +120,24 @@ export const ExtendButtonContainer = styled('div', {
     // minWidth: '60%',
     justifyContent: 'flex-end',
 })
+
+export const ExtendText = styled('div', {
+    display: 'flex',
+    wordWrap: 'break-word',
+    wordBreak: 'keep-all',
+
+})
+
+export const ExtendSVG = styled('div', {
+    display: 'flex',
+    marginLeft: '5px',
+    '*' : {
+        transition: 'none'
+    },
+    // transition: '.1s linear',
+
+})
+
 export const ExtendButton = styled('div', {
     display: 'flex',
     padding: '0.55rem',
@@ -129,12 +147,16 @@ export const ExtendButton = styled('div', {
     fontFamily: '$main',
     fontSize: '$2',
     color: '$white',
-    // minWidth: '50px',
-    transition: 'all .15s linear',
+    transition: 'all .1s linear',
     alignItems: 'center',
     // flexWrap: 'wrap', 
     '@iPhonePlus': {
         fontSize: 'calc(0.85rem)'
+    },
+    '&:hover': {
+        [`${ExtendSVG}`]: {
+            transform: 'translate3d(0, 15%, 0)'
+        }
     },
     variants: {
         variant: {
@@ -151,19 +173,6 @@ export const ExtendButton = styled('div', {
         }
     }
         
-})
-
-export const ExtendText = styled('div', {
-    display: 'flex',
-    wordWrap: 'break-word',
-    wordBreak: 'keep-all',
-
-})
-
-export const ExtendSVG = styled('div', {
-    display: 'flex',
-    marginLeft: '5px',
-    transition: '0s'
 })
 
 
