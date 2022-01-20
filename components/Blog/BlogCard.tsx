@@ -8,6 +8,7 @@ import Link from 'next/link';
 type Card = {
     id: string,
     title: string,
+    subTitle: string,
     readingTime: number,
     date: string,
     description: string,
@@ -17,6 +18,7 @@ type Card = {
 export const BlogCard: React.FC<Card> = ({
     id, 
     title,
+    subTitle,
     readingTime,
     date,
     description,
@@ -27,55 +29,51 @@ export const BlogCard: React.FC<Card> = ({
     const imgSrc = '/assets/images/' + img;
 
     return (
-        <ScrollAnimation
-            animateIn='animate__slideInUp'
-            animateOnce={true}
-            animatePreScroll={false}
-            duration={0.5}
-        >
         <Theme.CardContainer>
-                <Link href={`/posts/${id}`} passHref={true}>
-                    <Theme.CardLink>
-                        <Theme.Card>
-                            <Theme.ImgContainer>
-                                <Theme.StyledImage
-                                    src={imgSrc}
-                                    alt={img}
-                                />
-                                <Theme.ImageHoverDarken />
-                            </Theme.ImgContainer>
-                            <Theme.TextContainer>
-                                <Theme.InfoContainer>
-                                    <Theme.TitleText>{title}</Theme.TitleText>
-                                    <Theme.Description>{description}</Theme.Description>
-                                </Theme.InfoContainer>
-                                <Theme.BottomContainer>
-                                    <Theme.TopicsContainer>
-                                        {
-                                            topicList.map((topic, index) => (
-                                                <Theme.Topic key={index} variant={index==0?'first':'rest'}>
-                                                    <Theme.TopicText>{topic.trim()}</Theme.TopicText>
-                                                </Theme.Topic>
-                                            ))
-                                        }
-                                    </Theme.TopicsContainer>
-                                    <Theme.BottomInfoContainer>
-                                        <Theme.BottomInfoText variant='first'>
-                                            <Icons.FiClock />
-                                            &nbsp;{readingTime} min
-                                        </Theme.BottomInfoText>
-                                        <Theme.BottomInfoText variant='last'>
-                                            <Icons.FiCalendar />
-                                            &nbsp;{date}
-                                        </Theme.BottomInfoText>
-                                    </Theme.BottomInfoContainer>
-                                </Theme.BottomContainer>
-                            </Theme.TextContainer>
-                        </Theme.Card>
-                    </Theme.CardLink>
-                </Link>
-            </Theme.CardContainer>
-        </ScrollAnimation>
+            <Link href={`/posts/${id}`} passHref={true}>
+                <Theme.CardLink>
+                    <Theme.Card>
+                        <Theme.ImgContainer>
+                            <Theme.StyledImage
+                                src={imgSrc}
+                                alt={img}
+                            />
+                            <Theme.ImageHoverDarken />
+                        </Theme.ImgContainer>
+                        <Theme.TextContainer>
+                            <Theme.InfoContainer>
+                                <Theme.TitleText>{title}</Theme.TitleText>
+                                {subTitle && 
+                                    <Theme.SubTitle>{subTitle}</Theme.SubTitle>
+                                }
+                                <Theme.Description>{description}</Theme.Description>
+                            </Theme.InfoContainer>
+                            <Theme.BottomContainer>
+                                <Theme.TopicsContainer>
+                                    {
+                                        topicList.map((topic, index) => (
+                                            <Theme.Topic key={index} variant={index==0?'first':'rest'}>
+                                                <Theme.TopicText>{topic.trim()}</Theme.TopicText>
+                                            </Theme.Topic>
+                                        ))
+                                    }
+                                </Theme.TopicsContainer>
+                                <Theme.BottomInfoContainer>
+                                    <Theme.BottomInfoText variant='first'>
+                                        <Icons.FiClock />
+                                        &nbsp;{readingTime} min
+                                    </Theme.BottomInfoText>
+                                    <Theme.BottomInfoText variant='last'>
+                                        <Icons.FiCalendar />
+                                        &nbsp;{date}
+                                    </Theme.BottomInfoText>
+                                </Theme.BottomInfoContainer>
+                            </Theme.BottomContainer>
+                        </Theme.TextContainer>
+                    </Theme.Card>
+                </Theme.CardLink>
+            </Link>
+        </Theme.CardContainer>
     );
 }
 

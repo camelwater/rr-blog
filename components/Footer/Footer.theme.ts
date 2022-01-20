@@ -62,11 +62,12 @@ export const FooterText = styled('p', {
     alignItems: 'center',
     color: '$main',
     svg: {
-        margin: '0 10px'
+        margin: '0 7px'
     },
     '@iPhone': {
         fontSize: '$1'
-    }
+    },
+    paddingRight: '1rem'
 })
 
 export const FooterLinkText = styled('a', {

@@ -14,9 +14,9 @@ const AboutComponent: React.FC = () => {
             </Theme.HeaderContainer>
             <Theme.AboutContainer>
                 <Theme.ContentContainer>
-                    <Theme.H2>Ryan Zhao</Theme.H2>
+                    <Theme.H2>Ryan Z</Theme.H2>
                     <Theme.Paragraph>17.</Theme.Paragraph>
-                    <Theme.Paragraph><TiLocation />&nbsp;Katy, TX.</Theme.Paragraph>
+                    <Theme.Paragraph><TiLocation />&nbsp;TX.</Theme.Paragraph>
                     <Theme.Paragraph>
                         Enjoys coding, F1, soccer.
                     </Theme.Paragraph>

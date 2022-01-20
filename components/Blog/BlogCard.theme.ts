@@ -18,12 +18,12 @@ export const Card = styled('div', {
     backgroundColor: '$lightBackground',
     
     transition: '0.15s linear',
-    willChange: 'transform',
+    // willChange: 'transform',
     '&:hover': {
         transform: 'translate(0, -1.75%)',
-        // boxShadow: '$medium',
-        '$$mediumDropShadow': '$shadows$mediumDrop',
-        filter: '$$mediumDropShadow'
+        boxShadow: '$medium',
+        // '$$mediumDropShadow': '$shadows$mediumDrop',
+        // filter: '$$mediumDropShadow'
         
     },
     '&:active': {
@@ -80,6 +80,7 @@ export const ImgContainer = styled('div', {
     maxWidth: '35%',
     borderTopLeftRadius: '1.5rem',
     borderBottomLeftRadius: '1.5rem',
+    transition: '0.1s linear',
     '@iPadPro': {
         maxWidth: '40%'
     },
@@ -95,7 +96,7 @@ export const ImgContainer = styled('div', {
             opacity: '0.25',
         },
         [`${StyledImage}`]: {
-            transform: 'scale(1.05, 1.05)',
+            transform: 'scale(1.1, 1.1)',
         }
     }
 })
@@ -142,7 +143,7 @@ export const TitleText = styled('h1', {
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
-    marginBottom: '3rem',
+    marginBottom: '.5rem',
     '@iPad': {
         fontSize: '$5'
     },
@@ -151,10 +152,20 @@ export const TitleText = styled('h1', {
     }
 })
 
+export const SubTitle = styled('p', {
+    fontSize: '$3',
+    fontFamily: '$main',
+    color: '$white',
+    '@iPadPro': {
+        fontSize: '$2'
+    },
+})
+
 export const Description = styled('p', {
     fontSize: '$3',
     fontFamily: '$main',
     color: '$main',
+    marginTop: '1.5rem',
     paddingRight: '1rem',
     '@iPadPro': {
         fontSize: '$2'
@@ -219,7 +230,7 @@ export const TopicsContainer = styled('div', {
 export const Topic = styled('div', {
     display: 'flex',
     background: '$dark',
-    borderRadius: '0.75rem',
+    borderRadius: '1rem',
     padding: '0.5rem',
     variants: {
         variant: {

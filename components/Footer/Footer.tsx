@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Icons from 'react-icons/fi';
 import * as Theme from './Footer.theme';
+import { FaRegCopyright } from 'react-icons/fa';
 import Link from 'next/link';
 
 const FooterComponent: React.FC = () => {
@@ -18,7 +19,7 @@ const FooterComponent: React.FC = () => {
                 </Theme.FooterContainer>
 
                 <Theme.FooterContainer>
-                    <Theme.FooterText>Ryan Z&nbsp;</Theme.FooterText>
+                    <Theme.FooterText><FaRegCopyright />Ryan Z&nbsp;</Theme.FooterText>
                     <Theme.LinkText href='https://www.github.com/camelwater' target='_blank'>
                         <Icons.FiGithub size={'1.5rem'}/>
                     </Theme.LinkText>

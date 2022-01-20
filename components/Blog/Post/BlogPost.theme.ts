@@ -122,22 +122,44 @@ export const PostContainer = sstyled('article', {
     
 })
 
+export const TitleContainer = sstyled('div', {
+    display: 'flex',
+    flexDirection: 'column',
+    paddingTop: '7rem',
+    paddingBottom: '1.5rem',
+    '@iPad': {
+        paddingBottom: '5rem',
+        paddingTop: '5rem',
+        alignItems: 'center'
+    }
+})
+
 export const TitleText = sstyled('h1', {
     color: '$white',
     fontFamily: '$primary',
     fontSize: '$6',
-    paddingTop: '5rem',
     paddingBottom: '1.5rem',
     '@iPadPro': {
         fontSize: '42px'
     },
-    '@iPad': {
-        fontSize: '$6',
-        paddingBottom: '5rem'
-    },
+    // '@iPad': {
+    //     // fontSize: '$6',
+    //     paddingBottom: '2rem'
+    // },
     '@iPhonePlus': {
         fontSize: '$5'
     }
+})
+
+export const SubTitle = sstyled('h2', {
+    color: '$main', 
+    fontFamily: '$main',
+    fontSize: '$4',
+    // paddingBottom: '1.5rem',
+    // '@iPad': {
+    //     // fontSize: '$6',
+    //     paddingBottom: '5rem'
+    // },
 })
 
 export const InfoContainer = sstyled('div', {
@@ -162,7 +184,7 @@ export const Topic = sstyled('div', {
     display: 'flex',
     cursor: 'default',
     background: '$dark',
-    borderRadius: '0.75rem',
+    borderRadius: '1rem',
     padding: '0.5rem',
     variants: {
         variant: {

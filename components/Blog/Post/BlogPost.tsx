@@ -48,15 +48,26 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
             <Progress />
             <Theme.HeaderContainer>
                 <Theme.HeaderInnerContainer>
-                    <ScrollAnimation
-                        animateOnce={true}
-                        animateIn='animate__flipInX'
-                        delay={200}
-                    >
-                        <Theme.TitleText>
-                            {blogData.title}
-                        </Theme.TitleText>
-                    </ScrollAnimation>
+                    <Theme.TitleContainer>
+                        <ScrollAnimation
+                            animateOnce={true}
+                            animateIn='animate__flipInX'
+                            delay={150}
+                        >
+                            <Theme.TitleText>
+                                {blogData.title}
+                            </Theme.TitleText>
+                        </ScrollAnimation>
+                        <ScrollAnimation
+                            animateOnce={true}
+                            animateIn='animate__flipInX'
+                            delay={250}
+                        >
+                            <Theme.SubTitle>
+                                {blogData.subTitle}
+                            </Theme.SubTitle>
+                        </ScrollAnimation>
+                    </Theme.TitleContainer>
                     <Theme.InfoContainer>
                         <Theme.TopicsContainer>
                             {

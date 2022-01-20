@@ -22,7 +22,6 @@ const globalStyle = globalCss({
     background: '$background',
     // overflowX: 'hidden',
     fontFamily: 'GTWalsheimPro',
-    // transition: '.15s linear'
     // height: '100%'
   },
   '::selection': {

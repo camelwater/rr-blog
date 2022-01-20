@@ -18,4 +18,5 @@
  - [x] Background video/GIF or slideshow on Home page
  - [ ] Navbar is hidden when scrolling down past down of page and reappears when scrolling up
  - [ ] Dropdown on `Posts` menu and on `Posts` page (choose different categories of posts)
+ - [ ] Ability to get posts by topics + topics buttons are clickable
  - [ ] SVG animations (menu button, maybe Navbar Home button)
