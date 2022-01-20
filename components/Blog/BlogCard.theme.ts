@@ -47,7 +47,7 @@ export const CardLink = styled('div', {
     alignItems: 'center',
     justifyContent: 'center',
     '@iPad': {
-        width: '90%',
+        width: '95%',
     }
 })
 
@@ -153,25 +153,26 @@ export const TitleText = styled('h1', {
 })
 
 export const SubTitle = styled('p', {
-    fontSize: '$3',
+    fontSize: '$2',
     fontFamily: '$main',
     color: '$white',
-    '@iPadPro': {
-        fontSize: '$2'
+    '@iPad': {
+        fontSize: '$1'
     },
 })
 
 export const Description = styled('p', {
-    fontSize: '$3',
+    fontSize: '$2',
     fontFamily: '$main',
     color: '$main',
     marginTop: '1.5rem',
     paddingRight: '1rem',
     '@iPadPro': {
-        fontSize: '$2'
+        // fontSize: '$2'
     },
     '@iPad': {
-        padding: 0
+        padding: 0,
+        fontSize: '16px'
     },
 })
 
@@ -179,7 +180,7 @@ export const BottomContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     marginRight: '1.5rem',
-    paddingTop: '1rem',
+    paddingTop: '.5rem',
     paddingBottom: '1rem',
     '@iPad': {
         margin: 0,
@@ -211,8 +212,8 @@ export const BottomInfoText = styled('div', {
             }
         }
     },
-    '@iPadPro': {
-        fontSize: '$2'
+    '@iPad': {
+        fontSize: '$1'
     }
 
 })
@@ -231,7 +232,7 @@ export const Topic = styled('div', {
     display: 'flex',
     background: '$dark',
     borderRadius: '1rem',
-    padding: '0.5rem',
+    padding: '0.5rem 0.75rem',
     variants: {
         variant: {
             first: {

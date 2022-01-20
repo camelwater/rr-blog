@@ -5,7 +5,8 @@ export const SVG = styled('svg', {
     top: '75px',
     left: '0px',
     width: '100%',
-    height: '5rem',
+    height: '7.5px',
     color: '$hover',
     zIndex: 999,
+    // border: '1px solid white'
 })
