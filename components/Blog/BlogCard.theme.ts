@@ -228,7 +228,7 @@ export const TopicsContainer = styled('div', {
     display: 'flex',
     marginBottom: '1rem',
     flexWrap: 'wrap',
-    gap: '.25rem',
+    gap: '.25rem .5rem',
     alignItems: 'center',
     '@iPad': {
         justifyContent: 'center',
@@ -240,16 +240,16 @@ export const Topic = styled('div', {
     background: '$dark',
     borderRadius: '1rem',
     padding: '0.5rem 0.75rem',
-    variants: {
-        variant: {
-            first: {
-                margin: 0
-            },
-            rest: {
-                marginLeft: '0.5rem'
-            }
-        }
-    }
+    // variants: {
+    //     variant: {
+    //         first: {
+    //             margin: 0
+    //         },
+    //         rest: {
+    //             marginLeft: '0.5rem'
+    //         }
+    //     }
+    // }
 })
 
 export const TopicText = styled('p', {
