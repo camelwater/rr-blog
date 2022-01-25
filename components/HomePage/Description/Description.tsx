@@ -50,7 +50,11 @@ const DescriptionComponent: React.FC = () => {
                     delay={150}
                     >
                         <Theme.DescText>
-                            This is a website developed by myself in <Theme.ItemLink>TypeScript</Theme.ItemLink>, with the help of a few useful tools:
+                            This is a website developed by myself in{' '}
+                            <Theme.ItemLink href='https://www.typescriptlang.org' target='_blank'>
+                                TypeScript
+                            </Theme.ItemLink>
+                            , with the help of a few useful tools:
                         </Theme.DescText>
                     </ScrollAnimation>
                     <Theme.ItemGridContainer>
@@ -95,10 +99,11 @@ const DescriptionComponent: React.FC = () => {
                 >
                     <Theme.TextContainer> 
                         <Theme.DescText>
-                            FILLER
+                            I had to create a blog for an school English project. I wanted to merge my passion for programming 
+                            and my newfound interest in front-end web development with the creative, explorative endeavours of writing.
                         </Theme.DescText>
                         <Theme.DescText>
-                            FILLER #2
+                            And this is what came to be.
                         </Theme.DescText>
                     </Theme.TextContainer>
                 </ScrollAnimation>

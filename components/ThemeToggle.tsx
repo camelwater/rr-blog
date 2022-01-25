@@ -13,17 +13,28 @@ const StyledButton = styled('button', {
     alignItems: 'center',
     justifyContent: 'center',
     transition: '0.1s linear',
+    position: 'relative',
     cursor: 'pointer',
     '&:hover': {
         color: '$hover',
-        transform: 'scale(1.1, 1.1)'
+        transform: 'scale(1.05, 1.05)'
     },
     '&:active': {
-        transform: 'scale(0.9, 0.9)'
+        transform: 'scale(0.95, 0.95)'
     },
     variants: {
         variant: {
             desktop: {
+                padding: '5px',
+                border: '2px solid $cardBorder',
+                background: '$lightBackground',
+                borderRadius: '7.5px',
+                '&:hover': {
+                    border: '2px solid $hover',
+                    // '$$glow': '$shadows$glow',
+                    boxShadow: '$glow'
+                },
+                
                 '@media (max-width: 700px)': {
                     display: 'none',
                 }
