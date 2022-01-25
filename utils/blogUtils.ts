@@ -5,7 +5,7 @@ import time from 'reading-time';
 import { serialize } from 'next-mdx-remote/serialize';
 
 
-const blogsDir = path.join(process.cwd(), 'content', 'blogs');
+const blogsDir = path.join(process.cwd(), 'content');
 
 /** 
  * Returns all of the blogs' necessary data to display on the blogs page.
