@@ -99,7 +99,7 @@ const DescriptionComponent: React.FC = () => {
                 >
                     <Theme.TextContainer> 
                         <Theme.DescText>
-                            I had to create a blog for an school English project. I wanted to merge my passion for programming 
+                            I had to create a blog for a school English project. I wanted to merge my passion for programming 
                             and my newfound interest in front-end web development with the creative, explorative endeavours of writing.
                         </Theme.DescText>
                         <Theme.DescText>

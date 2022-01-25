@@ -173,7 +173,7 @@ export const InfoContainer = sstyled('div', {
         maxWidth: '75%',
         alignItems: 'center'
     },
-    border: '1px solid white'
+    // border: '1px solid white'
 })
 
 export const TopicsContainer = sstyled('div', {
