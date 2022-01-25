@@ -13,7 +13,7 @@ type Card = {
     date: string,
     description: string,
     img: string
-    topics: string
+    topics: [string]
 }
 export const BlogCard: React.FC<Card> = ({
     id, 
@@ -25,7 +25,6 @@ export const BlogCard: React.FC<Card> = ({
     img,
     topics
 }) => {
-    const topicList = topics.split(",");
     const imgSrc = '/assets/images/' + img;
 
     return (
@@ -51,7 +50,7 @@ export const BlogCard: React.FC<Card> = ({
                             <Theme.BottomContainer>
                                 <Theme.TopicsContainer>
                                     {
-                                        topicList.map((topic, index) => (
+                                        topics.map((topic, index) => (
                                             <Theme.Topic key={index}>
                                                 <Theme.TopicText>{topic.trim()}</Theme.TopicText>
                                             </Theme.Topic>

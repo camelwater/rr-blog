@@ -59,6 +59,8 @@ export const ExpandedContainer = styled(motion.div, {
     width: '100%',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
+    overflow: 'hidden',
+    // height: '0%'
 
 })
 
@@ -153,11 +155,6 @@ export const ExtendButton = styled('div', {
     '@iPhonePlus': {
         fontSize: 'calc(0.85rem)'
     },
-    '&:hover': {
-        [`${ExtendSVG}`]: {
-            transform: 'translate3d(0, 15%, 0)'
-        }
-    },
     variants: {
         variant: {
             info: {
@@ -169,6 +166,22 @@ export const ExtendButton = styled('div', {
                 '&:hover': {
                     color: '$greenHover'
                 }
+            }
+        },
+        open: {
+            yes: {
+                '&:hover': {
+                    [`${ExtendSVG}`]: {
+                        transform: 'translate3d(0, -15%, 0)'
+                    }
+                },
+            },
+            no: {
+                '&:hover': {
+                    [`${ExtendSVG}`]: {
+                        transform: 'translate3d(0, 15%, 0)'
+                    }
+                },
             }
         }
     }

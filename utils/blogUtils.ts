@@ -61,7 +61,7 @@ export const getBlogIDs = () => {
   return fileNames.map(fileName => {
     return {
       params: {
-        id: fileName.replace(/\.md$/, '')
+        slug: fileName.replace(/\.md$/, '')
       }
     }
   })

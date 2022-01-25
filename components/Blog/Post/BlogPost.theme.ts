@@ -167,10 +167,13 @@ export const InfoContainer = sstyled('div', {
     justifyContent: 'center',
     display: 'flex',
     flexDirection: 'column',
+    maxWidth: '40%',
     // paddingBottom: '2.5rem',
     '@iPad': {
+        maxWidth: '75%',
         alignItems: 'center'
-    }
+    },
+    border: '1px solid white'
 })
 
 export const TopicsContainer = sstyled('div', {
@@ -189,7 +192,7 @@ export const Topic = sstyled('div', {
     cursor: 'default',
     background: '$dark',
     borderRadius: '1rem',
-    padding: '0.5rem',
+    padding: '0.5rem 0.75rem',
     // variants: {
     //     variant: {
     //         first: {

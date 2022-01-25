@@ -41,8 +41,6 @@ const mdxComponents = {
 
 const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
     
-    const topicList = blogData.topics.split(",");
-
     return (
         <Theme.Container>
             <Progress />
@@ -71,7 +69,7 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
                     <Theme.InfoContainer>
                         <Theme.TopicsContainer>
                             {
-                                topicList.map((topic, index) => (
+                                blogData.topics.map((topic, index) => (
                                     <Theme.Topic key={index}>
                                         <Theme.TopicText>{topic.trim()}</Theme.TopicText>
                                     </Theme.Topic>

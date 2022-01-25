@@ -25,7 +25,7 @@ const BlogCards: React.FC<{ data }> = ({ data }) => {
                             animateOnce={true}
                             animatePreScroll={false}
                             duration={0.5}
-                            delay={150*index}
+                            // delay={150*index}
                             key={index}
                         >
                             <BlogCard

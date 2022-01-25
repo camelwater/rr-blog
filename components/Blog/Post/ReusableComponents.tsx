@@ -19,31 +19,31 @@ type?: string,
 
     const cardExpansion = {
         collapsed: {
-            height: '0px',
+            height: '0%',
             // y:-100,
             // opacity:0,
             display: 'none',
+            transition: {
+                // when: "beforeChildren",
+                duration: 0.25,
+                ease: 'easeOut',
+                type: 'tween'
+            }
+        },
+        expanded: {
+            height: 'fit-content',
+            display: 'flex',
+            // y: 0,
+            // opacity:1,
             transition: {
                 // type: "spring",
                 // damping: 2.5,
                 // mass: 0.2,
                 // stiffness: 50,
-                when: "beforeChildren",
-                duration: 0.15
-            }
-        },
-        expanded: {
-            height: 'max-content',
-            display: 'flex',
-            // y: 0,
-            // opacity:1,
-            transition: {
-                type: "spring",
-                damping: 2.5,
-                mass: 0.2,
-                stiffness: 50,
-                when: "beforeChildren",
-                duration: 0.25
+                ease: 'easeOut',
+                type: 'tween',
+                // when: "beforeChildren",
+                duration: 0.2
 
             }
         }
@@ -52,24 +52,26 @@ type?: string,
     const textFade = {
         hidden: {
             opacity: 0,
-            y: -40,
+            // y: -40,
             transition: {
                 type: "spring",
-                damping: 2.5,
-                mass: 0.2,
-                stiffness: 50,
+                // damping: 2.5,
+                // mass: 0.2,
+                // stiffness: 50,
                 // duration: 0.15
+                duration: 0.15
             }
         },
         visible: {
             opacity: 1,
-            y: 0,
+            // y: 0,
             transition: {
-                type: "spring",
-                damping: 2.5,
-                mass: 0.2,
-                stiffness: 50,
-                // duration: 0.15
+                // type: "spring",
+                // damping: 2.5,
+                // mass: 0.2,
+                // stiffness: 50,
+                // delay: 0.05,
+                duration: 0.15
             }
         }
     };
@@ -86,7 +88,7 @@ type?: string,
                 <Theme.InfoCardHeaderContainer>
                     <Theme.CardTitleText>{title}</Theme.CardTitleText>
                     {children !== null &&
-                        <Theme.ExtendButton variant={isInfoCard?'info':'check'} onClick={ToggleOpen} >
+                        <Theme.ExtendButton variant={isInfoCard?'info':'check'} open={isOpen?'yes':'no'} onClick={ToggleOpen} >
                             <Theme.ExtendText>Show{isOpen?' less':' more'}</Theme.ExtendText>
                             <Theme.ExtendSVG>{isOpen?<FiChevronUp />:<FiChevronDown />}</Theme.ExtendSVG>
                         </Theme.ExtendButton>
@@ -100,8 +102,8 @@ type?: string,
                     ))}
                     </Theme.PreviewBlockContainer>
             </Theme.InfoCard>
-            <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'}>
-                <Theme.ExpandedText variants={textFade} animate={isOpen ? "visible":"hidden"} initial={'hidden'}>{children}</Theme.ExpandedText>
+            <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'} layout='position'>
+                <Theme.ExpandedText>{children}</Theme.ExpandedText>
             </Theme.ExpandedContainer>
         </Theme.InfoCardContainer>
     );

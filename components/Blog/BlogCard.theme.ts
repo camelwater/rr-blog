@@ -16,11 +16,12 @@ export const Card = styled('div', {
     justifyContent: 'space-between',
     borderRadius: '2rem',
     backgroundColor: '$lightBackground',
-    
+    border: '0.5px solid $cardBorder',
     transition: '0.15s linear',
     // willChange: 'transform',
     '&:hover': {
-        transform: 'translate(0, -1.75%)',
+        // transform: 'translate(0, -1.75%)',
+        transform: 'scale(1.01, 1.01)',
         boxShadow: '$medium',
         // '$$mediumDropShadow': '$shadows$mediumDrop',
         // filter: '$$mediumDropShadow'
@@ -254,7 +255,7 @@ export const Topic = styled('div', {
 
 export const TopicText = styled('p', {
     fontFamily: '$main',
-    fontSize: '$2',
+    fontSize: 'calc(1rem)',
     color: '$white',
     '@iPadPro': {
         fontSize: '$1'

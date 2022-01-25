@@ -24,6 +24,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         dropdownBackground: '#141414',
         dropdownBorder: '#303030',
         lightBorder: '#141414',
+        cardBorder: '#2b2b3a',
         highlight: '#f3f6f040',
         gradient:
           'linear-gradient(93.05deg, #EF9797 3.98%, rgba(206, 126, 199, 0.801616) 35.29%, #A364D6 68.78%, #A1D0F9 97.44%)',
@@ -76,6 +77,7 @@ export const lightTheme = createTheme(({
     lightBorder: '#dfdfdf',
     dropdownBackground: '#f5f5f5',
     dropdownBorder: '#e0e0e0',
+    cardBorder: '#c2c1cf',
     hover: '#5932e6',
     linkHover: '#dbdbdb',
     dividerColor: '#8379df',
@@ -89,7 +91,7 @@ export const lightTheme = createTheme(({
     greenHover: '#67b48a'
   }, 
   shadows: {
-    medium: '0px 4px 12px #a09cb37f, 0px 8px 16px #b1aec7ff',
+    medium: '0px 4px 12px #a09cb37f, 0px 8px 24px #b1aec7ff',
     mediumDrop: 'drop-shadow(0px 6px 6px #a09cb3af) drop-shadow(0px 4px 12px #b1aec7ff)'
   },
 }))

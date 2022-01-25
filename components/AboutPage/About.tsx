@@ -16,7 +16,7 @@ const AboutComponent: React.FC = () => {
                 <Theme.ContentContainer>
                     <Theme.H2>Ryan Z</Theme.H2>
                     <Theme.Paragraph>17.</Theme.Paragraph>
-                    <Theme.Paragraph><TiLocation />&nbsp;TX.</Theme.Paragraph>
+                    <Theme.Paragraph><TiLocation />&nbsp;Hyakutake.</Theme.Paragraph>
                     <Theme.Paragraph>
                         Enjoys coding, F1, soccer.
                     </Theme.Paragraph>
