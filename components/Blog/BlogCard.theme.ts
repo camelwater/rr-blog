@@ -55,13 +55,10 @@ export const CardLink = styled('div', {
 export const StyledImage = styled('img', {
     width: '100%',
     height: '100%',
+    transition: '.2s linear',
     '@iPad': {
         // width: 'min-content',
         // height: 'min-content'
-    },
-    '&:hover': {
-        
-        // filter: 'blur(1px) sepia(50%)',
     },
 })
 
@@ -72,6 +69,7 @@ export const ImageHoverDarken = styled('div', {
     width: '100%',
     height: '100%',
     opacity: '0',
+    transition: 'opacity .2s linear'
 })
 
 export const ImgContainer = styled('div', {

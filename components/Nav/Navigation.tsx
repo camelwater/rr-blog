@@ -22,7 +22,7 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
     ];
 
     const [nav, setNav] = useState<boolean>(false);
-    const [hoveredTab, setHoveredTab] = useState(Links[0].link);
+    const [hoveredTab, setHoveredTab] = useState('');
     const activePage = useActiveLocation();
     // const [menu, setMenu] = React.useState<string>(null);
 
@@ -71,8 +71,8 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                                 {Links.map((entry, index) => (
                                     <Link href={entry.link} passHref={true} key={index}>
                                         <NavBar.LinkBox 
-                                            // className={activePage===entry.link?'active':''} 
-                                            onMouseEnter={() => setHoveredTab(entry.link)}
+                                            className={activePage===entry.link?'active':''} 
+                                            onMouseOver={() => setHoveredTab(entry.link)}
                                             onMouseLeave={() => setHoveredTab('')}
                                         >
                                             <NavBar.NavLink>
