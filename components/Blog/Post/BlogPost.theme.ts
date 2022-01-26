@@ -188,10 +188,12 @@ export const SubTitle = sstyled('h4', {
     fontSize: '$4',
     marginTop: '1rem',
     // paddingBottom: '1.5rem',
-    // '@iPad': {
-    //     // fontSize: '$6',
-    //     paddingBottom: '5rem'
-    // },
+    '@iPad': {
+        fontSize: '$3',
+    },
+    '@Flip': {
+        fontSize: '$2'
+    }
 })
 
 export const InfoContainer = sstyled('div', {

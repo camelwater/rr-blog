@@ -52,25 +52,15 @@ type?: string,
     const textFade = {
         hidden: {
             opacity: 0,
-            // y: -40,
+            y: -25,
             transition: {
-                type: "spring",
-                // damping: 2.5,
-                // mass: 0.2,
-                // stiffness: 50,
-                // duration: 0.15
                 duration: 0.15
             }
         },
         visible: {
             opacity: 1,
-            // y: 0,
+            y: 0,
             transition: {
-                // type: "spring",
-                // damping: 2.5,
-                // mass: 0.2,
-                // stiffness: 50,
-                // delay: 0.05,
                 duration: 0.15
             }
         }
@@ -102,8 +92,8 @@ type?: string,
                     ))}
                     </Theme.PreviewBlockContainer>
             </Theme.InfoCard>
-            <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'} layout>
-                <Theme.ExpandedText>{children}</Theme.ExpandedText>
+            <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'}>
+                <Theme.ExpandedText variants={textFade} animate={isOpen ? "visible":"hidden"} initial={'hidden'}>{children}</Theme.ExpandedText>
             </Theme.ExpandedContainer>
         </Theme.InfoCardContainer>
     );

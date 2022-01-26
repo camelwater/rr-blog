@@ -10,7 +10,7 @@ export const FooterCenter = styled('div', {
         flexWrap: 'wrap',
         rowGap: '5px',
         justifyContent: 'center'
-    }
+    },
 })
 export const Footer = styled('div', {
     display: 'flex',
@@ -29,7 +29,7 @@ export const Footer = styled('div', {
 
 export const FooterContainer = styled('div', {
     display: 'flex',
-    alignItems: 'center'
+    alignItems: 'center',
 })
 
 export const LinkText = styled('a', {
@@ -61,12 +61,17 @@ export const FooterText = styled('p', {
     display: 'flex',
     fontSize: '$2',
     alignItems: 'center',
+    justifyContent: 'center',
     color: '$main',
     svg: {
+        fontSize: '$3',
         margin: '0 7px'
     },
     '@Flip': {
-        fontSize: '$1'
+        fontSize: '$1',
+        svg: {
+            fontSize: '$2'
+        }
     },
     paddingRight: '.75rem'
 })
@@ -77,8 +82,9 @@ export const FooterLinkText = styled('a', {
     fontFamily: '$mono', 
     display: 'flex',
     fontSize: '$2',
+    justifyContent: 'center',
     alignItems: 'center',
-    color: '$main',
+    color: '$main2',
     position: 'relative',
     transition: '.15s linear',
     svg: {

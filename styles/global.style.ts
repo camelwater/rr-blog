@@ -33,6 +33,7 @@ const globalStyle = globalCss({
     position: 'relative',
     textDecoration: 'none',
     zIndex: 99,
+    paddingTop: '0.1rem',
     paddingBottom: '0.1rem',
     background: 'linear-gradient(0deg, $dividerColor, $dividerColor) no-repeat left bottom / 0 .1rem',
     transition: 'background-size 250ms',

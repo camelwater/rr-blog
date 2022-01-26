@@ -111,7 +111,7 @@ export const TextContainer = styled('div', {
     paddingTop: '1rem',
     paddingBottom: '1rem',
     '@iPad': {
-        // width: '85%',
+        width: '90%',
         alignItems: 'center',
         padding: 0,
         paddingTop: '1.5rem',
