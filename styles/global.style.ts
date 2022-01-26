@@ -8,21 +8,22 @@ const globalStyle = globalCss({
     boxSizing: 'border-box',
     // cursor: 'none !important',
     scrollBehavior: 'smooth',
-    transition: '0.15s linear'
 
   },
-  svg: {
+  svg : {
     transition: 'none'
   },
   html: {
     overflowX: 'hidden',
-    // height: '100%'
+    height: '100%',
+    
   },
   body: {
     background: '$background',
     // overflowX: 'hidden',
     fontFamily: 'GTWalsheimPro',
-    // height: '100%'
+    height: '100%',
+    transition: 'all .15s linear'
   },
   '::selection': {
     background: '$highlight'

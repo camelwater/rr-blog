@@ -90,8 +90,9 @@ export const LinkText = styled('a', {
     color: '$main2',
     position: 'relative',
     transition: '0.1s linear',
-    svg: {
+    '*': {
         marginRight: '0.5rem',
+        transition: 'none'
     },
     '&:hover': {
         color: '$hover',

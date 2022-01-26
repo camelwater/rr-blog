@@ -19,20 +19,20 @@ type?: string,
 
     const cardExpansion = {
         collapsed: {
-            height: '0%',
+            height: '0',
+            // display: 'none',
             // y:-100,
             // opacity:0,
-            display: 'none',
             transition: {
-                // when: "beforeChildren",
-                duration: 0.25,
-                ease: 'easeOut',
-                type: 'tween'
+                when: "beforeChildren",
+                // duration: 0.1,
+                // ease: 'easeOut',
+                // type: 'tween'
             }
         },
         expanded: {
-            height: 'fit-content',
-            display: 'flex',
+            height: '100%',
+            // display: 'flex',
             // y: 0,
             // opacity:1,
             transition: {
@@ -40,10 +40,10 @@ type?: string,
                 // damping: 2.5,
                 // mass: 0.2,
                 // stiffness: 50,
-                ease: 'easeOut',
-                type: 'tween',
-                // when: "beforeChildren",
-                duration: 0.2
+                // ease: 'easeOut',
+                // type: 'tween',
+                when: "beforeChildren",
+                // duration: 0.2
 
             }
         }
@@ -102,7 +102,7 @@ type?: string,
                     ))}
                     </Theme.PreviewBlockContainer>
             </Theme.InfoCard>
-            <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'} layout='position'>
+            <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'} layout>
                 <Theme.ExpandedText>{children}</Theme.ExpandedText>
             </Theme.ExpandedContainer>
         </Theme.InfoCardContainer>

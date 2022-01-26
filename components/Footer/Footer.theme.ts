@@ -68,7 +68,7 @@ export const FooterText = styled('p', {
     '@Flip': {
         fontSize: '$1'
     },
-    paddingRight: '1rem'
+    paddingRight: '.75rem'
 })
 
 export const FooterLinkText = styled('a', {
@@ -88,7 +88,7 @@ export const FooterLinkText = styled('a', {
         transform: 'scale(1.1, 1.1)',
         color: '$hover'
     },
-    '@iPhone': {
+    '@Flip': {
         fontSize: '$1'
     }
 })

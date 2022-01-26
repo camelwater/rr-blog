@@ -7,11 +7,22 @@ import { CSSTransition } from 'react-transition-group';
 import { ThemeToggle } from '@components/ThemeToggle';
 import { HiMenuAlt4 } from 'react-icons/hi';
 import useActiveLocation from '@hooks/useActiveLocation';
-// import getActiveLocation from '@utils/getActiveLocation';
-
+import { AnimateSharedLayout, motion } from 'framer-motion';
 
 const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
+    const Links = [
+        {
+            name: 'Posts',
+            link: '/posts'
+        },
+        {
+            name: 'About',
+            link: '/about'
+        }
+    ];
+
     const [nav, setNav] = useState<boolean>(false);
+    const [hoveredTab, setHoveredTab] = useState(Links[0].link);
     const activePage = useActiveLocation();
     // const [menu, setMenu] = React.useState<string>(null);
 
@@ -25,20 +36,9 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
         }
     }
 
-
-    const Links = [
-        {
-            name: 'Posts',
-            link: '/posts'
-        },
-        {
-            name: 'About',
-            link: '/about'
-        }
-    ];
-
     return (
         <> 
+            {/* Mobile */}
             <CSSTransition in={nav} timeout={300} classNames='menu' unmountOnExit>
                 <NavMenu.MenuContainer>
                     <NavMenu.Menu>
@@ -59,7 +59,8 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                     </NavMenu.BottomMenu>
                 </NavMenu.MenuContainer>
             </CSSTransition>
-
+            
+            {/* Desktop */}
             <NavBar.Nav variant={isHome?'home':'rest'}>
                 <NavBar.NavContainer>
                     <NavBar.LinksContainer>
@@ -67,21 +68,31 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                             <NavBar.TitleLinkText variant={isHome?'home':'rest'}>RR.</NavBar.TitleLinkText>
                         </Link>
                         <NavBar.NavItems>
-                            {Links.map((entry, index) => (
-                                <Link href={entry.link} passHref={true} key={index}>
-                                    <NavBar.LinkBox  className={activePage===entry.link?'active':''}>
-                                        <NavBar.NavLink>
-                                            {entry.name}
-                                        </NavBar.NavLink> 
-                                    </NavBar.LinkBox>
-                                </Link>
-                            ))}
+                                {Links.map((entry, index) => (
+                                    <Link href={entry.link} passHref={true} key={index}>
+                                        <NavBar.LinkBox 
+                                            // className={activePage===entry.link?'active':''} 
+                                            onMouseEnter={() => setHoveredTab(entry.link)}
+                                            onMouseLeave={() => setHoveredTab('')}
+                                        >
+                                            <NavBar.NavLink>
+                                                {entry.name}
+                                            </NavBar.NavLink>
+                                            {hoveredTab===entry.link && 
+                                                <NavBar.LinkBoxBackground
+                                                    layoutId="border"
+                                                    transition={{duration: 0.15}}
+                                                />
+                                            } 
+                                        </NavBar.LinkBox>
+                                    </Link>
+                                ))}
                         </NavBar.NavItems>
                     </NavBar.LinksContainer>
                     <NavBar.RightLinksContainer>
                         <NavBar.ButtonLink 
                             variant='desktop'
-                            href='https://www.github.com/camelwater/english-blog' target='_blank'
+                            href='https://www.github.com/camelwater/rr-blog' target='_blank'
                         >
                             Repo
                         </NavBar.ButtonLink>

@@ -78,6 +78,7 @@ export const ImgContainer = styled('div', {
     display: 'flex',
     position: 'relative',
     overflow: 'hidden',
+    minWidth: '35%',
     maxWidth: '35%',
     borderTopLeftRadius: '1.5rem',
     borderBottomLeftRadius: '1.5rem',
@@ -106,13 +107,13 @@ export const TextContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'flex-start',
-    width: '75%',
+    // maxWidth: '65%',
     wordWrap: 'break-word',
     paddingLeft: '2.5rem',
     paddingTop: '1rem',
     paddingBottom: '1rem',
     '@iPad': {
-        width: '85%',
+        // width: '85%',
         alignItems: 'center',
         padding: 0,
         paddingTop: '1.5rem',
@@ -136,7 +137,7 @@ export const InfoContainer = styled('div', {
 })
 
 export const TitleText = styled('h1', {
-    fontSize: '$4',
+    fontSize: '$5',
     fontFamily: '$main',
     background: '$gradient',
     width: 'fit-content',
@@ -163,7 +164,7 @@ export const SubTitle = styled('p', {
 })
 
 export const Description = styled('p', {
-    fontSize: '$2',
+    fontSize: '$3',
     fontFamily: '$main',
     color: '$main',
     marginTop: '1.5rem',

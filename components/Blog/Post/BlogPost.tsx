@@ -11,6 +11,7 @@ import {
     H4
 } from './BlogPost.theme';
 import Progress from './Progress';
+import Link from 'next/link';
 
 const Header2 = props => (
     <H2 id={getHeaderID(props.children)}>
@@ -47,6 +48,12 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
             <Theme.HeaderContainer>
                 <Theme.HeaderInnerContainer>
                     <Theme.TitleContainer>
+                        <Link href='/posts' passHref={true}>
+                            <Theme.Return>
+                                <Theme.ReturnSVG><Icons.FiArrowLeft /></Theme.ReturnSVG>
+                                <Theme.ReturnText>{' Posts'}</Theme.ReturnText>
+                            </Theme.Return>
+                        </Link>
                         <ScrollAnimation
                             animateOnce={true}
                             animateIn='animate__flipInX'
@@ -56,15 +63,17 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
                                 {blogData.title}
                             </Theme.TitleText>
                         </ScrollAnimation>
-                        <ScrollAnimation
-                            animateOnce={true}
-                            animateIn='animate__flipInX'
-                            delay={250}
-                        >
-                            <Theme.SubTitle>
-                                {blogData.subTitle}
-                            </Theme.SubTitle>
-                        </ScrollAnimation>
+                        {blogData.subTitle && 
+                            <ScrollAnimation
+                                animateOnce={true}
+                                animateIn='animate__flipInX'
+                                delay={250}
+                            >
+                                <Theme.SubTitle>
+                                    {blogData.subTitle}
+                                </Theme.SubTitle>
+                            </ScrollAnimation>
+                        }
                     </Theme.TitleContainer>
                     <Theme.InfoContainer>
                         <Theme.TopicsContainer>

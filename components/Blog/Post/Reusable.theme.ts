@@ -133,10 +133,8 @@ export const ExtendText = styled('div', {
 export const ExtendSVG = styled('div', {
     display: 'flex',
     marginLeft: '5px',
-    '*' : {
-        transition: 'none'
-    },
-    // transition: '.1s linear',
+    
+    transition: 'transform .1s linear',
 
 })
 
@@ -202,6 +200,7 @@ export const IconContainer = styled('div', {
     zIndex: 99,
     alignItems: 'center',
     justifyContent: 'center',
+    transition: '.15s linear',
     variants: {
         variant: {
             info: {

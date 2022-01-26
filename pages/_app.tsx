@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }) {
                 dark: "dark",
             }}
         >   
-          <Component {...pageProps} />
+          <Component style={{transition: 'all .15s linear'}} {...pageProps} />
         </ThemeProvider>
     );
 }

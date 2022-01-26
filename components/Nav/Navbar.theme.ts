@@ -14,6 +14,7 @@ export const Nav = styled('nav', {
     borderBottom: '1px solid $lightBorder',
     alignItems: 'center',
     width: '100vw',
+    transition: '.15s linear',
 
     variants: {
         variant: {
@@ -111,7 +112,7 @@ export const NavLink = styled('p', {
     margin: '0 15px',
     fontFamily: '$main',
     opacity: 1,
-    transition: '0.25s linear',
+    transition: '0.15s linear',
     // '@iPadPro':{
     //     fontSize: '$2'
     // },
@@ -120,7 +121,7 @@ export const NavLink = styled('p', {
     },
 })
 
-export const LinkBox = styled(motion.div, {
+export const LinkBox = styled('div', {
     textDecoration: 'none',
     cursor: 'pointer',
     display: 'flex',
@@ -128,8 +129,9 @@ export const LinkBox = styled(motion.div, {
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: '0.75rem',
+    position: 'relative',
     '&:hover': {
-        backgroundColor: '$linkHover',
+        // backgroundColor: '$linkHover',
         [`${NavLink}`]: {
             color: '$white'
         }
@@ -139,6 +141,16 @@ export const LinkBox = styled(motion.div, {
             color: '$hover'
         }
     },
+})
+
+export const LinkBoxBackground = styled(motion.div, {
+    position: 'absolute',
+    borderRadius: '0.75rem',
+    width: '100%',
+    height: '100%',
+    backgroundColor: '$linkHover',
+    transition: 'background .15s linear',
+    zIndex: -9
 })
 
 export const ButtonLink = styled('a', {

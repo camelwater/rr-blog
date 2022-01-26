@@ -126,7 +126,7 @@ export const TitleContainer = sstyled('div', {
     display: 'flex',
     flexDirection: 'column',
     paddingTop: '7rem',
-    paddingBottom: '1.5rem',
+    paddingBottom: '1.75rem',
     '@iPad': {
         paddingBottom: '5rem',
         paddingTop: '5rem',
@@ -134,11 +134,42 @@ export const TitleContainer = sstyled('div', {
     }
 })
 
+export const ReturnSVG = sstyled('div', {
+    display: 'flex',
+    marginRight: '.35rem',
+    transition: '.1s linear',
+})
+
+export const ReturnText = sstyled('div', {
+    display: 'flex',
+    transition: '.1s linear',
+})
+
+export const Return = sstyled('div', {
+    display: 'flex',
+    width: 'fit-content',
+    cursor: 'pointer',
+    alignItems: 'center',
+    marginBottom: '1.25rem',
+    fontFamily: '$primary',
+    fontSize: '$3',
+    color: '$main3',
+    transition: 'all .2s linear ease',
+
+    '&:hover': {
+        color: '$hover',
+        [`${ReturnSVG}`]: {
+            transform: 'translate3D(-25%, 0, 0)'
+        }
+    },
+
+})
+
 export const TitleText = sstyled('h1', {
     color: '$white',
     fontFamily: '$primary',
     fontSize: '$6',
-    paddingBottom: '1.5rem',
+    // paddingBottom: '1rem',
     '@iPadPro': {
         fontSize: '42px'
     },
@@ -151,10 +182,11 @@ export const TitleText = sstyled('h1', {
     }
 })
 
-export const SubTitle = sstyled('h2', {
+export const SubTitle = sstyled('h4', {
     color: '$main', 
     fontFamily: '$main',
     fontSize: '$4',
+    marginTop: '1rem',
     // paddingBottom: '1.5rem',
     // '@iPad': {
     //     // fontSize: '$6',

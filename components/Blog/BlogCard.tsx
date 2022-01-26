@@ -32,13 +32,15 @@ export const BlogCard: React.FC<Card> = ({
             <Link href={`/posts/${id}`} passHref={true}>
                 <Theme.CardLink>
                     <Theme.Card>
-                        <Theme.ImgContainer>
-                            <Theme.StyledImage
-                                src={imgSrc}
-                                alt={img}
-                            />
-                            <Theme.ImageHoverDarken />
-                        </Theme.ImgContainer>
+                        {img &&
+                            <Theme.ImgContainer>
+                                <Theme.StyledImage
+                                    src={imgSrc}
+                                    alt={img}
+                                />
+                                <Theme.ImageHoverDarken />
+                            </Theme.ImgContainer>
+                        }   
                         <Theme.TextContainer>
                             <Theme.InfoContainer>
                                 <Theme.TitleText>{title}</Theme.TitleText>

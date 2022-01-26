@@ -66,7 +66,7 @@ const TableContainer = sstyled('div', {
     paddingLeft: '1rem',
     borderLeft: '0.1rem solid $lightBackground',
     zIndex: 99,
-
+    transition: '.15s linear'
 })
 
 
@@ -75,7 +75,8 @@ const TableTitle = sstyled('h3', {
     fontFamily: '$mono',
     fontSize: '$3',
     color: '$white',
-    paddingBottom: '1.5rem'
+    paddingBottom: '1.5rem',
+    transition: '.15s linear'
 })
 
 const ListContainer = sstyled('div', {

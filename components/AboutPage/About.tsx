@@ -22,8 +22,9 @@ const AboutComponent: React.FC = () => {
                     </Theme.Paragraph>
                     <Theme.H2>Contact</Theme.H2>
                     <Theme.Paragraph>
-                        <Theme.LinkText href='mailto:rzhao@emeryweiner.org'>
-                            <HiOutlineMail />rzhao@emeryweiner.org
+                        <Theme.LinkText href='mailto:rsramblings@gmail.com'>
+                            <HiOutlineMail />
+                            rsramblings@gmail.com
                         </Theme.LinkText>
                     </Theme.Paragraph>
                 </Theme.ContentContainer>
