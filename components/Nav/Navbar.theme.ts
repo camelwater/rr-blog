@@ -161,11 +161,13 @@ export const ButtonLink = styled('a', {
     borderRadius: '5px',
     fontFamily: '$main',
     fontSize: '$2',
-    padding: '5px',
-    paddingLeft: '12px',
-    paddingRight: '12px',
+    padding: '5px 12px',
     textAlign: 'center',
     transition: 'ease 200ms',
+    '@media screen and (max-width: 250px)': {
+        padding: 'calc(.25rem) calc(.55rem)',
+        fontSize: 'calc(1rem)'
+    },
     variants: {
         variant: {
             desktop: {

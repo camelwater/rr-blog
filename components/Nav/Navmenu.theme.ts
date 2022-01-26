@@ -1,45 +1,57 @@
 // mobile
 import { styled } from '@styles/stitches.config';
+import { motion } from 'framer-motion';
 
 
-export const MenuContainer = styled('div', {
+export const MobileMenu = styled(motion.div, {
     zIndex: 9999,
     position: 'fixed',
-    top: 0,
     height: '100%',
     width: '100%',
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // '@media only screen and (min-width: 651px)': {
-    //     display: 'none'
-    // }
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    '@media only screen and (min-width: 701px)': {
+        display: 'none'
+    },
 })
 
-export const ProxyMenuContainer = styled('div', {
-    zIndex: 99999,
-    position: 'fixed',
-    top: 0,
-    left: '190px',
-    height: '100%',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backdropFilter: 'blur(5px)',
-})
-
-export const Menu = styled('div', {
-    position: 'fixed',
-    left: 0,
-    top: 0,
-    width: '60vw',
-    maxWidth: '250px',
-    height: '90%',
-    background: '$primary',
+export const MenuContainer = styled(motion.div, {
     zIndex: 999999,
+    position: 'fixed',
+    width: '60%',
+    height: '100%',
+    maxWidth: '250px',
+    minWidth: '125px',
     display: 'flex',
     flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    '@media only screen and (min-width: 701px)': {
+        display: 'none'
+    },
+    
+})
+
+export const ProxyMenuContainer = styled(motion.div, {
+    zIndex: 9999,
+    position: 'fixed',
+    height: '100%',
+    width: '100%',
+    display: 'flex',
+    backdropFilter: 'blur(5px)',
+    '@media only screen and (min-width: 701px)': {
+        display: 'none'
+    },
+})
+export const Menu = styled('div', {
+    width: '100%',
+    height: '90%',
+    background: '$primary',
+    // zIndex: 999999,
+    display: 'flex',
+    flexDirection: 'column',
+    borderRight: '1px solid $cardBorder',
     // justifyContent: 'center',
     // textAlign: 'center',
     padding: '5rem 1rem 5rem',
@@ -132,29 +144,14 @@ export const SubMenuLink = styled('a', {
 export const BottomMenu = styled('div', {
     background: '$primary',
     borderTop: '1px solid $hover',
+    borderRight: '1px solid $cardBorder',
     paddingLeft: '1rem',
     paddingRight: '1rem',
     display: 'flex',
-    position: 'fixed',
-    bottom: 0,
-    left: 0,
-    right: 0,
     alignItems: 'center',
     justifyContent: 'space-around',
+    width: '100%',
     height: '10%',
-    minHeight: '50px',
-    maxWidth: '250px',
-    variants: {
-        variant: {
-            first: {
-                width: '60vw',
-            },
-            sub: {
-                width: '65%',
-            }
-        }
-    },
-    zIndex: 99999999
 })
 
 
