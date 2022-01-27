@@ -19,7 +19,7 @@ export const Footer = styled('div', {
     alignItems: 'center',
     zIndex: 999,
     marginTop: '10rem',
-    marginBottom: '25px',
+    paddingBottom: '25px',
     '@iPadPro': {
       flexDirection: 'column',
       justifyContent: 'center',

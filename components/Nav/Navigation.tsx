@@ -4,7 +4,7 @@ import * as NavMenu from './Navmenu.theme';
 import React, { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { ThemeToggle } from '@components/ThemeToggle';
-import { HiMenuAlt4 } from 'react-icons/hi';
+import { HiMenuAlt4, HiOutlineX } from 'react-icons/hi';
 import useActiveLocation from '@hooks/useActiveLocation';
 
 const menuVariants = {
@@ -14,7 +14,10 @@ const menuVariants = {
             // duration: 0.35,
             when: 'afterChildren',
             type: 'spring',
-            damping: 15
+            stiffness: 50,
+            mass: 0.3,
+            damping: 5.75
+            // damping: 16
         }
     },
     hidden: {
@@ -97,12 +100,7 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                     </NavBar.ButtonLink>
                 </NavMenu.BottomMenu>
             </NavMenu.MenuContainer>
-            <NavMenu.ProxyMenuContainer 
-                    onClick={ToggleNav} 
-                    variants={fadeVariants}
-                    initial='hidden'
-                    animate={nav?'visible':'hidden'}
-            />
+            
             {/* </CSSTransition> */}
             
             {/* Desktop */}
@@ -144,8 +142,14 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                         <ThemeToggle type='desktop' />
                     </NavBar.RightLinksContainer>
                     <NavMenu.MenuButton onClick={ToggleNav}> {/* Mobile Menu Button */}
-                        <HiMenuAlt4 size={30}/>
+                        {nav?<HiOutlineX size={30} />:<HiMenuAlt4 size={30}/>}
                     </NavMenu.MenuButton>
+                    <NavMenu.ProxyMenuContainer 
+                    onClick={ToggleNav} 
+                    variants={fadeVariants}
+                    initial='hidden'
+                    animate={nav?'visible':'hidden'}
+                />
                 </NavBar.NavContainer>
             </NavBar.Nav>
         </>

@@ -90,23 +90,33 @@ const DescriptionComponent: React.FC = () => {
                         Why?
                     </Theme.TitleText>
                 </ScrollAnimation>
-                <ScrollAnimation
-                    animateIn='animate__fadeInUp'
-                    animateOnce={true}
-                    animatePreScroll={false}
-                    duration={0.5}
-                    delay={150}
-                >
-                    <Theme.TextContainer> 
+                
+                <Theme.TextContainer> 
+                    <ScrollAnimation
+                        animateIn='animate__fadeInUp'
+                        animateOnce={true}
+                        animatePreScroll={false}
+                        duration={0.5}
+                        delay={150}
+                    >  
                         <Theme.DescText>
                             I had to create a blog for a school English project. I wanted to merge my passion for programming 
                             and my newfound interest in front-end web development with the creative, explorative endeavours of writing.
                         </Theme.DescText>
+                    </ScrollAnimation>
+                    <ScrollAnimation
+                        animateIn='animate__fadeInUp'
+                        animateOnce={true}
+                        animatePreScroll={false}
+                        duration={0.5}
+                        delay={150}
+                    > 
                         <Theme.DescText>
                             And this is what came to be.
                         </Theme.DescText>
-                    </Theme.TextContainer>
-                </ScrollAnimation>
+                    </ScrollAnimation>
+                </Theme.TextContainer>
+               
             </Theme.DescriptionContainer>
         </Theme.Container>
     );

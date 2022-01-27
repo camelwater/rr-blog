@@ -14,7 +14,7 @@ const Progress: React.FC = () => {
   const { scrollYProgress } = useViewportScroll();
   const yRange = useTransform(scrollYProgress, [0, 0.95], [0, 1.05]);
   const pathLength = useSpring(yRange, { stiffness: 750, damping: 100 });
-  const { height, width } = useWindowDimensions();
+  const { width } = useWindowDimensions();
 
   useEffect(() => yRange.onChange(v => setIsComplete(v >= 1)), [yRange]);
 

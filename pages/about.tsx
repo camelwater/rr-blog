@@ -4,11 +4,10 @@ import AboutComponent from '@components/AboutPage/About';
 import SmoothScroll from '@components/Scroll';
 import Head from 'next/head';
 import React from 'react';
-import { ContentWrapper } from '@styles/stitches.config';
 
 const AboutPage: React.FC = () => {
     return (
-        <ContentWrapper>
+        <>
             <Head>
                 <title>RR. | About</title>
             </Head>
@@ -16,7 +15,7 @@ const AboutPage: React.FC = () => {
             <NavigationComponent />
             <AboutComponent /> 
             <FooterComponent />
-        </ContentWrapper>
+        </>
     );
 }
 

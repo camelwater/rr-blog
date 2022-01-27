@@ -102,6 +102,7 @@ export const lightTheme = createTheme(({
 export const ContentWrapper = styled('div', {
   position: 'relative',
   overflow: 'hidden',
+  // height: '100%'
 })
 
 export const globalStyles = globalCss({

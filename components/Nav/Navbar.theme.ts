@@ -6,6 +6,7 @@ export const Nav = styled('nav', {
     display: 'flex',
     justifyContent: 'center',
     position: 'fixed',
+    isolation: 'isolate',
     zIndex: 999,
     top: 0,
     left: 0,

@@ -10,20 +10,20 @@ const globalStyle = globalCss({
     scrollBehavior: 'smooth',
 
   },
-  svg : {
-    transition: 'none'
-  },
+  // svg : {
+  //   transition: 'none'
+  // },
   html: {
     overflowX: 'hidden',
-    height: '100%',
+    // height: '100%',
     
   },
   body: {
     background: '$background',
     // overflowX: 'hidden',
     fontFamily: 'GTWalsheimPro',
-    height: '100%',
-    transition: 'all .15s linear'
+    // height: '100%',
+    transition: '.15s linear'
   },
   '::selection': {
     background: '$highlight'

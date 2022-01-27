@@ -27,22 +27,24 @@ export const MenuContainer = styled(motion.div, {
     flexDirection: 'column',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
-    '@media only screen and (min-width: 701px)': {
-        display: 'none'
-    },
+    // '@media only screen and (min-width: 701px)': {
+    //     display: 'none'
+    // },
     
 })
 
 export const ProxyMenuContainer = styled(motion.div, {
     zIndex: 9999,
     position: 'fixed',
+    top: 0,
+    left: 0,
     height: '100%',
     width: '100%',
     display: 'flex',
     backdropFilter: 'blur(5px)',
-    '@media only screen and (min-width: 701px)': {
-        display: 'none'
-    },
+    // '@media only screen and (min-width: 701px)': {
+    //     display: 'none'
+    // },
 })
 export const Menu = styled('div', {
     width: '100%',
@@ -73,6 +75,8 @@ export const Menu = styled('div', {
 })
 
 export const MenuButton = styled('button', {
+    zIndex: 99999,
+    // position: 'absolute',
     background: 'none',
     outline: 'none',
     border: 'none',
@@ -120,8 +124,11 @@ export const MenuLink = styled('a', {
     fontSize: '$3',
     fontWeight: 'bold',
     fontFamily: '$main',
-    margin: '0 10px 20px 10px',
+    margin: '0 10px 15px 10px',
+    // paddingBottom: '10px',
+    padding: '5px 0',
     transition: '0.15s linear',
+    // borderBottom: '2.5px solid $white',
     '&:hover': {
         color: '$hover'
     }

@@ -6,12 +6,11 @@ import Head from 'next/head';
 import React from 'react';
 import BlogPost from '@components/Blog/Post/BlogPost';
 import 'animate.css/animate.min.css';
-import { ContentWrapper } from '@styles/stitches.config';
 
 const BlogPage: React.FC<{  blogData }> = ({ blogData }) => {
 
     return (
-        <ContentWrapper>
+        <>
             <Head>
                 <title>RR. | {blogData.title}</title>
             </Head>
@@ -19,7 +18,7 @@ const BlogPage: React.FC<{  blogData }> = ({ blogData }) => {
             <NavigationComponent />
             <BlogPost blogData={blogData} />
             <FooterComponent />
-        </ContentWrapper>
+        </>
     );
 } 
 
