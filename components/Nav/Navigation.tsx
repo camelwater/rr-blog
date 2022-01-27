@@ -2,7 +2,6 @@ import Link from 'next/link';
 import * as NavBar from './Navbar.theme';
 import * as NavMenu from './Navmenu.theme';
 import React, { useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
 import { ThemeToggle } from '@components/ThemeToggle';
 import { HiMenuAlt4, HiOutlineX } from 'react-icons/hi';
 import useActiveLocation from '@hooks/useActiveLocation';
@@ -78,31 +77,7 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
 
     return (
         <> 
-            {/* Mobile */}
-            {/* <CSSTransition in={nav} timeout={300} classNames='menu' unmountOnExit> */}
-            <NavMenu.MenuContainer
-                variants={menuVariants}
-                initial={'hidden'}
-                animate={nav?'visible':'hidden'}
-            >
-                <NavMenu.Menu>
-                    {
-                        Links.map((entry, index) => (
-                            <Link href={entry.link} key={index} passHref={true}>
-                                <NavMenu.MenuLink onClick={ToggleNav}>{entry.name}</NavMenu.MenuLink>
-                            </Link>
-                    ))}
-                </NavMenu.Menu>
-                <NavMenu.BottomMenu>
-                    <ThemeToggle type='mobile' />
-                    <NavBar.ButtonLink href='https://www.github.com/camelwater/english-blog' target='_blank' variant='mobile'>
-                        Repo
-                    </NavBar.ButtonLink>
-                </NavMenu.BottomMenu>
-            </NavMenu.MenuContainer>
-            
-            {/* </CSSTransition> */}
-            
+                        
             {/* Desktop */}
             <NavBar.Nav variant={isHome?'home':'rest'}>
                 <NavBar.NavContainer>
@@ -144,13 +119,35 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                     <NavMenu.MenuButton onClick={ToggleNav}> {/* Mobile Menu Button */}
                         {nav?<HiOutlineX size={30} />:<HiMenuAlt4 size={30}/>}
                     </NavMenu.MenuButton>
-                    <NavMenu.ProxyMenuContainer 
+                </NavBar.NavContainer>
+                
+                {/* Mobile */}
+                <NavMenu.ProxyMenuContainer 
                     onClick={ToggleNav} 
                     variants={fadeVariants}
                     initial='hidden'
                     animate={nav?'visible':'hidden'}
                 />
-                </NavBar.NavContainer>
+                <NavMenu.MenuContainer
+                    variants={menuVariants}
+                    initial={'hidden'}
+                    animate={nav?'visible':'hidden'}
+                >
+                    <NavMenu.Menu>
+                        {
+                            Links.map((entry, index) => (
+                                <Link href={entry.link} key={index} passHref={true}>
+                                    <NavMenu.MenuLink onClick={ToggleNav}>{entry.name}</NavMenu.MenuLink>
+                                </Link>
+                        ))}
+                    </NavMenu.Menu>
+                    <NavMenu.BottomMenu>
+                        <ThemeToggle type='mobile' />
+                        <NavBar.ButtonLink href='https://www.github.com/camelwater/english-blog' target='_blank' variant='mobile'>
+                            Repo
+                        </NavBar.ButtonLink>
+                    </NavMenu.BottomMenu>
+                </NavMenu.MenuContainer>
             </NavBar.Nav>
         </>
     );

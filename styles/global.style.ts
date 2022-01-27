@@ -15,12 +15,12 @@ const globalStyle = globalCss({
   // },
   html: {
     overflowX: 'hidden',
-    // height: '100%',
+    height: '100%',
     
   },
   body: {
     background: '$background',
-    // overflowX: 'hidden',
+    overflowX: 'clip',
     fontFamily: 'GTWalsheimPro',
     // height: '100%',
     transition: '.15s linear'

@@ -1,7 +1,6 @@
 import React from 'react';
 import * as Theme from './About.theme';
 import { HiOutlineMail } from 'react-icons/hi';
-import { VscGithub } from 'react-icons/vsc';
 import { TiLocation } from 'react-icons/ti';
 
 const AboutComponent: React.FC = () => {

@@ -5,8 +5,9 @@ export const Container = styled('div', {
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
-    paddingTop: '75px',
+    marginTop: '75px',
     width: '100vw',
+    // border: '1px solid white'
 })
 
 
@@ -14,7 +15,7 @@ export const HeaderContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
-    minHeight: '15rem',
+    // minHeight: '15rem',
     height: '25rem',
     justifyContent: 'flex-end',
     alignItems: 'center',

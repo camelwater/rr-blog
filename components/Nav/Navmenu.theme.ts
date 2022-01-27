@@ -17,8 +17,10 @@ export const MobileMenu = styled(motion.div, {
 })
 
 export const MenuContainer = styled(motion.div, {
-    zIndex: 999999,
+    zIndex: 99999,
     position: 'fixed',
+    top: 0,
+    left: 0,
     width: '60%',
     height: '100%',
     maxWidth: '250px',
@@ -75,7 +77,7 @@ export const Menu = styled('div', {
 })
 
 export const MenuButton = styled('button', {
-    zIndex: 99999,
+    zIndex: 999999,
     // position: 'absolute',
     background: 'none',
     outline: 'none',

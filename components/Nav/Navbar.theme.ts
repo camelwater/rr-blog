@@ -7,7 +7,7 @@ export const Nav = styled('nav', {
     justifyContent: 'center',
     position: 'fixed',
     isolation: 'isolate',
-    zIndex: 999,
+    zIndex: 9999,
     top: 0,
     left: 0,
     right: 0,

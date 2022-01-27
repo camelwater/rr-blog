@@ -8,5 +8,4 @@ export const SVG = styled('svg', {
     height: '7.5px',
     color: '$hover',
     zIndex: 999,
-    // border: '1px solid white'
 })
