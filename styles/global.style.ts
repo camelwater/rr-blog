@@ -36,7 +36,7 @@ const globalStyle = globalCss({
     paddingTop: '0.1rem',
     paddingBottom: '0.1rem',
     background: 'linear-gradient(0deg, $dividerColor, $dividerColor) no-repeat left bottom / 0 .1rem',
-    transition: 'background-size 250ms',
+    transition: 'background-size 250ms, color 150ms',
     '&:where(:hover, :focus-visible)': {
       backgroundSize: '100% .1rem',
       backgroundPositionX: 'left',
