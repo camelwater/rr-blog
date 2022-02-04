@@ -23,7 +23,7 @@ export const DescriptionContainer = styled('div', {
 
 })
 
-export const TextContainer = styled('div', {
+export const TextContainer = styled(motion.div, {
     display: 'flex',
     flexDirection: 'column',
     width: '100%',
@@ -47,7 +47,7 @@ export const TitleText = styled('h1', {
     marginBottom: '5rem'
 })
 
-export const DescText = styled('p', {
+export const DescText = styled(motion.p, {
     fontFamily: '$main',
     color: '$white',
     fontSize: '$3',

@@ -13,7 +13,7 @@ You've seen them everywhere; there's no escaping them. Any server you've ever jo
 
 Discord Bots are extremely commonplace nowadays, and you likely use them every time you're on Discord. Every single one of those bots was created by another Discord user (or perhaps a group of users). 
 
-Let's learn how to create a simple one, and from there you might be able to create the next Carlbot or the next Rhythm!
+Let's learn how to create a simple one, and from there you might be able to create the next Carlbot or the next Rythm!
 
 ## Setup {#setup}
 

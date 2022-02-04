@@ -41,8 +41,23 @@ const parentVariants = {
     },
     visible: {
         opacity: 1,
-        delayChildren: 0.1,
-        staggerChlildren: 0.2
+        transition: {
+            delayChildren: 0.25,
+            staggerChildren: 0.125
+        }    
+    }
+};
+
+const parentVariants2 = {
+    hidden: {
+        opacity: 0
+    },
+    visible: {
+        opacity: 1,
+        transition: {
+            delayChildren: 0.15,
+            staggerChildren: 0.2
+        }    
     }
 }
 
@@ -59,7 +74,23 @@ const fadeUpVariants = {
             ease: 'easeIn'
         }
     }
-}
+};
+
+const fadeUpVariants2 = {
+    hidden: {
+        y: 100,
+        opacity: 0
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: 'tween',
+            ease: 'easeIn',
+            duration: 0.5
+        }
+    }
+};
 
 const DescriptionComponent: React.FC = () => {
     return (
@@ -92,22 +123,13 @@ const DescriptionComponent: React.FC = () => {
                         </Theme.DescText>
                     </ScrollAnimation>
                     <Theme.ItemGridContainer>
-                        <Theme.ItemGrid initial={'initial'} whileInView={'visible'} viewport={{once: true}} variants={parentVariants}>
+                        <Theme.ItemGrid initial='hidden' whileInView={'visible'} viewport={{once: true}} variants={parentVariants}>
                             {
                                 items.map((item, index) => (
-                                    // <ScrollAnimation
-                                    //     animateIn='animate__fadeInUp'
-                                    //     animateOnce={true}
-                                    //     animatePreScroll={false}
-                                    //     duration={0.25}
-                                    //     delay={250 + 75*index}
-                                    //     key={index}
-                                    // >
-                                        <Theme.ItemContainer key={index} variants={fadeUpVariants}>
-                                            <Theme.SVG><VscPackage /></Theme.SVG>
-                                            <Theme.ItemLink href={item.link} target='_blank'>{item.name}</Theme.ItemLink>
-                                        </Theme.ItemContainer>
-                                    // </ScrollAnimation>
+                                    <Theme.ItemContainer key={index} variants={fadeUpVariants}>
+                                        <Theme.SVG><VscPackage /></Theme.SVG>
+                                        <Theme.ItemLink href={item.link} target='_blank'>{item.name}</Theme.ItemLink>
+                                    </Theme.ItemContainer>
                                 ))
                             }
                         </Theme.ItemGrid>
@@ -125,30 +147,14 @@ const DescriptionComponent: React.FC = () => {
                     </Theme.TitleText>
                 </ScrollAnimation>
                 
-                <Theme.TextContainer> 
-                    <ScrollAnimation
-                        animateIn='animate__fadeInUp'
-                        animateOnce={true}
-                        animatePreScroll={false}
-                        duration={0.5}
-                        delay={150}
-                    >  
-                        <Theme.DescText>
-                            I wanted to merge my passion for programming 
-                            and my newfound interest in front-end web development with the creative, explorative endeavours of writing.
-                        </Theme.DescText>
-                    </ScrollAnimation>
-                    <ScrollAnimation
-                        animateIn='animate__fadeInUp'
-                        animateOnce={true}
-                        animatePreScroll={false}
-                        duration={0.5}
-                        delay={150}
-                    > 
-                        <Theme.DescText>
-                            And this is what came to be.
-                        </Theme.DescText>
-                    </ScrollAnimation>
+                <Theme.TextContainer initial='hidden' whileInView='visible' viewport={{ once: true }} variants={parentVariants2}>  
+                    <Theme.DescText variants={fadeUpVariants2}>
+                        I wanted to merge my passion for programming 
+                        and my newfound interest in front-end web development with the creative, explorative endeavours of writing.
+                    </Theme.DescText>
+                    <Theme.DescText variants={fadeUpVariants2}>
+                        And this is what came to be.
+                    </Theme.DescText>
                 </Theme.TextContainer>
                
             </Theme.DescriptionContainer>

@@ -1,7 +1,7 @@
 import FooterComponent from '@components/Footer/Footer';
 import NavigationComponent from '@components/Nav/Navigation';
 import SmoothScroll from '@components/Scroll';
-import { getBlog, getBlogIDs } from '@utils/blogUtils';
+import { getBlog, getBlogIDs } from '@lib/blogData';
 import Head from 'next/head';
 import React from 'react';
 import BlogPost from '@components/Blog/Post/BlogPost';
