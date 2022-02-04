@@ -22,6 +22,7 @@ const globalStyle = globalCss({
     background: '$background',
     overflowX: 'clip',
     fontFamily: 'GTWalsheimPro',
+    lineHeight: '1.5',
     // height: '100%',
     transition: '.15s linear'
   },

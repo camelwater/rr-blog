@@ -4,7 +4,10 @@ import * as path from 'path';
 const imagesDir = path.join(process.cwd(), 'public', 'assets', 'images');
 
 export function getAllBlogImages () {
-    const files = fs.readdirSync(imagesDir);
+    let files = fs.readdirSync(imagesDir, 'utf-8');
+    files = files.filter((file) => {
+        return fs.statSync(path.join(imagesDir, file)).isFile();
+    })
     
     return files;
 }

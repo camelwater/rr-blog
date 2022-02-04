@@ -3,7 +3,11 @@ import * as path from 'path';
 import matter from 'gray-matter';
 import time from 'reading-time';
 import { serialize } from 'next-mdx-remote/serialize';
-
+// import { bundleMDX } from 'mdx-bundler';
+// import rehypeSlug from 'rehype-slug';
+// import rehypeCodeTitles from 'rehype-code-titles';
+// import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+// import rehypePrism from 'rehype-prism-plus';
 
 const blogsDir = path.join(process.cwd(), 'content');
 
@@ -31,28 +35,50 @@ export const getAllBlogsData = () => {
     });
   
     return blogs.sort((a, b) => {
-      if (a.date < b.date) {
-        return 1
-      } else {
-        return -1
-      }
+      return a.date - b.date;
+      // if (a.date < b.date) {
+      //   return 1
+      // } else {
+      //   return -1
+      // }
     });
 }
 
-export const getBlog = async (id: string) => {
-    const fullPath = path.join(blogsDir, id + '.md');
+export const getBlog = async (slug: string) => {
+    const fullPath = path.join(blogsDir, slug + '.md');
     const fileContent = fs.readFileSync(fullPath, 'utf8');
     const fileMatter = matter(fileContent);
-    const rawContent = fileMatter.content;
-    const content = await serialize(fileMatter.content);
-    const readingTime = Math.floor(time(fileMatter.content).minutes) + 1
+    const frontmatter = fileMatter.data;
+    const rawContent = fileMatter.content
+    // const { code, frontmatter } = await bundleMDX({
+    //   source: fileContent, 
+    //   xdmOptions(options) {
+    //     options.rehypePlugins = [
+    //       ...(options?.rehypePlugins ?? []),
+    //       rehypeSlug,
+    //       rehypeCodeTitles,
+    //       rehypePrism,
+    //       [
+    //         rehypeAutolinkHeadings,
+    //         {
+    //           properties: {
+    //             className: ['anchor']
+    //           }
+    //         }
+    //       ]
+    //     ];
+    //     return options;
+    //   }
+    // });
+    const code = await serialize(fileMatter.content);
+    const readingTime = Math.floor(time(rawContent).minutes) + 1
 
     return {
-        id,
+        slug,
         readingTime,
         rawContent,
-        content,
-        ...fileMatter.data,
+        code,
+        ...frontmatter,
     };
 }
 

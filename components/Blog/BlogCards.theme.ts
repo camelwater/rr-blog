@@ -4,7 +4,7 @@ export const Container = styled('div', {
     display: 'flex',
     width: '100vw',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
 })
 
 export const BlogsContainer = styled('div', {
@@ -14,7 +14,7 @@ export const BlogsContainer = styled('div', {
     maxWidth: '1200px',
     justifyContent: 'center',
     alignItems: 'center',
-    '@media screen and (max-wdith: 700px)': {
+    '@media screen and (max-width: 700px)': {
         width: '85%'
     }
 })

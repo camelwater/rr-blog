@@ -103,7 +103,7 @@ export const LinkText = styled('a', {
     },
     '@iPhone': {
         fontSize: '$1'
-    }
+    },
 })
 
 export const LinkIcon = styled('a', {

@@ -62,7 +62,7 @@ export const ItemGridContainer = styled('div', {
     alignItems: 'center',
     width: '100%',
     '@iPadPro': {
-        justifyContent: 'center',
+        // justifyContent: 'center',
     }
 })
 
@@ -70,12 +70,14 @@ export const ItemGrid = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
-    maxHeight: '15rem',
+    maxHeight: '12.5rem',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    paddingLeft: '2.5rem',
+    columnGap: '2.5rem',
+    paddingLeft: '3.5rem',
     '@iPadPro': {
-        padding: '0'
+        padding: '0',
+        // justifyContent: 'center'
     }
 })
 

@@ -7,7 +7,7 @@ import { useState, useEffect, useRef } from "react";
  * @param {*} rootMargin
  * @returns id of the element currently in viewport
  */
-export const useActiveHash = (itemIDs, rootMargin = `0% 0% -40% 0%`) => {
+export const useActiveHash = (itemIDs: string[], rootMargin = `0% 0% -40% 0%`) => {
     const headingElementsRef = useRef({});
     const [activeHash, setActiveHash] = useState('');
 
@@ -18,18 +18,22 @@ export const useActiveHash = (itemIDs, rootMargin = `0% 0% -40% 0%`) => {
                 return map;
             }, headingElementsRef.current);
 
-            const visibleHeadings = [];
+            let visibleHeadings = [];
             Object.keys(headingElementsRef.current).forEach((key) => {
                 const element = headingElementsRef.current[key];
                 if (element.isIntersecting) {
                     visibleHeadings.push(element);
                 }
             });
+            
+            // visibleHeadings.sort(
+            //     (a, b) => itemIDs.findIndex(a.target.id) - itemIDs.findIndex(b.target.id)
+            // );
 
             if (visibleHeadings.length>0) {
-                setActiveHash(visibleHeadings[0].target.id);
+                setActiveHash(visibleHeadings[visibleHeadings.length-1].target.id);
             }
-        }
+        };
 
         const observer = new IntersectionObserver(
             callback,

@@ -18,7 +18,15 @@ const items = [
         link: 'https://www.stitches.dev'
     },
     {
-        name: 'Next-MDX-Remote',
+        name: "Framer Motion",
+        link: 'https://framer.com/motion'
+    },
+    {
+        name: "React Syntax Highlighter",
+        link: 'https://github.com/react-syntax-highlighter/react-syntax-highlighter'
+    },
+    {
+        name: 'next-mdx-remote',
         link: 'https://github.com/hashicorp/next-mdx-remote'
     },
     {
@@ -29,7 +37,7 @@ const items = [
 
 const DescriptionComponent: React.FC = () => {
     return (
-        <Theme.Container>
+        <Theme.Container id='context'>
             <Theme.DescriptionContainer>
                 <ScrollAnimation
                     animateIn='animate__fadeInUp'
@@ -66,7 +74,7 @@ const DescriptionComponent: React.FC = () => {
                                         animateOnce={true}
                                         animatePreScroll={false}
                                         duration={0.25}
-                                        delay={250 + 100*index}
+                                        delay={250 + 75*index}
                                         key={index}
                                     >
                                         <Theme.ItemContainer key={index}>
@@ -100,7 +108,7 @@ const DescriptionComponent: React.FC = () => {
                         delay={150}
                     >  
                         <Theme.DescText>
-                            I had to create a blog for a school English project. I wanted to merge my passion for programming 
+                            I wanted to merge my passion for programming 
                             and my newfound interest in front-end web development with the creative, explorative endeavours of writing.
                         </Theme.DescText>
                     </ScrollAnimation>

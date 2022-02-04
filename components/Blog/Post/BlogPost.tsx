@@ -2,9 +2,11 @@ import React from 'react';
 import * as Theme from './BlogPost.theme';
 import { TableOfContents, trimHeader, getHeaderID } from '@components/TableOfContents';
 import * as Icons from 'react-icons/fi';
+// import { getMDXComponent } from 'mdx-bundler/client';
+
 import { MDXRemote } from 'next-mdx-remote';
 import ScrollAnimation from 'react-animate-on-scroll';
-import { InfoCardComponent, CheckCardComponent } from './ReusableComponents';
+import { InfoCardComponent, CheckCardComponent, CodeBlock, ImageComponent } from './ReusableComponents';
 import {
     H2,
     H3,
@@ -12,6 +14,7 @@ import {
 } from './BlogPost.theme';
 import Progress from './Progress';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header2 = props => (
     <H2 id={getHeaderID(props.children)}>
@@ -35,13 +38,16 @@ const mdxComponents = {
     h2: Header2,
     h3: Header3,
     h4: Header4,
+    // img: ImageComponent,
+    code: CodeBlock,
     InfoCardComponent,
-    CheckCardComponent
+    CheckCardComponent,
 };
 
 
 const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
-    
+    // const MDXComponent = getMDXComponent(blogData.code);
+
     return (
         <Theme.Container>
             <Progress />
@@ -101,7 +107,8 @@ const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
             <Theme.ContentContainer>
                 <Theme.AbstractPostContainer>
                     <Theme.PostContainer>
-                        <MDXRemote {...blogData.content} components={mdxComponents} />
+                        <MDXRemote {...blogData.code} components={mdxComponents} />
+                        {/* <MDXComponent components={mdxComponents}/> */}
                     </Theme.PostContainer>
                 </Theme.AbstractPostContainer>
                 <Theme.TableContentsContainer>

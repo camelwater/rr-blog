@@ -104,7 +104,7 @@ const ListContainer = sstyled('div', {
 
 const StyledItem = sstyled('li', {
     display: 'flex',
-    padding: '0.5rem',
+    padding: '0.25rem',
     fontSize: 'calc(1rem)',
     fontFamily: '$main',
     color: '$main2',
@@ -126,7 +126,7 @@ const StyledItem = sstyled('li', {
             position: 'absolute',
             left: '-1.33rem',
             top: '50%',
-            marginTop: '-0.25rem',
+            marginTop: '-0.35rem',
         }
     },
     '&.active': {
@@ -135,13 +135,13 @@ const StyledItem = sstyled('li', {
             content: '',
             backgroundColor: '$hover',
             border: '1px solid $hover',
-            borderRadius: '50%',
+            borderRadius: '100%',
             width: '.5rem',
             height: '.5rem',
             position: 'absolute',
             left: '-1.33rem',
             top: '50%',
-            marginTop: '-0.25rem',
+            marginTop: '-0.35rem',
         }
     },
     variants: {
@@ -181,7 +181,6 @@ export const TableOfContents: React.FC<{ textSource: string }> = ({ textSource }
     const toc = getTOC(textSource);
     const tocItems = toc.tocArray;
     const titleIDs = isMobile() ? [] : toc.idArray;
-    // const [activeHash, setActiveHash] = useState('');
     const activeHash = useActiveHash(titleIDs);
 
     return (

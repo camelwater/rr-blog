@@ -225,3 +225,28 @@ export const HighLevelCardContainer = styled('div', {
     },
     display: 'flex',
 })
+
+export const preStyle = {
+    borderRadius: 6,
+    padding: 20,
+    // placeSelf: 'center',
+    // width: '100%',
+    fontFamily: `JetBrains Mono, monospace`,
+    fontSize: '1rem'
+}
+
+export const ImgContainer = styled('div', {
+    display: 'flex',
+    width: '850px',
+    height: '500px',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '1.5rem',
+    marginBottom: '1.5rem',
+    border: '1px solid white',
+    img: {
+        borderRadius: 10,
+        placeSelf: 'center',
+        maxWidth: '90%',
+    }
+})

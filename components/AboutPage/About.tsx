@@ -2,6 +2,7 @@ import React from 'react';
 import * as Theme from './About.theme';
 import { HiOutlineMail } from 'react-icons/hi';
 import { TiLocation } from 'react-icons/ti';
+import Link from 'next/link';
 
 const AboutComponent: React.FC = () => {
     return (
@@ -18,6 +19,13 @@ const AboutComponent: React.FC = () => {
                     <Theme.Paragraph><TiLocation />&nbsp;Hyakutake.</Theme.Paragraph>
                     <Theme.Paragraph>
                         Enjoys coding, F1, soccer.
+                    </Theme.Paragraph>
+                    <Theme.Paragraph>
+                        <Link href='/#context' passHref>
+                            <Theme.LinkText>
+                                What is this and why?
+                            </Theme.LinkText>
+                        </Link>
                     </Theme.Paragraph>
                     <Theme.H2>Contact</Theme.H2>
                     <Theme.Paragraph>

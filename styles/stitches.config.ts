@@ -35,7 +35,8 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
       shadows: {
         medium: '0px 4px 12px #1818207f, 0px 8px 16px #13131fdf',
         mediumDrop: 'drop-shadow(0px 6px 6px #0f0e14af) drop-shadow(0px 4px 12px #0000005f)',
-        glow: '0px 0px 12px #3c3486df, 0px 0px 32px #3f368f9f'
+        glow: '0px 0px 12px #3c3486df, 0px 0px 32px #3f368f9f',
+        largeGlow: '0px 0px 32px #3c3486bf, 0px 0px 48px #3f368faf'
 
       },
       fontSizes: {
@@ -94,7 +95,8 @@ export const lightTheme = createTheme(({
   shadows: {
     medium: '0px 4px 12px #a09cb37f, 0px 8px 24px #b1aec7ff',
     mediumDrop: 'drop-shadow(0px 6px 6px #a09cb3af) drop-shadow(0px 4px 12px #b1aec7ff)',
-    glow: '0px 0px 12px #b3acf1df, 0px 0px 32px #bab7eedf'
+    glow: '0px 0px 12px #b3acf1df, 0px 0px 32px #bab7eedf',
+    largeGlow: '0px 0px 32px #b3acf1bf, 0px 0px 48px #bab7eebf'
   },
 }))
 
@@ -105,7 +107,7 @@ export const ContentWrapper = styled('div', {
   // height: '100%'
 })
 
-export const globalStyles = globalCss({
+export const lightGlobalStyles = globalCss({
   "@light": {
     ":root:not(.dark)": {
       ...Object.keys(lightTheme.colors).reduce((varSet, currentColorKey) => {
@@ -137,6 +139,6 @@ export const globalStyles = globalCss({
   },
 });
 
-globalStyles();
+lightGlobalStyles();
 
 globalStyle();

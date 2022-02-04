@@ -2,7 +2,7 @@ import { styled } from '@styles/stitches.config';
 
 export const Container = styled('div', {
     display: 'flex',
-    position: 'relative',
+    // position: 'relative',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
@@ -28,17 +28,18 @@ export const Container = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    position: 'relative'
+    alignItems: 'flex-start',
+    // position: 'relative',
   })
   
   export const IntroText = styled('p', {
     color: '$main',
     fontSize: '$4',
     fontFamily: '$mono',
-    maxWidth: '90vw',
+    maxWidth: '75%',
     background: '$gradient',
     width: 'fit-content',
-    display: 'inline-block',
+    display: 'inline-flex',
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
@@ -55,10 +56,9 @@ export const Container = styled('div', {
   })
 
 export const NameText = styled('h1', {
-    // display: 'flex',
+    display: 'flex',
     width: 'fit-content',
     fontFamily: '$main',
-    // color: '#e2e2e2',
     textDecoration: 'none',
     color: '$white',
     fontSize: 75,

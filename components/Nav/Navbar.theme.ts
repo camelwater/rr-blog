@@ -162,9 +162,11 @@ export const ButtonLink = styled('a', {
     borderRadius: '5px',
     fontFamily: '$main',
     fontSize: '$2',
-    padding: '5px 12px',
+    padding: '2.5px 12px',
     textAlign: 'center',
-    transition: 'ease 200ms',
+    justifyContent: 'center',
+    alignItems: 'center',
+    transition: '200ms ease',
     '@media screen and (max-width: 250px)': {
         padding: 'calc(.25rem) calc(.55rem)',
         fontSize: 'calc(1rem)'

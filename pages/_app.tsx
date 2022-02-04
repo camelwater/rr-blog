@@ -1,4 +1,4 @@
-// import '@components/Nav/NavMenu.css';
+import '@components/Nav/NavMenu.css';
 // import '@styles/styles.css';
 import { ThemeProvider } from 'next-themes';
 import { lightTheme } from '@styles/stitches.config';

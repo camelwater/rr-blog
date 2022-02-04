@@ -1,71 +1,67 @@
 import React from 'react';
 import { useState } from 'react';
 import * as Theme from './Reusable.theme';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { HiOutlineInformationCircle } from 'react-icons/hi';
 import { HiOutlineCheckCircle } from 'react-icons/hi';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { atomOneDark as highlightTheme } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+
+const cardExpansion = {
+    collapsed: {
+        height: '0',
+        transition: {
+            when: "beforeChildren",
+            // duration: 0.1,
+            // ease: 'easeOut',
+            // type: 'tween'
+        }
+    },
+    expanded: {
+        height: '100%',
+        transition: {
+            // type: "spring",
+            // damping: 2.5,
+            // mass: 0.2,
+            // stiffness: 50,
+            // ease: 'easeOut',
+            // type: 'tween',
+            when: "beforeChildren",
+            // duration: 0.2
+
+        }
+    }
+};
+
+const textFade = {
+    hidden: {
+        opacity: 0,
+        y: -25,
+        transition: {
+            duration: 0.15
+        }
+    },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.15
+        }
+    }
+};
 
 export const ExpandableCardComponent: React.FC<{ 
-children?,
-title: string, 
-previewContent: string, 
-type?: string,
+    children?,
+    title: string, 
+    previewContent, 
+    type?: string,
 }> = ({ children=null, title, previewContent, type='info' }) => {
     const [isOpen, setOpen] = useState<boolean>(false);
     const ToggleOpen = () => {
         setOpen(!isOpen);
     }
-
-    const cardExpansion = {
-        collapsed: {
-            height: '0',
-            // display: 'none',
-            // y:-100,
-            // opacity:0,
-            transition: {
-                when: "beforeChildren",
-                // duration: 0.1,
-                // ease: 'easeOut',
-                // type: 'tween'
-            }
-        },
-        expanded: {
-            height: '100%',
-            // display: 'flex',
-            // y: 0,
-            // opacity:1,
-            transition: {
-                // type: "spring",
-                // damping: 2.5,
-                // mass: 0.2,
-                // stiffness: 50,
-                // ease: 'easeOut',
-                // type: 'tween',
-                when: "beforeChildren",
-                // duration: 0.2
-
-            }
-        }
-    };
-    
-    const textFade = {
-        hidden: {
-            opacity: 0,
-            y: -25,
-            transition: {
-                duration: 0.15
-            }
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.15
-            }
-        }
-    };
-    const previewContentList = previewContent.split('\n');
+    // const previewContentList = previewContent.split('\n');
     const CornerIcon = type==="info"?HiOutlineInformationCircle:HiOutlineCheckCircle;
     const isInfoCard = type==='info';
 
@@ -86,10 +82,13 @@ type?: string,
                     }
                 </Theme.InfoCardHeaderContainer>
                     <Theme.PreviewBlockContainer>
-                    {
+                    {/* {
                         previewContentList.map((paragraph, index) => (
                             <Theme.PreviewText key={index}>{paragraph}</Theme.PreviewText>
-                    ))}
+                    ))} */}
+                        <Theme.PreviewText>
+                            {previewContent}
+                        </Theme.PreviewText>
                     </Theme.PreviewBlockContainer>
             </Theme.InfoCard>
             <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'}>
@@ -100,9 +99,9 @@ type?: string,
 }
 
 export const InfoCardComponent: React.FC<{ 
-children?,
-title: string, 
-previewContent: string, 
+    children?,
+    title: string, 
+    previewContent, 
 }> = ({ children=null, title, previewContent }) => {
     return (
         <Theme.HighLevelCardContainer>            
@@ -114,9 +113,9 @@ previewContent: string,
 }
 
 export const CheckCardComponent: React.FC<{ 
-children?,
-title: string, 
-previewContent: string, 
+    children?,
+    title: string, 
+    previewContent, 
 }> = ({ children=null, title, previewContent }) => {
     return (
         <Theme.HighLevelCardContainer>            
@@ -127,14 +126,34 @@ previewContent: string,
     );
 }
 
-export const CodeBlock: React.FC = () => {
+export const CodeBlock: React.FC<{ className: string, children: string }> = ({ className, children }) => {
+    const match = /language-(\w+)/.exec(className || '');
     return (
-        <></>
+        <SyntaxHighlighter
+            // wrapLines
+            wrapLongLines
+            // showLineNumbers
+            style={highlightTheme}
+            customStyle={Theme.preStyle}
+            language={match?match[1]:null}
+            CodeTag='div'
+        >   
+            {children}
+        </SyntaxHighlighter>
     );
 }
 
 export const QuoteBlock: React.FC<{ text: string }> = ({ text }) => {
     return (
         <></>
+    );
+}
+
+export const ImageComponent: React.FC<{ children: any }> = ({ children }) => {
+    console.log(children)
+    return (
+        <Theme.ImgContainer>
+            {children}
+        </Theme.ImgContainer>
     );
 }

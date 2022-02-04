@@ -17,14 +17,11 @@ export const Card = styled('div', {
     borderRadius: '2rem',
     backgroundColor: '$lightBackground',
     border: '0.5px solid $cardBorder',
-    transition: '0.15s linear',
-    // willChange: 'transform',
+    transition: '350ms ease',
     '&:hover': {
         // transform: 'translate(0, -1.75%)',
-        transform: 'scale(1.01, 1.01)',
-        boxShadow: '$medium',
-        // '$$mediumDropShadow': '$shadows$mediumDrop',
-        // filter: '$$mediumDropShadow'
+        transform: 'scale(1.05, 1.05)',
+        boxShadow: '$largeGlow',
         
     },
     '&:active': {
@@ -55,6 +52,7 @@ export const CardLink = styled('div', {
 export const StyledImage = styled('img', {
     width: '100%',
     height: '100%',
+    objectFit: 'cover',
     transition: '.2s linear',
     '@iPad': {
         // width: 'min-content',
@@ -155,7 +153,7 @@ export const TitleText = styled('h1', {
 export const SubTitle = styled('p', {
     fontSize: '$2',
     fontFamily: '$main',
-    color: '$white',
+    color: '$main',
     '@iPad': {
         fontSize: '$1'
     },
@@ -164,7 +162,7 @@ export const SubTitle = styled('p', {
 export const Description = styled('p', {
     fontSize: '$3',
     fontFamily: '$main',
-    color: '$main',
+    color: '$white',
     marginTop: '1.5rem',
     paddingRight: '1rem',
     '@iPadPro': {

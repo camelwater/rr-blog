@@ -81,11 +81,13 @@ export const PostContainer = sstyled('article', {
     fontSize: 'calc(1.25rem)',
     wordWrap: 'break-word',
     wordBreak: 'break-word',
+    // lineHeight: '2rem',
+    // columnGap: '.5rem',
 
     'h1, h2, h3, h4, h5, h6, h7, p, a, strong': {
         fontFamily: '$main',
     },
-    'h1, pre': {
+    'h1': {
         margin: '0',
         display: 'inline-block',
         background: '$gradient',
@@ -104,10 +106,17 @@ export const PostContainer = sstyled('article', {
         borderRadius: 12,
         width: '100%',
         '@Flip': {
-            maxWidth: '90vw',
+          maxWidth: '90vw',
         },
+        marginTop: '1.5rem',
+        marginBottom: '1.5rem'
     },
-    code: {},
+    code: {
+        background: '$lightBackground',
+        padding: '.15rem .5rem',
+        borderRadius: '.35rem',
+        fontSize: 'calc(1.1rem)',
+    },
     p: {
         color: '$white',
         // fontSize: 'calc(1.2rem)',
@@ -117,7 +126,11 @@ export const PostContainer = sstyled('article', {
     },
     img: {
         borderRadius: 10,
-        maxWidth: '60vw',
+        placeSelf: 'center',
+        maxWidth: '100%',
+        marginTop: '1.5rem',
+        marginBottom: '1.5rem',
+        // border: '1px solid white'
     },
     
 })
@@ -311,6 +324,7 @@ export const TableContentsContainer = styled(AbstractTableContentsContainer)`
 
 export const H2 = sstyled('h2', {
     // marginTop: 100,
+    marginTop: 35,
     marginBottom: 30,
     color: '$hover',
     fontSize: '$5',
@@ -377,4 +391,14 @@ export const A = sstyled('a', {
     '&:hover': {
         color: '$hover',
     }
+})
+
+export const imgContainer = sstyled('div', {
+    display: 'flex',
+    position: 'relative',
+    borderRadius: 10,
+    width: '100%',
+    marginTop: '1.5rem',
+    marginBottom: '1.5rem',
+    border: '1px solid white'
 })
