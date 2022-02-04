@@ -30,7 +30,8 @@ export const TextContainer = styled('div', {
     justifyContent: 'center',
     alignItems: 'flex-start',
     '@iPadPro': {
-        alignItems: 'center'
+        // alignItems: 'center',
+        // textAlign: 'center'
     },
 })
 
@@ -63,10 +64,13 @@ export const ItemGridContainer = styled('div', {
     width: '100%',
     '@iPadPro': {
         // justifyContent: 'center',
+    },
+    '@iPhone': {
+        justifyContent: 'center'
     }
 })
 
-export const ItemGrid = styled('div', {
+export const ItemGrid = styled(motion.div, {
     display: 'flex',
     flexDirection: 'column',
     flexWrap: 'wrap',
@@ -78,6 +82,9 @@ export const ItemGrid = styled('div', {
     '@iPadPro': {
         padding: '0',
         // justifyContent: 'center'
+    },
+    '@iPhone': {
+        maxHeight: 'unset',
     }
 })
 
@@ -92,6 +99,9 @@ export const ItemContainer = styled(motion.div, {
     '@Flip': {
         fontSize: '$2',
     },
+    '@media screen and (max-width: 500px)': {
+        fontSize: '$1'
+    }
 })
 
 export const SVG = styled('div', {
@@ -104,7 +114,12 @@ export const SVG = styled('div', {
 })
 
 export const ItemLink = styled('a', {
+    display: 'inline-flex',
+    flexDirection: 'column',
     cursor: 'pointer',
+    flexWrap: 'wrap',
+    maxWidth: '100%',
+    columnGap: '.25rem',
     transition: '0.15s linear',
     '&:hover': {
         transform: 'scale(1.05, 1.05)'

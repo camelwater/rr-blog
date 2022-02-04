@@ -55,7 +55,7 @@ export const StyledImage = styled('img', {
     objectFit: 'cover',
     transition: '.2s linear',
     '@iPad': {
-        // width: 'min-content',
+        // width: 'fit-content',
         // height: 'min-content'
     },
 })
@@ -80,6 +80,7 @@ export const ImgContainer = styled('div', {
     borderBottomLeftRadius: '1.5rem',
     transition: '0.1s linear',
     '@iPadPro': {
+        minWidth: '40%',
         maxWidth: '40%'
     },
     '@iPad': {
@@ -112,10 +113,12 @@ export const TextContainer = styled('div', {
         width: '90%',
         alignItems: 'center',
         padding: 0,
-        paddingTop: '1.5rem',
+        paddingTop: '.5rem',
         paddingBottom: '1rem'
     },
-    // border: '1px solid white'
+    '@media screen and (max-width: 500px)': {
+        paddingTop: 0
+    }
 })
 
 export const InfoContainer = styled('div', {
@@ -142,11 +145,16 @@ export const TitleText = styled('h1', {
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     marginBottom: '.5rem',
+    paddingRight: '1rem',
     '@iPad': {
-        fontSize: '$5'
+        fontSize: '$5',
+        padding: 0
     },
     '@media screen and (max-width: 550px)': {
         fontSize: '$4'
+    },
+    '@iPhone': {
+        fontSize: '$3'
     }
 })
 
@@ -166,12 +174,15 @@ export const Description = styled('p', {
     marginTop: '1.5rem',
     paddingRight: '1rem',
     '@iPadPro': {
-        // fontSize: '$2'
+        fontSize: '16px'
     },
     '@iPad': {
         padding: 0,
         fontSize: '16px'
     },
+    '@media screen and (max-width: 500px)': {
+        display: 'none'
+    }
 })
 
 export const BottomContainer = styled('div', {
@@ -230,6 +241,9 @@ export const TopicsContainer = styled('div', {
     alignItems: 'center',
     '@iPad': {
         justifyContent: 'center',
+    },
+    '@media screen and (max-width: 500px)': {
+        display: 'none'
     }
 })
 

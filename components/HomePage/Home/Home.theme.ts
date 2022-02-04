@@ -30,6 +30,9 @@ export const Container = styled('div', {
     justifyContent: 'center',
     alignItems: 'flex-start',
     // position: 'relative',
+    '@Flip': {
+      alignItems: 'center'
+    }
   })
   
   export const IntroText = styled('p', {
@@ -39,7 +42,7 @@ export const Container = styled('div', {
     maxWidth: '75%',
     background: '$gradient',
     width: 'fit-content',
-    display: 'inline-flex',
+    display: 'inline-block',
     backgroundClip: 'text',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
@@ -56,7 +59,7 @@ export const Container = styled('div', {
   })
 
 export const NameText = styled('h1', {
-    display: 'flex',
+    display: 'inline-block',
     width: 'fit-content',
     fontFamily: '$main',
     textDecoration: 'none',
@@ -70,9 +73,6 @@ export const NameText = styled('h1', {
     },
     '@media only screen and (max-width: 425px)': {
         fontSize: 60
-    },
-    '@iPhone': {
-        fontSize: 50
     },
     '&:hover': {
       background: '$gradient',

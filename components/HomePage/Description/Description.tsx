@@ -35,6 +35,32 @@ const items = [
     }
 ];
 
+const parentVariants = {
+    hidden: {
+        opacity: 0
+    },
+    visible: {
+        opacity: 1,
+        delayChildren: 0.1,
+        staggerChlildren: 0.2
+    }
+}
+
+const fadeUpVariants = {
+    hidden: {
+        y: 50,
+        opacity: 0
+    },
+    visible: {
+        y: 0,
+        opacity: 1,
+        transition: {
+            type: 'tween',
+            ease: 'easeIn'
+        }
+    }
+}
+
 const DescriptionComponent: React.FC = () => {
     return (
         <Theme.Container id='context'>
@@ -66,22 +92,22 @@ const DescriptionComponent: React.FC = () => {
                         </Theme.DescText>
                     </ScrollAnimation>
                     <Theme.ItemGridContainer>
-                        <Theme.ItemGrid>
+                        <Theme.ItemGrid initial={'initial'} whileInView={'visible'} viewport={{once: true}} variants={parentVariants}>
                             {
                                 items.map((item, index) => (
-                                    <ScrollAnimation
-                                        animateIn='animate__fadeInUp'
-                                        animateOnce={true}
-                                        animatePreScroll={false}
-                                        duration={0.25}
-                                        delay={250 + 75*index}
-                                        key={index}
-                                    >
-                                        <Theme.ItemContainer key={index}>
+                                    // <ScrollAnimation
+                                    //     animateIn='animate__fadeInUp'
+                                    //     animateOnce={true}
+                                    //     animatePreScroll={false}
+                                    //     duration={0.25}
+                                    //     delay={250 + 75*index}
+                                    //     key={index}
+                                    // >
+                                        <Theme.ItemContainer key={index} variants={fadeUpVariants}>
                                             <Theme.SVG><VscPackage /></Theme.SVG>
                                             <Theme.ItemLink href={item.link} target='_blank'>{item.name}</Theme.ItemLink>
                                         </Theme.ItemContainer>
-                                    </ScrollAnimation>
+                                    // </ScrollAnimation>
                                 ))
                             }
                         </Theme.ItemGrid>

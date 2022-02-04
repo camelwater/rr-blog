@@ -11,7 +11,9 @@ topics: [Discord, Python, pycord]
 
 You've seen them everywhere; there's no escaping them. Any server you've ever joined has them. 
 
-Discord Bots are extremely commonplace nowadays, and you likely use them every time you're on Discord. Every single one of those bots was created by another Discord user (or perhaps a group of users). Let's learn how to create a simple one, and from there you might be able to create the next Carlbot or the next Rhythm!
+Discord Bots are extremely commonplace nowadays, and you likely use them every time you're on Discord. Every single one of those bots was created by another Discord user (or perhaps a group of users). 
+
+Let's learn how to create a simple one, and from there you might be able to create the next Carlbot or the next Rhythm!
 
 ## Setup {#setup}
 

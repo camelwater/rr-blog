@@ -38,7 +38,7 @@ export const HeaderInnerContainer = sstyled('div', {
     '@iPad': {
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center',
+        alignItems: 'flex-start',
         width: '90%'
     }
 })
@@ -140,10 +140,11 @@ export const TitleContainer = sstyled('div', {
     flexDirection: 'column',
     paddingTop: '7rem',
     paddingBottom: '1.75rem',
+    // maxWidth: '65%',
     '@iPad': {
-        paddingBottom: '5rem',
+        paddingBottom: '2.5rem',
         paddingTop: '5rem',
-        alignItems: 'center'
+        // alignItems: 'center'
     }
 })
 
@@ -182,14 +183,12 @@ export const TitleText = sstyled('h1', {
     color: '$white',
     fontFamily: '$primary',
     fontSize: '$6',
+    overflowWrap: 'break-word',
+    wordWrap: 'break-word',
     // paddingBottom: '1rem',
     '@iPadPro': {
         fontSize: '42px'
     },
-    // '@iPad': {
-    //     // fontSize: '$6',
-    //     paddingBottom: '2rem'
-    // },
     '@iPhonePlus': {
         fontSize: '$5'
     }
@@ -254,7 +253,9 @@ export const Topic = sstyled('div', {
 
 export const BottomInfoContainer = sstyled('div', {
     display: 'flex',
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
+    flexWrap: 'wrap',
+    // alignItems: 'flex-start',
     '@iPad': {
         alignItems: 'center'
     }

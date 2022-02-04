@@ -14,7 +14,7 @@ const BlogCards: React.FC<{ data }> = ({ data }) => {
                         Blog Posts
                     </Theme.HeaderText>
                     <Theme.DescText>
-                        My collection of blog posts
+                        My writing; my thoughts
                     </Theme.DescText>
                 </Theme.HeaderContainer>
                 <Divider />
