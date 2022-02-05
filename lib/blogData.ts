@@ -17,7 +17,7 @@ const blogsDir = path.join(process.cwd(), 'content');
 export const getAllBlogsData = () => {
     const files = fs.readdirSync(blogsDir)
     const blogs = files.map((fileName) => {
-      const id = fileName.replace('.md', '')
+      const id = fileName.replace('.mdx', '')
   
       const fullPath = path.join(blogsDir, fileName)
       const fileContents = fs.readFileSync(fullPath, 'utf8')
@@ -45,7 +45,7 @@ export const getAllBlogsData = () => {
 }
 
 export const getBlog = async (slug: string) => {
-    const fullPath = path.join(blogsDir, slug + '.md');
+    const fullPath = path.join(blogsDir, slug + '.mdx');
     const fileContent = fs.readFileSync(fullPath, 'utf8');
     const fileMatter = matter(fileContent);
     const frontmatter = fileMatter.data;
@@ -87,7 +87,7 @@ export const getBlogIDs = () => {
   return fileNames.map(fileName => {
     return {
       params: {
-        slug: fileName.replace(/\.md$/, '')
+        slug: fileName.replace(/\.mdx$/, '')
       }
     }
   })

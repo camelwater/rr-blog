@@ -52,7 +52,7 @@ The first thing we need are the packages. The only one you need is `pycord`, whi
 
 Let's start writing some code.
 
-```py
+```python
 import discord
 
 TOKEN = "Your bot token" #bot token from before
@@ -63,7 +63,7 @@ bot.run(TOKEN) #connect to Discord
 
 We can add a message to let us know when our bot is online:
 
-```py
+```python
 @bot.event
 async def on_ready(): #this method is invoked when the bot has successfully connected
   print(f"Logged in as {bot.user}.")
@@ -73,7 +73,7 @@ Try to run the bot -- you'll see that it doesn't do anything yet. How about we a
 
 ### Adding commands
 
-```py
+```python
 import discord
 
 TOKEN = "Your bot token" #remember the bot token from before?
@@ -101,7 +101,7 @@ Now a neat message is printed out when our bot is online, and our bot can respon
 
 You can also make commands accept arguments.
 
-```py
+```python
 @bot.slash_command(
   name="say_hi",
   description="Say hello to another user",

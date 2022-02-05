@@ -129,17 +129,20 @@ export const CheckCardComponent: React.FC<{
 export const CodeBlock: React.FC<{ className: string, children: string }> = ({ className, children }) => {
     const match = /language-(\w+)/.exec(className || '');
     return (
-        <SyntaxHighlighter
-            // wrapLines
-            wrapLongLines
-            // showLineNumbers
-            style={highlightTheme}
-            customStyle={Theme.preStyle}
-            language={match?match[1]:null}
-            CodeTag='div'
-        >   
-            {children}
-        </SyntaxHighlighter>
+        <Theme.preStyle>
+            <SyntaxHighlighter
+                wrapLines
+                // wrapLongLines
+                // showLineNumbers
+                // useInlineStyles={false}
+                style={highlightTheme}
+                customStyle={Theme.highlightStyle}
+                language={match?match[1]:null}
+                CodeTag='div'
+            >   
+                {children.trim()}
+            </SyntaxHighlighter>
+        </Theme.preStyle>
     );
 }
 

@@ -226,13 +226,44 @@ export const HighLevelCardContainer = styled('div', {
     display: 'flex',
 })
 
-export const preStyle = {
-    borderRadius: 6,
-    padding: 20,
-    // placeSelf: 'center',
-    // width: '100%',
-    fontFamily: `JetBrains Mono, monospace`,
-    fontSize: '1rem'
+export const preStyle = styled('div', {
+    display: 'flex',
+    borderRadius: 5,
+    background: '#282c34',
+    width: '100%',
+    marginTop: '1.5rem',
+    marginBottom: '1.5rem',
+    // fontFamily: `JetBrains Mono, monospace`,
+    fontSize: '1rem',
+    overflow: 'auto',
+    maxHeight: '45rem',
+    scrollBehavior: 'smooth',
+    '&::-webkit-scrollbar': {
+        width: '12px',
+        height: '12px',
+    },
+    '&::-webkit-scrollbar-track': {
+        background: '$primary',
+        borderBottomLeftRadius: 3,
+        borderBottomRightRadius: 3,
+    },
+    '&::-webkit-scrollbar-thumb': {
+        background: '$scrollMain',
+        borderRadius: 3
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+        background: '$scrollMain2',
+    }
+})
+
+export const highlightStyle = {
+    padding: '20px',
+    margin: 0,
+    width: '100%',
+    overflow: 'visible',
+    // border: '1px solid yellow',
+    // overflowX: 'hidden',
+    // overflowY: 'hidden',
 }
 
 export const ImgContainer = styled('div', {
