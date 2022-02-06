@@ -18,6 +18,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         dividerColor: '#5f55f0',
         cardColor: '#282546',
         lightBackground: '#1f1f30',
+        slideshowForeground: '#1f1f30',
         background: '#181820',
         // background: '#553131',
         navBackground: '#1b1b24',
@@ -74,6 +75,7 @@ export const lightTheme = createTheme(({
     dark: '#F4F4F5',
     white: '#2c2c2c',
     lightBackground: '#d6d6eb',
+    slideshowForeground: '#e4e4f10f',
     background: '#e9e9e9',
     navBackground: '#e9e9f1',
     lightBorder: '#dfdfdf',
@@ -95,8 +97,8 @@ export const lightTheme = createTheme(({
   shadows: {
     medium: '0px 4px 12px #a09cb37f, 0px 8px 24px #b1aec7ff',
     mediumDrop: 'drop-shadow(0px 6px 6px #a09cb3af) drop-shadow(0px 4px 12px #b1aec7ff)',
-    glow: '0px 0px 12px #b3acf1df, 0px 0px 32px #bab7eedf',
-    largeGlow: '0px 0px 32px #b3acf1bf, 0px 0px 48px #bab7eebf'
+    glow: '0px 0px 12px #6f61e9df, 0px 0px 36px #8781f5df',
+    largeGlow: '0px 0px 32px #6f61e9bf, 0px 0px 48px #8781f5bf'
   },
 }))
 
@@ -107,38 +109,38 @@ export const ContentWrapper = styled('div', {
   // height: '100%'
 })
 
-export const lightGlobalStyles = globalCss({
-  "@light": {
-    ":root:not(.dark)": {
-      ...Object.keys(lightTheme.colors).reduce((varSet, currentColorKey) => {
-        const currentColor = lightTheme.colors[currentColorKey];
-        const currentColorValue =
-          currentColor.value.substring(0, 1) === "$"
-            ? `$colors${currentColor.value}`
-            : currentColor.value;
+// export const lightGlobalStyles = globalCss({
+//   "@light": {
+//     ":root:not(.dark)": {
+//       ...Object.keys(lightTheme.colors).reduce((varSet, currentColorKey) => {
+//         const currentColor = lightTheme.colors[currentColorKey];
+//         const currentColorValue =
+//           currentColor.value.substring(0, 1) === "$"
+//             ? `$colors${currentColor.value}`
+//             : currentColor.value;
 
-        return {
-          [currentColor.variable]: currentColorValue,
-          ...varSet,
-        };  
-      }, {}),
+//         return {
+//           [currentColor.variable]: currentColorValue,
+//           ...varSet,
+//         };  
+//       }, {}),
 
-      ...Object.keys(lightTheme.shadows).reduce((varSet, curShadowKey) => {
-        const currentShadow = lightTheme.shadows[curShadowKey];
-        const currentShadowValue =
-          currentShadow.value.substring(0, 1) === "$"
-            ? `$shadows${currentShadow.value}`
-            : currentShadow.value;
+//       ...Object.keys(lightTheme.shadows).reduce((varSet, curShadowKey) => {
+//         const currentShadow = lightTheme.shadows[curShadowKey];
+//         const currentShadowValue =
+//           currentShadow.value.substring(0, 1) === "$"
+//             ? `$shadows${currentShadow.value}`
+//             : currentShadow.value;
 
-        return {
-          [currentShadow.variable]: currentShadowValue,
-          ...varSet,
-        };
-      }, {}),
-    },
-  },
-});
+//         return {
+//           [currentShadow.variable]: currentShadowValue,
+//           ...varSet,
+//         };
+//       }, {}),
+//     },
+//   },
+// });
 
-lightGlobalStyles();
+// lightGlobalStyles();
 
 globalStyle();

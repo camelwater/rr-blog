@@ -11,7 +11,7 @@ export const Container = styled('div', {
     minHeight: '500px',
     marginBottom: '10vw',
     maxHeight: 1280,
-    background: '$lightBackground',
+    background: '$slideshowForeground',
     clipPath: 'polygon(50% 0%, 100% 0, 100% 75%, 50% 100%, 0 75%, 0 0)',
     '@media only screen and (min-width: 3000px)': {
       height: '100vh',

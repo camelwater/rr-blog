@@ -25,5 +25,5 @@ export const IMG = styled('img', {
     width: '100%',
     height: '100%',
     // objectFit: 'contain',
-    opacity: '0.15',
+    opacity: '0.25',
 })
