@@ -6,7 +6,7 @@ import DescriptionComponent from '@components/HomePage/Description/Description';
 import NavigationComponent from '@components/Nav/Navigation';
 import FooterComponent from '@components/Footer/Footer';
 import SmoothScroll from '@components/Scroll';
-import { getAllBlogImages } from '@utils/getAllBlogImages';
+import getAllBlogImages from '@utils/getAllBlogImages';
 
 
 const HomePage: React.FC<{ allImages }> = ({ allImages }) => {

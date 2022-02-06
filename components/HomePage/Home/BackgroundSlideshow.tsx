@@ -4,7 +4,7 @@ import * as Theme from './Slideshow.theme';
 
 const delay = 5000;
 
-const BackgroundSlideshow: React.FC<{ images }> = ({ images }) =>  {
+const BackgroundSlideshow: React.FC<{ images: string[] }> = ({ images }) =>  {
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
 
