@@ -8,7 +8,6 @@ import FooterComponent from '@components/Footer/Footer';
 import SmoothScroll from '@components/Scroll';
 import getAllBlogImages from '@utils/getAllBlogImages';
 
-
 const HomePage: React.FC<{ allImages }> = ({ allImages }) => {
 
   return (
