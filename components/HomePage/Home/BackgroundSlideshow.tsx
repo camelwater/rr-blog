@@ -1,12 +1,15 @@
 import React from 'react';
 import { useState, useRef } from 'react';
 import * as Theme from './Slideshow.theme';
+import shuffle from '@utils/shuffle';
 
 const delay = 5000;
 
 const BackgroundSlideshow: React.FC<{ images: string[] }> = ({ images }) =>  {
   const [index, setIndex] = useState(0);
   const timeoutRef = useRef(null);
+  
+  shuffle(images);
 
   function resetTimeout() {
     if (timeoutRef.current) {
