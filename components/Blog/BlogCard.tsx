@@ -34,11 +34,13 @@ export const BlogCard: React.FC<Card> = ({
                     <Theme.Card>
                         {img &&
                             <Theme.ImgContainer>
-                                <Theme.StyledImage
-                                    src={imgSrc}
-                                    alt={img}
-                                />
-                                <Theme.ImageHoverDarken />
+                                <Theme.InnerImgContainer>
+                                    <Theme.StyledImage
+                                        src={imgSrc}
+                                        alt={img}
+                                    />
+                                    <Theme.ImageHoverDarken />
+                                </Theme.InnerImgContainer>
                             </Theme.ImgContainer>
                         }   
                         <Theme.TextContainer>

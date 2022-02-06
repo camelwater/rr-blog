@@ -8,10 +8,14 @@ export const CardContainer = styled('div', {
     justifyContent: 'center',
     alignContent: 'center',
     alignItems: 'center',
+    marginBottom: '3.5rem',
+
 })
 
 export const Card = styled('div', {
     display: 'flex',
+    width: '100%',
+    height: '100%',
     cursor: 'pointer',
     justifyContent: 'space-between',
     borderRadius: '2rem',
@@ -41,7 +45,6 @@ export const Card = styled('div', {
 export const CardLink = styled('div', {
     textDecoration: 'none',
     display: 'flex',
-    marginBottom: '7rem',
     alignItems: 'center',
     justifyContent: 'center',
     '@iPad': {
@@ -53,6 +56,7 @@ export const StyledImage = styled('img', {
     width: '100%',
     height: '100%',
     objectFit: 'cover',
+    justifyContent: 'center',
     transition: '.2s linear',
     '@iPad': {
         // width: 'fit-content',
@@ -70,14 +74,31 @@ export const ImageHoverDarken = styled('div', {
     transition: 'opacity .2s linear'
 })
 
+export const InnerImgContainer = styled('div', {
+    display: 'flex',
+    position: 'relative',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '90%',
+    width: '90%',
+    overflow: 'hidden',
+    borderRadius: '1.5rem',
+    '@iPad': {
+        height: '100%',
+        width: '100%',
+        borderRadius: '0',
+        borderTopRightRadius: '1.5rem',
+        borderTopLeftRadius: '1.5rem',
+    },
+})
 export const ImgContainer = styled('div', {
     display: 'flex',
     position: 'relative',
-    overflow: 'hidden',
+    // overflow: 'hidden',
+    alignItems: 'center',
+    justifyContent: 'center',
     minWidth: '35%',
     maxWidth: '35%',
-    borderTopLeftRadius: '1.5rem',
-    borderBottomLeftRadius: '1.5rem',
     transition: '0.1s linear',
     '@iPadPro': {
         minWidth: '40%',
@@ -85,9 +106,6 @@ export const ImgContainer = styled('div', {
     },
     '@iPad': {
         maxWidth: '100%',
-        borderRadius: '0',
-        borderTopRightRadius: '1.5rem',
-        borderTopLeftRadius: '1.5rem',
         // height: '25rem'
     },
     '&:hover': {
@@ -106,7 +124,8 @@ export const TextContainer = styled('div', {
     justifyContent: 'flex-start',
     // maxWidth: '65%',
     wordWrap: 'break-word',
-    paddingLeft: '2.5rem',
+    paddingLeft: '1rem',
+    paddingRight: '1.5rem',
     paddingTop: '1rem',
     paddingBottom: '1rem',
     '@iPad': {
@@ -118,7 +137,7 @@ export const TextContainer = styled('div', {
     },
     '@media screen and (max-width: 500px)': {
         paddingTop: 0
-    }
+    },
 })
 
 export const InfoContainer = styled('div', {
@@ -132,7 +151,7 @@ export const InfoContainer = styled('div', {
         alignItems: 'center',
         textAlign: 'center',
         // paddingBottom: '2rem',
-    }
+    },
 })
 
 export const TitleText = styled('h1', {
@@ -145,7 +164,7 @@ export const TitleText = styled('h1', {
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     marginBottom: '.5rem',
-    paddingRight: '1rem',
+    // paddingRight: '1rem',
     '@iPad': {
         fontSize: '$5',
         padding: 0
@@ -172,7 +191,7 @@ export const Description = styled('p', {
     fontFamily: '$main',
     color: '$white',
     marginTop: '1.5rem',
-    paddingRight: '1rem',
+    // paddingRight: '1rem',
     '@iPadPro': {
         fontSize: '16px'
     },
