@@ -239,16 +239,10 @@ export const Topic = sstyled('div', {
     background: '$dark',
     borderRadius: '1rem',
     padding: '0.5rem 0.75rem',
-    // variants: {
-    //     variant: {
-    //         first: {
-    //             margin: 0
-    //         },
-    //         rest: {
-    //             marginLeft: '0.5rem'
-    //         }
-    //     }
-    // }
+    transition: 'background 100ms linear',
+    '&:hover': {
+        background: '$dividerColor'
+    }
 })
 
 export const BottomInfoContainer = sstyled('div', {

@@ -84,7 +84,7 @@ export const lightTheme = createTheme(({
     cardBorder: '#c2c1cf',
     hover: '#5932e6',
     linkHover: '#dbdbdb',
-    dividerColor: '#8379df',
+    dividerColor: '#8579f0',
     cardColor: '#d2d2ee',
     dropdownHover: '#e9e9e9',
     highlight: '#2e2e2e30',
