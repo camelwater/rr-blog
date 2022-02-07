@@ -26,7 +26,6 @@ export const Card = styled('div', {
         // transform: 'translate(0, -1.75%)',
         transform: 'scale(1.05, 1.05)',
         boxShadow: '$largeGlow',
-        
     },
     '&:active': {
         transform: 'scale(0.975, 0.975)',
@@ -37,9 +36,14 @@ export const Card = styled('div', {
         flexDirection: 'column',
         alignItems: 'center',
         '&:hover': {
-            transform: 'scale(1.01, 1.01)'
+            transform: 'scale(1.025, 1.025)'
         }
     },
+    '@media screen and (max-width: 500px)': {
+        '&:hover': {
+            transform: 'scale(1.025, 1.025)'
+        }    
+    }
 }) 
 
 export const CardLink = styled('div', {

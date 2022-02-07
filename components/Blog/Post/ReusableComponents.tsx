@@ -131,7 +131,7 @@ export const CodeBlock: React.FC<{ className: string, children: string }> = ({ c
     return (
         <Theme.preStyle>
             <SyntaxHighlighter
-                // wrapLines
+                wrapLines
                 // wrapLongLines
                 // showLineNumbers
                 // useInlineStyles={false}

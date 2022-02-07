@@ -140,7 +140,7 @@ export const ExtendSVG = styled('div', {
 
 export const ExtendButton = styled('div', {
     display: 'flex',
-    padding: '0.55rem',
+    padding: '0.4rem 0.6rem',
     cursor: 'pointer',
     backgroundColor: '$primary',
     borderRadius: '0.5rem',
@@ -235,7 +235,8 @@ export const preStyle = styled('div', {
     marginBottom: '1.5rem',
     // fontFamily: `JetBrains Mono, monospace`,
     fontSize: '1rem',
-    overflow: 'auto',
+    overflowX: 'auto',
+    overflowY: 'auto',
     maxHeight: '45rem',
     scrollBehavior: 'smooth',
     '&::-webkit-scrollbar': {
@@ -261,9 +262,6 @@ export const highlightStyle = {
     margin: 0,
     width: '100%',
     overflow: 'visible',
-    // border: '1px solid yellow',
-    // overflowX: 'hidden',
-    // overflowY: 'hidden',
 }
 
 export const ImgContainer = styled('div', {
