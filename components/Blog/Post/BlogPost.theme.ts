@@ -235,10 +235,10 @@ export const TopicsContainer = sstyled('div', {
 
 export const Topic = sstyled('div', {
     display: 'flex',
-    cursor: 'default',
+    cursor: 'pointer',
     background: '$dark',
-    borderRadius: '1rem',
-    padding: '0.5rem 0.75rem',
+    borderRadius: '5rem',
+    padding: '0.4rem 0.75rem',
     transition: 'background 100ms linear',
     '&:hover': {
         background: '$dividerColor'

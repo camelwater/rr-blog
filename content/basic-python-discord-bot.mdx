@@ -118,5 +118,25 @@ async def _hi_command(
 
 Try using the slash command `/say_hi`! You should be able to specify another user to say "hi" to, and the bot will greet someone else for you. 
 
+See? You've just created a Discord bot that can use slash commands! If you want to add message-based commands to your bot, replace the `@slash_command` decorator with the `@commands.command` decorator:
 
+```python
+import discord
+from discord import commands # import the commands module
 
+@commands.command(
+  name="goodbye",
+  description="Say goodbye",
+  aliases=["bye"]
+)
+async def _goodbye_command(
+  ctx: commands.Context # different Context object
+):
+  await ctx.send(f"Goodbye, {ctx.author.mention}!")
+```
+
+## Further learning 
+
+Now, explore pycord! It has many other features and functionality that I did not cover here. I recommend looking at its <a href='https://docs.pycord.dev/en/master/' target='_blank'>documentation</a> and checking out its <a href='https://github.com/Pycord-Development/pycord' target='_blank'>GitHub Repository</a> (it's open source, meaning you can contribute to it).
+
+Personally, I learn best by looking at examples, and the pycord repository has many concise examples. You can also check out some of my own Python Discord bots (some of which are slightly outdated): <a href='https://github.com/camelwater/Table-BOT' target='_blank'>Table Bot</a>, <a href='https://github.com/camelwater/Tauto' target='_blank'>Tauto</a>, and <a href='https://github.com/camelwater/MKW-Table-Bot/tree/discord-interactions' target='_blank'>MKW Table Bot</a> (open-source collaboration).

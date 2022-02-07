@@ -269,8 +269,8 @@ export const TopicsContainer = styled('div', {
 export const Topic = styled('div', {
     display: 'flex',
     background: '$dark',
-    borderRadius: '1rem',
-    padding: '0.5rem 0.75rem',
+    borderRadius: '5rem',
+    padding: '0.4rem 0.75rem',
     transition: 'background 150ms linear',
     '&:hover': {
         background: '$dividerColor'
