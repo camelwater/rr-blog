@@ -279,3 +279,45 @@ export const ImgContainer = styled('div', {
         maxWidth: '90%',
     }
 })
+
+export const Pre = styled('pre', {
+    textAlign: 'left',
+    padding: '1.5em',
+    overflow: 'auto',
+    maxHeight: '45rem',
+    fontSize: '1rem',
+    transition: '150ms linear',
+    '&::-webkit-scrollbar': {
+        width: '12px',
+        height: '12px',
+    },
+    '&::-webkit-scrollbar-track': {
+        background: '$primary',
+        borderBottomLeftRadius: 3,
+        borderBottomRightRadius: 3,
+    },
+    '&::-webkit-scrollbar-thumb': {
+        background: '$scrollMain',
+        borderRadius: 3
+    },
+    '&::-webkit-scrollbar-thumb:hover': {
+        background: '$scrollMain2',
+    }
+})
+
+export const Line = styled('div', {
+    display: 'table-row'
+})
+
+export const LineCode = styled('span', {
+    display: 'table-cell'
+})
+
+
+// export const LineNo = styled.span`
+//   display: table-cell;
+//   text-align: right;
+//   padding-right: 1em;
+//   user-select: none;
+//   opacity: 0.5;
+// `;

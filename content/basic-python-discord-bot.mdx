@@ -31,10 +31,10 @@ You want to create a new application (the button in the top right corner). After
 </InfoCardComponent>
 
 
-Now, this next part is crucial: you must select the necessary scopes and permissions for your bot. Make sure you select both 
-the `bot` and `applications.command` scopes, but for the bot permissions, select only what your bot will need. 
+Now, this next part is crucial: you must select the necessary scopes and permissions for your bot. Make sure you select **both** 
+the `bot` and `applications.command` scopes. For the bot permissions, however, select only what permission your bot will need. 
 
-<InfoCardComponent title="Message Content" previewContent={<>Message Content is a special situation. Currently, you don't have to worry about messing around with it, but the enforcement of reading Message Content as a privilege will begin being enforced starting April 30, 2022. For more details, read <a href='https://support.discord.com/hc/en-us/articles/360040720412' target='_blank'>Discord's explanation</a>.
+<InfoCardComponent title="Message Content" previewContent={<>You might have noticed a peculiar intent named "Message Content". Currently, you don't have to worry about it, but the enforcement of reading Message Content as a privilege will begin being enforced starting April 30, 2022. For more details about the reasons and implications of this change, read <a href='https://support.discord.com/hc/en-us/articles/360040720412' target='_blank'>Discord's explanation</a>.
 </>}>
 </InfoCardComponent>
 
@@ -48,7 +48,7 @@ Now download <a href="https://www.python.org" target="_blank">Python</a> if you 
 
 ### Getting started
 
-The first thing we need are the packages. The only one you need is `pycord`, which you can install via `pip install py-cord`.
+The first thing we need are the packages. The only one we require is `pycord`, which you can install via `pip install py-cord`.
 
 Let's start writing some code.
 
@@ -135,8 +135,10 @@ async def _goodbye_command(
   await ctx.send(f"Goodbye, {ctx.author.mention}!")
 ```
 
-## Further learning 
+## Next steps
 
-Now, explore pycord! It has many other features and functionality that I did not cover here. I recommend looking at its <a href='https://docs.pycord.dev/en/master/' target='_blank'>documentation</a> and checking out its <a href='https://github.com/Pycord-Development/pycord' target='_blank'>GitHub Repository</a> (it's open source, meaning you can contribute to it).
+Explore pycord! It has many other features and functionality that I did not cover here. I recommend looking at its <a href='https://docs.pycord.dev/en/master/' target='_blank'>documentation</a> and checking out its <a href='https://github.com/Pycord-Development/pycord' target='_blank'>GitHub Repository</a> (it's open source, meaning you can contribute to it).
 
 Personally, I learn best by looking at examples, and the pycord repository has many concise examples. You can also check out some of my own Python Discord bots (some of which are slightly outdated): <a href='https://github.com/camelwater/Table-BOT' target='_blank'>Table Bot</a>, <a href='https://github.com/camelwater/Tauto' target='_blank'>Tauto</a>, and <a href='https://github.com/camelwater/MKW-Table-Bot/tree/discord-interactions' target='_blank'>MKW Table Bot</a> (open-source collaboration).
+
+Have fun building your own creative bots.

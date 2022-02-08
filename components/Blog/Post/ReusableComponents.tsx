@@ -5,8 +5,10 @@ import * as Theme from './Reusable.theme';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { HiOutlineInformationCircle } from 'react-icons/hi';
 import { HiOutlineCheckCircle } from 'react-icons/hi';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark as highlightTheme } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+// import SyntaxHighlighter from 'react-syntax-highlighter';
+// import { atomOneDark as highlightTheme } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import highlightTheme from 'prism-react-renderer/themes/duotoneDark';
 
 const cardExpansion = {
     collapsed: {
@@ -82,10 +84,6 @@ export const ExpandableCardComponent: React.FC<{
                     }
                 </Theme.InfoCardHeaderContainer>
                     <Theme.PreviewBlockContainer>
-                    {/* {
-                        previewContentList.map((paragraph, index) => (
-                            <Theme.PreviewText key={index}>{paragraph}</Theme.PreviewText>
-                    ))} */}
                         <Theme.PreviewText>
                             {previewContent}
                         </Theme.PreviewText>
@@ -128,21 +126,40 @@ export const CheckCardComponent: React.FC<{
 
 export const CodeBlock: React.FC<{ className: string, children: string }> = ({ className, children }) => {
     const match = /language-(\w+)/.exec(className || '');
+    // return (
+    //     <Theme.preStyle>
+    //         <SyntaxHighlighter
+    //             wrapLines
+    //             // wrapLongLines
+    //             // showLineNumbers
+    //             // useInlineStyles={false}
+    //             style={highlightTheme}
+    //             customStyle={Theme.highlightStyle}
+    //             language={match?match[1]:null}
+    //             CodeTag='div'
+    //         >   
+    //             {children.trim()}
+    //         </SyntaxHighlighter>
+    //     </Theme.preStyle>
+    // );
+
     return (
-        <Theme.preStyle>
-            <SyntaxHighlighter
-                wrapLines
-                // wrapLongLines
-                // showLineNumbers
-                // useInlineStyles={false}
-                style={highlightTheme}
-                customStyle={Theme.highlightStyle}
-                language={match?match[1]:null}
-                CodeTag='div'
-            >   
-                {children.trim()}
-            </SyntaxHighlighter>
-        </Theme.preStyle>
+        //eslint-disable-next-line
+        <Highlight {...defaultProps} code={children.trim()} language={match[1]} theme={undefined}>
+            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                <Theme.Pre className={className}>
+                    {tokens.map((line, i) => (
+                        <Theme.Line key={i} {...getLineProps({ line, key: i })}>
+                            <Theme.LineCode>
+                                {line.map((token, key) => (
+                                <span key={key} {...getTokenProps({ token, key })} />
+                                ))}
+                            </Theme.LineCode>
+                        </Theme.Line>
+                    ))}
+                </Theme.Pre>
+            )}
+        </Highlight>
     );
 }
 
