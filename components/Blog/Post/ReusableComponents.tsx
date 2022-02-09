@@ -7,7 +7,7 @@ import { HiOutlineInformationCircle } from 'react-icons/hi';
 import { HiOutlineCheckCircle } from 'react-icons/hi';
 // import SyntaxHighlighter from 'react-syntax-highlighter';
 // import { atomOneDark as highlightTheme } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import highlightTheme from 'prism-react-renderer/themes/duotoneDark';
 
 const cardExpansion = {
@@ -144,10 +144,9 @@ export const CodeBlock: React.FC<{ className: string, children: string }> = ({ c
     // );
 
     return (
-        //eslint-disable-next-line
-        <Highlight {...defaultProps} code={children.trim()} language={match[1]} theme={undefined}>
+        <Highlight {...defaultProps} code={children.trim()} language={match[1] as Language} theme={undefined}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <Theme.Pre className={className}>
+                <Theme.Pre className={className} style={style}>
                     {tokens.map((line, i) => (
                         <Theme.Line key={i} {...getLineProps({ line, key: i })}>
                             <Theme.LineCode>
