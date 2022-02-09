@@ -19,9 +19,9 @@ pre[class*="language-"] {
 	color: var(--colors-white);
 }
 
-pre > code[class*="language-"] {
+/* pre > code[class*="language-"] {
     font-size: 1em;
-}
+} */
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection {
@@ -71,7 +71,8 @@ code[class*="language-"]::selection, code[class*="language-"] ::selection {
 .token.number,
 .token.boolean,
 .token.url {
-	color: #2dc995;
+	/* color: #2dc995; */
+	color: var(--colors-greenHover)
 }
 
 .token.tag,
@@ -114,7 +115,8 @@ code.language-scss,
 .token.placeholder,
 .token.variable,
 .token.operator,
-.token.property {
+.token.property,
+.token.string-interpolation.interpolation {
 	color: #3c9ad8;
 }
 

@@ -20,8 +20,7 @@ export const { styled, getCssText, createTheme, globalCss } = createStitches({
         lightBackground: '#1f1f30',
         slideshowForeground: '#1f1f30',
         background: '#181820',
-        codeblockBackground: '#1b232c',
-        // background: '#553131',
+        codeblockBackground: '#222931',
         navBackground: '#1b1b24',
         dropdownBackground: '#141414',
         dropdownBorder: '#303030',
@@ -94,7 +93,7 @@ export const lightTheme = createTheme(({
       'linear-gradient(93.05deg, #EF9797 3.98%, rgba(206, 126, 199, 0.801616) 35.29%, #A364D6 68.78%, #A1D0F9 97.44%)',
     dividerColorGreen: '#31d488',
     greenColor: '#aceec23f',
-    greenHover: '#67b48a'
+    greenHover: '#5cc28a'
   }, 
   shadows: {
     medium: '0px 4px 12px #a09cb37f, 0px 8px 24px #b1aec7ff',
