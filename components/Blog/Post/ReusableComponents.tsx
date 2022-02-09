@@ -146,7 +146,7 @@ export const CodeBlock: React.FC<{ className: string, children: string }> = ({ c
     return (
         <Highlight {...defaultProps} code={children.trim()} language={match[1] as Language} theme={undefined}>
             {({ className, style, tokens, getLineProps, getTokenProps }) => (
-                <Theme.Pre className={className} style={style}>
+                <Theme.Pre className={className}>
                     {tokens.map((line, i) => (
                         <Theme.Line key={i} {...getLineProps({ line, key: i })}>
                             <Theme.LineCode>

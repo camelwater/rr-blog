@@ -118,13 +118,10 @@ async def _hi_command(
 
 Try using the slash command `/say_hi`! You should be able to specify another user to say "hi" to, and the bot will greet someone else for you. 
 
-See? You've just created a Discord bot that can use slash commands! If you want to add message-based commands to your bot, replace the `@slash_command` decorator with the `@commands.command` decorator:
+See? You've just created a Discord bot that can use slash commands! If you want to add message-based commands to your bot, replace the `@bot.slash_command` decorator with the `@bot.command` decorator:
 
 ```python
-import discord
-from discord import commands # import the commands module
-
-@commands.command(
+@bot.command(
   name="goodbye",
   description="Say goodbye",
   aliases=["bye"]

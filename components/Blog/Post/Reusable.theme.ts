@@ -285,7 +285,7 @@ export const Pre = styled('pre', {
     padding: '1.5em',
     overflow: 'auto',
     maxHeight: '45rem',
-    fontSize: '1rem',
+    fontSize: 'calc(1rem)',
     transition: '150ms linear',
     '&::-webkit-scrollbar': {
         width: '12px',
