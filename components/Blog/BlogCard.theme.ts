@@ -109,6 +109,7 @@ export const ImgContainer = styled('div', {
         maxWidth: '40%'
     },
     '@iPad': {
+        minWidth: '100%',
         maxWidth: '100%',
         // height: '25rem'
     },
@@ -137,7 +138,7 @@ export const TextContainer = styled('div', {
         alignItems: 'center',
         padding: 0,
         paddingTop: '.5rem',
-        paddingBottom: '1rem'
+        paddingBottom: '.5rem'
     },
     '@media screen and (max-width: 500px)': {
         paddingTop: 0

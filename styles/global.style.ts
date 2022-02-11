@@ -6,7 +6,6 @@ const globalStyle = globalCss({
     margin: 0,
     padding: 0,
     boxSizing: 'border-box',
-    // cursor: 'none !important',
     scrollBehavior: 'smooth',
 
   },
@@ -16,7 +15,6 @@ const globalStyle = globalCss({
   html: {
     overflowX: 'hidden',
     height: '100%',
-    
   },
   body: {
     background: '$background',

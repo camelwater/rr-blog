@@ -24,6 +24,6 @@ export const Slider = styled('div', {
 export const IMG = styled('img', {
     width: '100%',
     height: '100%',
-    // objectFit: 'contain',
+    objectFit: 'cover',
     opacity: '0.25',
 })
