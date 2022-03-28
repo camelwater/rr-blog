@@ -1,6 +1,5 @@
 import { useState, useEffect, useRef } from "react";
 
-
 /**
  * A hook to determine which section of the page is currently in the viewport.
  * @param {*} itemIds Array of document ids to observe

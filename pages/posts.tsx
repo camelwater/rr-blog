@@ -11,7 +11,7 @@ const BlogPage: React.FC<{ blogData }> = ({ blogData }) => {
     return (
         <>
             <Head>
-                <title>RR. | Blog</title>
+                <title>Posts | RR.</title>
             </Head>
             <SmoothScroll />
             <NavigationComponent />

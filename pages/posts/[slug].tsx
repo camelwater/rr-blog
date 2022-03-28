@@ -12,7 +12,7 @@ const BlogPage: React.FC<{  blogData }> = ({ blogData }) => {
     return (
         <>
             <Head>
-                <title>RR. | {blogData.title}</title>
+                <title>{blogData.title} | RR.</title>
             </Head>
             <SmoothScroll />
             <NavigationComponent />

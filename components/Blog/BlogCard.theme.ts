@@ -61,7 +61,7 @@ export const StyledImage = styled('img', {
     height: '100%',
     objectFit: 'cover',
     justifyContent: 'center',
-    transition: '.2s linear',
+    transition: '.4s linear',
     '@iPad': {
         // width: 'fit-content',
         // height: 'min-content'
@@ -118,7 +118,7 @@ export const ImgContainer = styled('div', {
             opacity: '0.25',
         },
         [`${StyledImage}`]: {
-            transform: 'scale(1.1, 1.1)',
+            transform: 'scale(1.05, 1.05)',
         }
     }
 })

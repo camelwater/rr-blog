@@ -9,7 +9,7 @@ const AboutPage: React.FC = () => {
     return (
         <>
             <Head>
-                <title>RR. | About</title>
+                <title>About| RR.</title>
             </Head>
             <SmoothScroll />
             <NavigationComponent />

@@ -1,0 +1,503 @@
+---
+title: MDX and Table of Contents in NextJS
+subTitle: null
+description: Are you creating a blog? Or maybe a documentation page? It can be really cumbersome to organize this sort of static content, but luckily, MDX exists, and it makes things a whole lot more straightforward.
+date: March 22, 2022
+img: mdx-toc.png
+topics: [JS, Next, MDX, React]
+---
+
+![MDX & TOC in Next](/assets/images/mdx-toc.png "MDX & TOC in Next")
+
+When I was building this blog, one of the biggest problems I faced was content management. How was I going to organize my blog post content?
+
+Surely, I wasn't going to type my blogs directly in JSX -- that would be extremely inefficient and idiotic. 
+
+I thought about using text files or something, but then it would be a lot more difficult to add components, images, and so on to my posts.
+
+What I needed was a system that would allow me to type out the content very easily, edit said content very simply, and incorporate React components directly within the system.
+
+## MD and MDX
+
+![MDX](https://i0.wp.com/css-tricks.com/wp-content/uploads/2020/03/mdx.png?fit=1200%2C600&ssl=1 "MDX")
+
+If you're unfamiliar with <a href='https://www.markdownguide.org/' target='_blank'>Markdown</a>, you probably should make yourself familiar with it.
+
+It's an incredibly simple yet powerful markup language -- extremely useful for documentation. It's why you'll see it everywhere on GitHub.
+
+What's even better is HTML tags can be used in Markdown, which is perfect for making static content for web pages.
+
+That means, you can create headers, unordered lists, paragraphs, etc., and MD can be converted to HTML with the help of some useful Node packages.
+
+Well, this is pretty much what I want, but there's still one critical piece that's still missing. 
+
+*I can't use JSX.* Meaning, I can't insert custom React components into Markdown.
+
+<InfoCardComponent title='A custom component' previewContent={'A custom component like this one! I can define this component directly in my MDX file. Pretty cool.'} />
+
+But wait, what's MDX?
+
+**MDX**: Markdown that can have JSX embedded directly into it, which then compiles into JavaScript. Which can have your custom React components embedded. Which means I can have my React component `<InfoCard>` in my MDX file. That's pretty neat.
+
+## Incorporating MDX with Next
+
+Because you can use JSX *in* MDX, this means you can actually discard all your JSX files if you'd like and replace them with MDX files. For example, if you're using React, in your `pages` directory, you can have an `index.mdx` instead of an `index.js`.
+
+But here, I want to use it as a content management system. I want to be able to modularize my blog content, to be able to separate it from my actual code.
+
+Essentially what we're doing then is creating a separate directory where we'll store all our blog content (ie. MDX files), and later have that content fetched at build time.
+
+Before the content can be fetched, however, it must be converted into JSX. In order to do so, we need some help from an MDX compiler package. 
+
+I used <a href="https://github.com/hashicorp/next-mdx-remote" target="_blank">next-mdx-remote</a> for this blog, but there are several other popular packages as well, and they are all quite similar in how they work.
+
+## next-mdx-remote
+
+### Compiling MDX at build time
+
+One of the coolest things about Next is that server-side and client-side code can be placed in the same file (which is great for organizational purposes), which Next will then split accordingly.
+
+For example:
+
+```jsx
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
+
+import Test from '../components/test';
+
+const components = { Test };
+
+//Runs on client-side, and is included in the browser bundle
+export default function TestPage({ source }) {
+  return (
+    <div>
+      <MDXRemote {...source} components={components} />
+    </div>
+  );
+}
+
+// Runs on server-side, and will not be included in the browser bundle
+export async function getStaticProps() {
+  // MDX text (from local MDX file)
+  const source = getBlogContent();
+  const mdxSource = await serialize(source);
+  return { props: { source: mdxSource } };
+};
+```
+
+You can see here the two separate steps that next-mdx-remote is being used for: the compilation and the rendering of MDX.
+
+The compilation of MDX is done by `serialize` in `getStaticProps`, while the rendering of the MDX is done with the `<MDXRemote>` component.
+
+The only thing left to do now is to correctly read the MDX files and pass the raw content to the `serialize` method (basically implementing `getBlogContent` in the code example above).
+
+```jsx
+// lib/getBlogData.js
+
+import * as fs from 'fs';
+import * as path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+
+const blogsDir = path.join(process.cwd(), 'content'); // location of MDX files (blog content)
+
+export const getBlogContent = async (slug: string) => {
+    const fullPath = path.join(blogsDir, slug + '.mdx');
+    const fileContent = fs.readFileSync(fullPath, 'utf8');
+    const fileMatter = matter(fileContent);
+    const frontmatter = fileMatter.data; // front matter of MDX file
+    const rawContent = fileMatter.content
+   
+    const code = await serialize(fileMatter.content); // compile MDX
+
+    return {
+        slug,
+        readingTime,
+        rawContent,
+        code,
+        ...frontmatter,
+    };
+}
+```
+
+`getBlogContent` will now grab an MDX file and compile it so that it can now be passed as a prop to a React component.
+
+But if you looked closely at `getBlogContent`, you may have noticed that it accepts a `slug` parameter. Yet, in the code sample earlier, the `getBlogContent` call did not pass any parameters.
+
+That's because `getBlogContent` compiles the MDX of *one* MDX file. In the event that you have multiple MDX files (ie. multiple blog posts), you will need to compile every single file.
+
+### Dynamic Routing and getStaticPaths()
+
+With some <a href="https://nextjs.org/docs/routing/dynamic-routes" target="_blank">dynamic routing</a>, and Next's <a href="https://nextjs.org/docs/basic-features/data-fetching/get-static-paths" target="_blank">`getStaticPaths`</a>, you can fetch all of your blog posts' content at build time.
+
+In the same file where you have `getStaticProps` to fetch the compiled MDX (as well as the dynamic route of your blog page), you must also have a `getStaticPaths` method. `getStaticPaths` prerenders all the static paths that will be passed to `getStaticProps`, so that `getBlogContent` can be called for each individual MDX file.
+
+```jsx
+// pages/[slug].js <- this can be named anything you'd like (postId, postSlug, or whatever), just make sure it matches with your `getStaticProps` method parameter
+
+import { getBlogContent, getBlogPaths } from '@lib/blogData';
+import Head from 'next/head';
+import React from 'react';
+
+const components = { Stuff } // your custom components that you use in your MDX file (THIS WILL BE USED LATER)
+
+// this is the actual blog page (the code)
+const BlogPage: React.FC<{ blogData }> = ({ blogData }) => {
+    return (
+        <>
+            <Head>
+                <title>{blogData.title}</title>
+            </Head>
+            {/* Blog stuff (such as the title, the navigation menu, etc.) */}
+            <MDXRemote {...blogData.code} components={components} /> {/* This is your rendered MDX */} 
+            {/* Other Blog stuff */}
+        </>
+    );
+} 
+
+// gets all your local MDX blog file paths
+export const getStaticPaths = async() => {
+    const paths = getBlogSlugs();
+
+    return {
+        paths,
+        fallback: false
+    }
+}
+
+// compiles the MDX of a blog file and passes the compiled MDX (and other data, such as title, date, etc.) as a prop to the `BlogPage` component
+//make sure the parameter of this method matches with your dynamic route -- if your dynamic route is [blogSlug].js, then your parameter would be { params: { blogSlug } }
+export const getStaticProps = async({ params }: { params: { slug: string } }) => { 
+    const blogData = await getBlogContent(params.slug);
+    return {
+        props: {
+            blogData
+        }
+    }
+}
+```
+
+The last thing you need is `getBlogSlugs`, which returns a list of all your blog slugs (in this case, we need the name of the MDX files).
+
+```js
+
+// lib/blogData.js
+
+const blogsDir = path.join(process.cwd(), 'content');
+
+export const getBlogIDs = () => {
+  const fileNames = fs.readdirSync(blogsDir); // get list of all file names in directory
+  return fileNames.map(fileName => {
+    
+    // The returned object must match with your `getStaticProps` parameter
+    return {
+      params: { 
+        slug: fileName.replace(/\.mdx$/, '') // regex to delete the '.mdx' from the file name
+      }
+    }
+  })
+}
+```
+
+And that's it. Now you can write up your blogs on an MDX file and insert your own custom React components in these files, and the changes on your MDX file will reflect on your website whenever it is built.
+
+## Table of Contents
+
+>IMAGE HERE
+
+The next thing I wanted to add to my blog was a Table of Contents for each post. 
+
+It's a lot better when a table of contents is present if you're searching for a particular thing within a blog post, especially if the blog post is long.
+
+Unfortunately, adding a nice table of contents into your blog posts isn't as straightforward as using a package -- at least not when using Next.
+
+In Gatsby, you can use the Gatsby GraphQL plugin and it will give you the table of contents object. 
+
+In Next, we'll need to do some hacking and manipulation ourselves.
+
+### Finding the headers
+
+In figuring out how to create a table of contents, we must decide what a table of contents is made up of.
+
+In a book, it's chapters that make up the table of contents. For a blog post, it's up to you. 
+
+The table of contents definitely needs the main section titles (whether that's an `<h1>` or `<h2>` or whatever). But if you want to also include the subheadings, then that's also great.
+
+I only use 2 headings in my blogs: `<h2>` and `<h3>`, and I use both in my table of contents.
+
+Like I said before, Markdown works very well with HTML: you can use HTML tags in Markdown, or you can use the Markdown equivalents (which is recommended).
+
+Headers in Markdown are determined by the `#` character: a single pound symbol is equivalent to the `<h1>` tag, three pound symbols are equivalent to the `<h3>` tag -- you get the idea.
+
+For instance, an H1 header in Markdown titled "Big header" would look like this: `# Big Header`.
+
+And since headers are on their own lines, you can iterate through the lines of the files, use some regular expressions to figure out if the line is a header, and then extract the header names to later insert as elements of your table of contents.
+
+```js
+const headerRegExp = /^###*\s/;
+
+function getTOC( rawText: string ) {
+    const headingLines = rawText // `rawText` is a blog post's file content (not compiled by an MDX compiler)
+        .split('\n')
+        .filter((line) => {
+            return line.match(headerRegExp); // only keep lines that are headers (begin with hashtags)
+        })
+        .map((line) => {
+            return line.trim();
+        });
+
+    let tocArray = [];
+
+    // iterate through each line
+    headingLines.forEach((line) => {
+        let header = line.replace(headerRegExp, '').trim(); // get rid of the hashtags at the beginning (this is the header title that will be displayed in the table of contents)
+        let hashtagLoc = line.split(' ')[0]; // just in case the header has hashtags in it (for example, the header is `## #relatable` - the third hashtag is not part of the header tag, it's part of the actual header)
+        const level = hashtagLoc.match(/#/g)||[]).length; //get number of #'s (figure out if it's h1, h2, etc.)
+        if ([2, 3].includes(level)) // only using h2 and h3 in my blog
+            tocArray.push({ header, level });
+    });
+    
+    return tocArray;
+}
+```
+
+You can then use this array of headers to create your own `TableOfContents` component.
+
+```jsx
+import Link from 'next/link';
+
+export const TableOfContents: React.FC<{ textSource: string }> = ({ textSource }) => {
+    const tocItems = getTOC(textSource);
+
+    return (
+        <div className='wrapper'>
+            <h2>Table of Contents</h2>
+            <div className='items'>
+            {
+                tocItems.map((header, index) => (
+                    <Link href={'#'+slugify(header)} passHref><a>{header}</a></Link> // `slugify()` just replaces spaces with hyphens
+                ))
+            }
+            </div>
+        </div>
+    );
+}
+```
+
+There's just one more thing that would top off this table of contents.
+
+### Showing the active section
+
+A last addition that would be great is to highlight, bold, or somehow show the user which section/header they are currently reading.
+
+>IMAGE HERE
+
+Luckily, most of the more difficult parts of the table of contents is done and this is a relatively straightforward addition to what we've already done.
+
+We just need to add something that tracks all of the header slugs and checks which one is intersecting with the client's viewport.
+
+
+```jsx
+/**
+ * @param header the raw header with the title and ID
+ * @returns the slugified header title
+ */
+export function getHeaderID( header: string ) {
+    headerID = slugify(headerID);
+    return headerID;
+}
+
+function getTOC( rawText: string ) {
+    const headingLines = rawText
+        .split('\n')
+        .filter((line) => {
+            return line.match(headerRegExp);
+        })
+        .map((line) => {
+            return line.trim();
+        });
+
+    let tocArray = [];
+    let idArray = []; // we will use this array later
+
+    headingLines.forEach((line) => {
+        let header = line.replace(headerRegExp, '').trim(); 
+        const id = getHeaderID(header); // get the header id
+        let hashtagLoc = line.replace(`{#${id}}`, '').split(' ')[0];
+        const level = (hashtagLoc.match(/#/g)||[]).length; 
+        if ([2, 3].includes(level)) {
+            tocArray.push({ header, id, level }); // add the header id to the object
+            idArray.push(id);
+        }
+    })
+    
+    return { tocArray, idArray };
+}
+
+export const TableOfContents: React.FC<{ textSource: string }> = ({ textSource }) => {
+    const toc = getTOC(textSource);
+    const tocItems = toc.tocArray;
+    const titleIds = toc.idArray;
+    const activeHeader = useActiveHeader(titleIds); // we will create a React hook that will check which header is present in the viewport using the array of header IDs
+
+    return (
+        <div className='wrapper'>
+            <h2>Table of Contents</h2>
+            <div className='items'>
+            {
+                tocItems.map((header, index) => (
+                    <Link href={'#'+slugify(header)} passHref className={activeHeader === slugify(header)?'active':''}> {/* If it is the active header apply a different style to the header*/}
+                        <a>{header}</a>
+                    </Link>
+                ))
+            }
+            </div>
+        </div>
+    );
+}
+```
+
+All we've added is an array of header IDs, which in this case is just the slugified header (eg. `some header` becomes `some-header`).
+
+Now we need to implement the <a href='https://reactjs.org/docs/hooks-reference.html' target='_blank'>React hook</a> that will determine which header is currently in the viewport (and therefore which section they are currently reading).
+
+```js
+// hooks/useActiveHeader.js
+
+import { useState, useEffect, useRef } from "react";
+
+
+/**
+ * A hook to determine which section of the page is currently in the viewport.
+ * @param {*} itemIds Array of document ids to observe
+ * @param {*} rootMargin
+ * @returns id of the element currently in viewport
+ */
+export const useActiveHash = (itemIDs: string[], rootMargin = `0% 0% -40% 0%`) => {
+    const headingElementsRef = useRef({}); // https://reactjs.org/docs/hooks-reference.html#useref
+    const [activeHeader, setActiveHeader] = useState(''); // https://reactjs.org/docs/hooks-reference.html#usestate
+
+    useEffect(() => { // https://reactjs.org/docs/hooks-reference.html#useeffect
+        const callback = (entries) => {
+            headingElementsRef.current = entries.reduce((map, headingElement) => { // creates a hashmap with heading elements' IDs as keys to the heading elements themselves
+                map[headingElement.target.id] = headingElement;
+                return map;
+            }, headingElementsRef.current);
+
+            let visibleHeadings = [];
+            Object.keys(headingElementsRef.current).forEach((key) => { // iterate through the header elements and check if it is visible in the viewport
+                const element = headingElementsRef.current[key];
+                if (element.isIntersecting) { // checks if element is in viewport
+                    visibleHeadings.push(element);
+                }
+            });
+
+            if (visibleHeadings.length>0) { // set a header as the active header
+                setActiveHeader(visibleHeadings[visibleHeadings.length-1].target.id);
+            }
+        };
+
+        const observer = new IntersectionObserver( // initialize the IntersectionObserver
+            callback,
+            { rootMargin: rootMargin }
+        );
+
+
+        itemIDs.forEach((id) => { // add header elements to the IntersectionObserver if the header ID refers to a valid header
+            if (document.getElementById(id) !== null) {
+                observer.observe(document.getElementById(id));
+            }
+        });
+
+        return () => { // unobserve everything and disconnect when no longer being used
+            itemIDs?.forEach((id) => {
+                if (document.getElementById(id) !== null) {
+                    observer.unobserve(document.getElementById(id));
+                }
+            });
+            observer.disconnect();
+        }
+
+    }, [itemIDs, rootMargin]);
+    return activeHeader;
+}
+```
+
+Finally, we need to make the items in the Table of Contents actually link to the proper header. Currently, if you click on an item in the table of contents, nothing probably happens.
+
+That's because even though the headers link to stuff, the header elements do not yet have an ID themselves.
+
+We need to give the header elements an ID: `<div id='some-id'>header</div>`. A simple way to do this is to create custom header components that we will pass to the MDXRemote renderer.
+
+```jsx
+// wherever you render the MDX (ie. pages/[slug].jsx in this example)
+
+const Header2 = props => {
+    <h2 id={slugify(props.children)}>
+        {props.children}
+    </h2>
+}
+
+const Header3 = props => {
+    <h3 id={slugify(props.children)}>
+        {props.children}
+    </h3>
+}
+```
+
+I mentioned this earlier, but you can provide custom components to next-mdx-remote (and most other MDX renderers). You can use these components two ways. The first, I already mentioned--you can add custom components to be used directly in the MDX file. 
+
+The second one, however, is to replace standard HTML elements with custom ones. That's exactly what we need: we want to replace the standard h2 and h3 elements that next-mdx-remote usually compiles to with our custom `Header2` and `Header3` components.
+
+So we add our header components together with next-mdx-remote's custom components, and...
+
+```jsx
+// pages/[slug].jsx
+
+import { getBlogContent, getBlogPaths } from '@lib/blogData';
+import Head from 'next/head';
+import React from 'react';
+
+const Header2 = props => {
+    <h2 id={slugify(props.children)}>
+        {props.children}
+    </h2>
+}
+
+const Header3 = props => {
+    <h3 id={slugify(props.children)}>
+        {props.children}
+    </h3>
+}
+
+const components = { 
+    h2: Header2,
+    h3: Header3
+ } // map h2 and h3 to the custom components
+
+// this is the actual blog page (the code)
+const BlogPage: React.FC<{ blogData }> = ({ blogData }) => {
+    return (
+        <>
+            <Head>
+                <title>{blogData.title}</title>
+            </Head>
+            {/* Blog stuff (such as the title, the navigation menu, etc.) */}
+            <MDXRemote {...blogData.code} components={components} /> {/* provide the `components` object to the renderer */} 
+            {/* Other Blog stuff */}
+        </>
+    );
+} 
+
+// getStaticPaths() and getStaticProps() ...
+```
+
+... that's it. As someone who began working on this blog without too much experience with React/Next, having to implement many things myself and learn React hooks without the help of libraries seemed quite intimidating. 
+
+But it turned out to be somewhat easier than I had originally envisaged. It just goes to show, if you know how to find resources, if you know how to learn, and if you've got the basic knowledge down, complicated things become very doable if you take some time.
+
+The problem is that it's sometimes difficult to find straightforward, accessible, and aggregated useful content. 
+
+I'm not a great JavaScript developer, and I'm not a great web developer, but it's fun, and I enjoy learning about it. 
+
+Hopefully, if you were struggling with this, then this post helped at least a bit. Happy coding.

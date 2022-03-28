@@ -50,10 +50,12 @@ function getTOC( rawText: string ) {
         let header = line.replace(headerRegExp, '').trim(); // get rid of the hashtags at the beginning
         const id = getHeaderID(header);
         header = trimHeader(header); // get rid of ID tag
-        const level = (line.replace(`{#${id}}`, '').match(/#/g)||[]).length; //get number of #
-        if ([2, 3].includes(level)) // only using h2 and h3
+        let hashtagLoc = line.replace(`{#${id}}`, '').split(' ')[0];
+        const level = (hashtagLoc.match(/#/g)||[]).length; //get number of #
+        if ([2, 3].includes(level)) {// only using h2 and h3
             tocArray.push({ header, id, level });
             idArray.push(id);
+        }
     })
     
     return { tocArray, idArray };

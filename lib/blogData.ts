@@ -3,11 +3,6 @@ import * as path from 'path';
 import matter from 'gray-matter';
 import time from 'reading-time';
 import { serialize } from 'next-mdx-remote/serialize';
-// import { bundleMDX } from 'mdx-bundler';
-// import rehypeSlug from 'rehype-slug';
-// import rehypeCodeTitles from 'rehype-code-titles';
-// import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-// import rehypePrism from 'rehype-prism-plus';
 
 const blogsDir = path.join(process.cwd(), 'content');
 
@@ -35,12 +30,12 @@ export const getAllBlogsData = () => {
     });
   
     return blogs.sort((a, b) => {
-      return a.date - b.date;
-      // if (a.date < b.date) {
-      //   return 1
-      // } else {
-      //   return -1
-      // }
+      if (a.date < b.date) {
+        return 1;
+      }
+      else {
+        return -1;
+      }
     });
 }
 
@@ -50,26 +45,7 @@ export const getBlog = async (slug: string) => {
     const fileMatter = matter(fileContent);
     const frontmatter = fileMatter.data;
     const rawContent = fileMatter.content
-    // const { code, frontmatter } = await bundleMDX({
-    //   source: fileContent, 
-    //   xdmOptions(options) {
-    //     options.rehypePlugins = [
-    //       ...(options?.rehypePlugins ?? []),
-    //       rehypeSlug,
-    //       rehypeCodeTitles,
-    //       rehypePrism,
-    //       [
-    //         rehypeAutolinkHeadings,
-    //         {
-    //           properties: {
-    //             className: ['anchor']
-    //           }
-    //         }
-    //       ]
-    //     ];
-    //     return options;
-    //   }
-    // });
+   
     const code = await serialize(fileMatter.content);
     const readingTime = Math.floor(time(rawContent).minutes) + 1
 

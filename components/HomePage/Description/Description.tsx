@@ -22,8 +22,8 @@ const items = [
         link: 'https://framer.com/motion'
     },
     {
-        name: "React Syntax Highlighter",
-        link: 'https://github.com/react-syntax-highlighter/react-syntax-highlighter'
+        name: "Prism",
+        link: 'https://github.com/PrismJS/prism'
     },
     {
         name: 'next-mdx-remote',
@@ -112,7 +112,7 @@ const DescriptionComponent: React.FC = () => {
                     animateOnce={true}
                     animatePreScroll={false}
                     duration={0.5}
-                    delay={150}
+                    delay={100}
                     >
                         <Theme.DescText>
                             This is a website developed by myself in{' '}
@@ -134,6 +134,17 @@ const DescriptionComponent: React.FC = () => {
                             }
                         </Theme.ItemGrid>
                     </Theme.ItemGridContainer>
+                    <ScrollAnimation
+                        animateIn='animate__fadeInUp'
+                        animateOnce={true}
+                        animatePreScroll={false}
+                        duration={0.5}
+                        delay={150}
+                    >
+                        <Theme.DescText>
+                            This is a place for me to dump my thoughts on topics I find interesting, a place for me to document and discuss my coding adventures and struggles, and a place that hopefully provides some unique perspectives and useful help.
+                        </Theme.DescText>
+                    </ScrollAnimation>
                 </Theme.TextContainer>
                 <Divider />
                 <ScrollAnimation

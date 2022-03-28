@@ -8,7 +8,7 @@ const NotFoundPage: React.FC = () => {
     return (
         <>
             <Head>
-                <title>RR. | 404</title>
+                <title>404 | RR.</title>
             </Head>
             <NavigationComponent />
             <ErrorComponent />

@@ -62,12 +62,13 @@ export const ItemGridContainer = styled('div', {
     justifyContent: 'flex-start',
     alignItems: 'center',
     width: '100%',
+    marginBottom: 40,
     '@iPadPro': {
         // justifyContent: 'center',
     },
     '@iPhone': {
         justifyContent: 'center'
-    }
+    },
 })
 
 export const ItemGrid = styled(motion.div, {
