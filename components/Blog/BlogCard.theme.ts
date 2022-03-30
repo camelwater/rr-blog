@@ -114,10 +114,10 @@ export const ImgContainer = styled('div', {
         // height: '25rem'
     },
     '&:hover': {
-        [`${ImageHoverDarken}`]: {
+        [`& ${ImageHoverDarken}`]: {
             opacity: '0.25',
         },
-        [`${StyledImage}`]: {
+        [`& ${StyledImage}`]: {
             transform: 'scale(1.05, 1.05)',
         }
     }
