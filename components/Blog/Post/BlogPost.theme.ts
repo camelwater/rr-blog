@@ -132,8 +132,12 @@ export const PostContainer = sstyled('article', {
         marginBottom: '1.5rem',
         // border: '1px solid white'
     },
-    a: {
-        fontSize: 'calc(1.25rem)',
+    // a: {
+    //     // fontSize: 'calc(1.25rem)',
+    // },
+    sup: {
+        fontSize: '.9rem',
+        marginLeft: '.25rem'
     }
     
 })
