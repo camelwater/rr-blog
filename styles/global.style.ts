@@ -31,7 +31,7 @@ const globalStyle = globalCss({
     color: '$hover',
     position: 'relative',
     textDecoration: 'none',
-    zIndex: 9999,
+    zIndex: 999,
     paddingTop: '0.1rem',
     paddingBottom: '0.1rem',
     background: 'linear-gradient(0deg, $dividerColor, $dividerColor) no-repeat left bottom / 0 .1rem',
