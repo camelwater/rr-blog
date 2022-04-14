@@ -108,6 +108,11 @@ const NavigationComponent: React.FC<{isHome?: boolean}> = ({isHome}) => {
                         </NavBar.NavItems>
                     </NavBar.LinksContainer>
                     <NavBar.RightLinksContainer>
+                        <Link passHref href='https://www.globalgiving.org/projects/ukraine-crisis-relief-fund/'>
+                            <a style={{fontSize: '1rem'}}>
+                                I stand with Ukraine
+                            </a>
+                        </Link>
                         <NavBar.ButtonLink 
                             variant='desktop'
                             href='https://www.github.com/camelwater/rr-blog' target='_blank'
