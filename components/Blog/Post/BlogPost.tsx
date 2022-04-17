@@ -47,6 +47,7 @@ const mdxComponents = {
 
 const BlogPost: React.FC<{ blogData }> = ({ blogData }) => {
     // const MDXComponent = getMDXComponent(blogData.code);
+    blogData.topics.sort();
 
     return (
         <Theme.Container>

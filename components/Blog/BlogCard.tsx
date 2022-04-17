@@ -26,6 +26,7 @@ export const BlogCard: React.FC<Card> = ({
     topics
 }) => {
     const imgSrc = '/assets/images/' + img;
+    topics.sort();
 
     return (
         <Theme.CardContainer>
