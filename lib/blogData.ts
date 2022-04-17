@@ -19,18 +19,17 @@ export const getAllBlogsData = () => {
   
       const fileMatter = matter(fileContents)
       const readingTime = Math.floor(time(fileMatter.content).minutes) + 1
-      const date = Date.parse(fileMatter.data.date);
-      
+      const compDate = Date.parse(fileMatter.data.date);
       return {
         id,
         readingTime,
-        date,
+        compDate,
         ...fileMatter.data,
       }
     });
   
     return blogs.sort((a, b) => {
-      if (a.date < b.date) {
+      if (a.compDate < b.compDate) {
         return 1;
       }
       else {
