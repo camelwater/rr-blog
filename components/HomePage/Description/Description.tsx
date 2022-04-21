@@ -161,7 +161,7 @@ const DescriptionComponent: React.FC = () => {
                 <Theme.TextContainer initial='hidden' whileInView='visible' viewport={{ once: true }} variants={parentVariants2}>  
                     <Theme.DescText variants={fadeUpVariants2}>
                         I wanted to merge my passion for programming 
-                        and my newfound interest in front-end web development with the creative, explorative endeavours of writing.
+                        and my newfound interest in front-end web development with some exploration and creativity.
                     </Theme.DescText>
                     <Theme.DescText variants={fadeUpVariants2}>
                         And this is what came to be.

@@ -61,7 +61,7 @@ export const StyledImage = styled('img', {
     height: '100%',
     objectFit: 'cover',
     justifyContent: 'center',
-    transition: '.4s linear',
+    transition: '.25s linear',
     '@iPad': {
         // width: 'fit-content',
         // height: 'min-content'
