@@ -10,7 +10,7 @@ const HomeComponent: React.FC<{ images }> = ({ images }) => {
             <BackgroundSlideshow images={images}/>
             <Theme.IntroContainer>
                 <Theme.NameText>RR.</Theme.NameText>
-                <Theme.IntroText>Ryan&apos;s Ramblings On Some Cool Stuff</Theme.IntroText>
+                <Theme.IntroText>Ryan&apos;s Ramblings On Some Stuff</Theme.IntroText>
             </Theme.IntroContainer>
         </Theme.Container>
 
