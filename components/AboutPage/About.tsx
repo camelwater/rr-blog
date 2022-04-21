@@ -23,7 +23,7 @@ const AboutComponent: React.FC = () => {
                     <Theme.Paragraph>
                         <Link href='/#context' passHref>
                             <Theme.LinkText>
-                                What is this and why?
+                                What&apos;s this website?
                             </Theme.LinkText>
                         </Link>
                     </Theme.Paragraph>
