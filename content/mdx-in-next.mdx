@@ -1,0 +1,204 @@
+---
+title: MDX in Next.js
+subTitle: null
+description: Are you creating a blog? Or maybe a documentation page? It can be really cumbersome to organize this sort of static content, but luckily, MDX exists, and it makes things a whole lot more straightforward.
+date: March 22, 2022
+img: mdx.png
+topics: [JS, Next.js, MDX, React]
+---
+
+![MDX in Next](/assets/images/mdx.png "MDX in Next")
+
+When I was building this blog, one of the biggest problems I faced was content management. How was I going to organize my blog post content?
+
+Surely, I wasn't going to type my blogs directly in JSX -- that would be extremely inefficient and idiotic. 
+
+I thought about using text files or something, but then it would be a lot more difficult to add components, images, and so on to my posts.
+
+What I needed was a system that would allow me to type out the content very easily, edit said content very simply, and incorporate React components directly within the system.
+
+## MD and MDX
+
+![MDX](https://i0.wp.com/css-tricks.com/wp-content/uploads/2020/03/mdx.png?fit=1200%2C600&ssl=1 "MDX")
+
+If you're unfamiliar with <a href='https://www.markdownguide.org/' target='_blank'>Markdown</a>, you probably should make yourself familiar with it.
+
+It's an incredibly simple yet powerful markup language -- extremely useful for documentation. It's why you'll see it everywhere on GitHub.
+
+What's even better is HTML tags can be used in Markdown, which is perfect for making static content for web pages.
+
+That means, you can create headers, unordered lists, paragraphs, etc., and MD can be converted to HTML with the help of some useful Node packages.
+
+Well, this is pretty much what I want, but there's still one critical piece that's still missing. 
+
+*I can't use JSX.* Meaning, I can't insert custom React components into Markdown.
+
+<InfoCardComponent title='A custom component' previewContent={'A custom component like this one! I can define this component directly in my MDX file. Pretty cool.'} />
+
+But wait, what's MDX?
+
+**MDX**: Markdown that can have JSX embedded directly into it, which then compiles into JavaScript. Which can have your custom React components embedded. Which means I can have my React component `<InfoCard>` in my MDX file. That's pretty neat.
+
+## Incorporating MDX with Next
+
+Because you can use JSX *in* MDX, this means you can actually discard all your JSX files if you'd like and replace them with MDX files. For example, if you're using React, in your `pages` directory, you can have an `index.mdx` instead of an `index.js`.
+
+But here, I want to use it as a content management system. I want to be able to modularize my blog content, to be able to separate it from my actual code.
+
+Essentially what we're doing then is creating a separate directory where we'll store all our blog content (MDX files), and later have that content fetched at build time.
+
+![Project directory tree](/assets/images/mdx-in-next/workspace.png "Project directory tree")
+
+Before the content can be fetched, however, it must be converted into JSX. In order to do so, we need some help from an MDX compiler package. 
+
+I used <a href="https://github.com/hashicorp/next-mdx-remote" target="_blank">next-mdx-remote</a> for this blog, but there are several other popular packages as well, and they are all quite similar in how they work.
+
+## Compiling MDX at build time
+
+One of the coolest things about Next is that server-side and client-side code can be placed in the same file (which is great for organizational purposes), which Next will then split accordingly.
+
+For example:
+
+```jsx
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote } from 'next-mdx-remote';
+
+import Test from '../components/test';
+
+const components = { Test };
+
+//Runs on client-side, and is included in the browser bundle
+export default function TestPage({ source }) {
+  return (
+    <div>
+      <MDXRemote {...source} components={components} />
+    </div>
+  );
+}
+
+// Runs on server-side, and will not be included in the browser bundle
+export async function getStaticProps() {
+  // MDX text (from local MDX file)
+  const source = getBlogContent();
+  const mdxSource = await serialize(source);
+  return { props: { source: mdxSource } };
+};
+```
+
+You can see here the two separate steps that next-mdx-remote is being used for: the compilation and the rendering of MDX.
+
+The compilation of MDX is done by `serialize` in `getStaticProps`, while the rendering of the MDX is done with the `<MDXRemote>` component.
+
+The only thing left to do now is to correctly read the MDX files and pass the raw content to the `serialize` method (basically implementing `getBlogContent` in the code example above).
+
+```jsx
+// lib/getBlogData.js
+
+import * as fs from 'fs';
+import * as path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
+
+const blogsDir = path.join(process.cwd(), 'content'); // location of MDX files (blog content)
+
+export const getBlogContent = async (slug: string) => {
+    const fullPath = path.join(blogsDir, slug + '.mdx');
+    const fileContent = fs.readFileSync(fullPath, 'utf8');
+    const fileMatter = matter(fileContent);
+    const frontmatter = fileMatter.data; // front matter of MDX file
+    const rawContent = fileMatter.content
+   
+    const code = await serialize(fileMatter.content); // compile MDX
+
+    return {
+        slug,
+        readingTime,
+        rawContent,
+        code,
+        ...frontmatter,
+    };
+}
+```
+
+`getBlogContent` will now grab an MDX file and compile it so that it can now be passed as a prop to a React component.
+
+But if you looked closely at `getBlogContent`, you may have noticed that it accepts a `slug` parameter. Yet, in the code sample earlier, the `getBlogContent` call did not pass any parameters.
+
+That's because `getBlogContent` compiles the MDX of *one* MDX file. In the event that you have multiple MDX files (ie. multiple blog posts), you will need to compile every single file.
+
+## Dynamic Routing and getStaticPaths()
+
+With some <a href="https://nextjs.org/docs/routing/dynamic-routes" target="_blank">dynamic routing</a>, and Next's <a href="https://nextjs.org/docs/basic-features/data-fetching/get-static-paths" target="_blank">`getStaticPaths`</a>, you can fetch all of your blog posts' content at build time.
+
+In the same file where you have `getStaticProps` to fetch the compiled MDX (as well as the dynamic route of your blog page), you must also have a `getStaticPaths` method. `getStaticPaths` prerenders all the static paths that will be passed to `getStaticProps`, so that `getBlogContent` can be called for each individual MDX file.
+
+```jsx
+// pages/[slug].js <- this can be named anything you'd like (postId, postSlug, or whatever), just make sure it matches with your `getStaticProps` method parameter
+
+import { getBlogContent, getBlogPaths } from '@lib/blogData';
+import Head from 'next/head';
+import React from 'react';
+
+const components = { Stuff } // your custom components that you use in your MDX file (THIS WILL BE USED LATER)
+
+// this is the actual blog page (the code)
+const BlogPage: React.FC<{ blogData }> = ({ blogData }) => {
+    return (
+        <>
+            <Head>
+                <title>{blogData.title}</title>
+            </Head>
+            {/* Blog stuff (such as the title, the navigation menu, etc.) */}
+            <MDXRemote {...blogData.code} components={components} /> {/* This is your rendered MDX */} 
+            {/* Other Blog stuff */}
+        </>
+    );
+} 
+
+// gets all your local MDX blog file paths
+export const getStaticPaths = async() => {
+    const paths = getBlogSlugs();
+
+    return {
+        paths,
+        fallback: false
+    }
+}
+
+// compiles the MDX of a blog file and passes the compiled MDX (and other data, such as title, date, etc.) as a prop to the `BlogPage` component
+//make sure the parameter of this method matches with your dynamic route -- if your dynamic route is [blogSlug].js, then your parameter would be { params: { blogSlug } }
+export const getStaticProps = async({ params }: { params: { slug: string } }) => { 
+    const blogData = await getBlogContent(params.slug);
+    return {
+        props: {
+            blogData
+        }
+    }
+}
+```
+
+The last thing you need is `getBlogSlugs`, which returns a list of all your blog slugs (in this case, we need the name of the MDX files).
+
+```js
+
+// lib/blogData.js
+
+const blogsDir = path.join(process.cwd(), 'content');
+
+export const getBlogIDs = () => {
+  const fileNames = fs.readdirSync(blogsDir); // get list of all file names in directory
+  return fileNames.map(fileName => {
+    
+    // The returned object must match with your `getStaticProps` parameter
+    return {
+      params: { 
+        slug: fileName.replace(/\.mdx$/, '') // regex to delete the '.mdx' from the file name
+      }
+    }
+  })
+}
+```
+
+And that's it. Now you can write up your blogs on an MDX file and insert your own custom React components in these files, and the changes on your MDX file will reflect on your website whenever it is built.
+
+A whole lot easier than typing your blogs up directly in your JavaScript.

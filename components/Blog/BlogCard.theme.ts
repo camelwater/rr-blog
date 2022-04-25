@@ -61,7 +61,7 @@ export const StyledImage = styled('img', {
     height: '100%',
     objectFit: 'cover',
     justifyContent: 'center',
-    transition: '.25s linear',
+    transition: '.25s ease',
     '@iPad': {
         // width: 'fit-content',
         // height: 'min-content'
@@ -75,7 +75,7 @@ export const ImageHoverDarken = styled('div', {
     width: '100%',
     height: '100%',
     opacity: '0',
-    transition: 'opacity .2s linear'
+    transition: 'opacity .25s ease'
 })
 
 export const InnerImgContainer = styled('div', {
@@ -87,6 +87,14 @@ export const InnerImgContainer = styled('div', {
     width: '90%',
     overflow: 'hidden',
     borderRadius: '1.5rem',
+    '&:hover': {
+        [`& ${ImageHoverDarken}`]: {
+            opacity: '0.2',
+        },
+        [`& ${StyledImage}`]: {
+            transform: 'scale(1.025, 1.025)',
+        }
+    },
     '@iPad': {
         height: '100%',
         width: '100%',
@@ -95,6 +103,7 @@ export const InnerImgContainer = styled('div', {
         borderTopLeftRadius: '1.5rem',
     },
 })
+
 export const ImgContainer = styled('div', {
     display: 'flex',
     position: 'relative',
@@ -113,14 +122,6 @@ export const ImgContainer = styled('div', {
         maxWidth: '100%',
         // height: '25rem'
     },
-    '&:hover': {
-        [`& ${ImageHoverDarken}`]: {
-            opacity: '0.25',
-        },
-        [`& ${StyledImage}`]: {
-            transform: 'scale(1.05, 1.05)',
-        }
-    }
 })
 
 export const TextContainer = styled('div', {

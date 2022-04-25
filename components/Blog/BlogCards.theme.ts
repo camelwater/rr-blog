@@ -23,6 +23,7 @@ export const HeaderContainer = styled('div', {
     display: 'flex',
     flexDirection: 'column',
     marginTop: '10rem',
+    textAlign: 'center',
     // marginBottom: '5rem',
 
 })
