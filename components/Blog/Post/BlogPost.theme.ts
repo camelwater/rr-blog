@@ -261,7 +261,7 @@ export const BottomInfoContainer = sstyled('div', {
     flexWrap: 'wrap',
     // alignItems: 'flex-start',
     '@iPad': {
-        alignItems: 'center'
+        alignSelf: 'flex-start'
     }
 })
 export const BottomInfoText = sstyled('div', {

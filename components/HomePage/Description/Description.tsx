@@ -164,10 +164,9 @@ const DescriptionComponent: React.FC = () => {
                         and my newfound interest in front-end web development with some exploration and creativity.
                     </Theme.DescText>
                     <Theme.DescText variants={fadeUpVariants2}>
-                        And this is what came to be.
+                        And so I created this.
                     </Theme.DescText>
                 </Theme.TextContainer>
-               
             </Theme.DescriptionContainer>
         </Theme.Container>
     );
