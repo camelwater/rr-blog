@@ -12,7 +12,7 @@
  - [x] Parallax progress bar when reading blog posts
  - [x] Table of Contents on blog posts
  - [x] Reusable components for blog posts (codeblocks, info boxes, etc.)
-    * Can still add more
+
 ## Version 3.0
  - [x] Background video/GIF or slideshow on Home page
  - [ ] Navbar is hidden when scrolling down past down of page and reappears when scrolling up

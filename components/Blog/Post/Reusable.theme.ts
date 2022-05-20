@@ -14,6 +14,10 @@ export const InfoCardContainer = styled('aside', {
     borderRadius: '0.5rem',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
+    img: {
+        maxWidth: '100%',
+        borderRadius: 10
+    },
     variants: {
         variant: {
             info: {
@@ -121,35 +125,40 @@ export const ExtendButtonContainer = styled('div', {
     display: 'flex',
     // minWidth: '60%',
     justifyContent: 'flex-end',
+    alignItems: 'center'
 })
 
 export const ExtendText = styled('div', {
     display: 'flex',
     wordWrap: 'break-word',
     wordBreak: 'keep-all',
-
 })
 
 export const ExtendSVG = styled('div', {
     display: 'flex',
     marginLeft: '5px',
-    
+    'svg': {
+        strokeWidth: '0.2rem',
+    },
     transition: 'transform .1s linear',
 
 })
 
 export const ExtendButton = styled('div', {
     display: 'flex',
-    padding: '0.4rem 0.6rem',
+    // padding: '0.4rem 0.6rem',
+    marginTop: '0.75rem',
     cursor: 'pointer',
-    backgroundColor: '$primary',
-    borderRadius: '0.5rem',
+    // backgroundColor: '$primary',
+    // borderRadius: '0.5rem',
     fontFamily: '$main',
-    fontSize: '$2',
+    fontWeight: 'bold',
+    fontSize: '16px',
     color: '$white',
     transition: 'all .1s linear',
     alignItems: 'center',
     // flexWrap: 'wrap', 
+    // border: '1px solid white',
     '@iPhonePlus': {
         fontSize: 'calc(0.85rem)'
     },

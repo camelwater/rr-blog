@@ -67,9 +67,8 @@ export const AbstractPostContainer = sstyled('div', {
         width: '100%',
     },
     '@iPad': {
-        justifyContent: 'center'
-    }
-    
+        justifyContent: 'center',
+    },
 })
 
 export const PostContainer = sstyled('article', {
@@ -84,7 +83,7 @@ export const PostContainer = sstyled('article', {
     // lineHeight: '2rem',
     // columnGap: '.5rem',
 
-    'h1, h2, h3, h4, h5, h6, h7, p, a, strong': {
+    'h1, h2, h3, h4, h5, h6, h7, p, a': {
         fontFamily: '$main',
     },
     'h1': {
@@ -130,6 +129,10 @@ export const PostContainer = sstyled('article', {
         maxWidth: '100%',
         marginTop: '1.5rem',
         marginBottom: '1.5rem',
+        '@iPad': {
+            borderRadius: 0,
+            maxWidth: '100vw',
+        }
         // border: '1px solid white'
     },
     // a: {

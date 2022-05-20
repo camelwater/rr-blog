@@ -7,7 +7,9 @@ img: mdx.png
 topics: [JS, Next.js, MDX, React]
 ---
 
-![MDX in Next](/assets/images/mdx.png "MDX in Next")
+<!-- ![MDX in Next](/assets/images/mdx.png "MDX in Next") -->
+
+<img src="/assets/images/mdx.png" title="MDX in Next" />
 
 When I was building this blog, one of the biggest problems I faced was content management. How was I going to organize my blog post content?
 
@@ -19,7 +21,9 @@ What I needed was a system that would allow me to type out the content very easi
 
 ## MD and MDX
 
-![MDX](https://i0.wp.com/css-tricks.com/wp-content/uploads/2020/03/mdx.png?fit=1200%2C600&ssl=1 "MDX")
+<!-- ![MDX](https://i0.wp.com/css-tricks.com/wp-content/uploads/2020/03/mdx.png?fit=1200%2C600&ssl=1 "MDX") -->
+
+<img src="https://i0.wp.com/css-tricks.com/wp-content/uploads/2020/03/mdx.png?fit=1200%2C600&ssl=1" title="MDX" />
 
 If you're unfamiliar with <a href='https://www.markdownguide.org/' target='_blank'>Markdown</a>, you probably should make yourself familiar with it.
 
@@ -47,7 +51,9 @@ But here, I want to use it as a content management system. I want to be able to 
 
 Essentially what we're doing then is creating a separate directory where we'll store all our blog content (MDX files), and later have that content fetched at build time.
 
-![Project directory tree](/assets/images/mdx-in-next/workspace.png "Project directory tree")
+<!-- ![Project directory tree](/assets/images/mdx-in-next/workspace.png "Project directory tree") -->
+
+<img src="/assets/images/mdx-in-next/workspace.png" title="Example project directory" />
 
 Before the content can be fetched, however, it must be converted into JSX. In order to do so, we need some help from an MDX compiler package. 
 

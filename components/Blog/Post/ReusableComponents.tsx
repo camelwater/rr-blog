@@ -36,8 +36,35 @@ const cardExpansion = {
     }
 };
 
+const cardExpansion2 = {
+    collapsed: {
+        height: '2.5rem',
+        transition: {
+            when: "beforeChildren",
+            // duration: 0.1,
+            // ease: 'easeOut',
+            // type: 'tween'
+        }
+    },
+    expanded: {
+        height: '100%',
+        transition: {
+            // type: "spring",
+            // damping: 2.5,
+            // mass: 0.2,
+            // stiffness: 50,
+            // ease: 'easeOut',
+            // type: 'tween',
+            when: "beforeChildren",
+            // duration: 0.2
+
+        }
+    }
+};
+
 const textFade = {
     hidden: {
+        // visibility: 'collapse',
         opacity: 0,
         y: -25,
         transition: {
@@ -45,6 +72,7 @@ const textFade = {
         }
     },
     visible: {
+        // visibility: 'visible',
         opacity: 1,
         y: 0,
         transition: {
@@ -75,13 +103,6 @@ export const ExpandableCardComponent: React.FC<{
             <Theme.InfoCard>
                 <Theme.InfoCardHeaderContainer>
                     <Theme.CardTitleText>{title}</Theme.CardTitleText>
-                    {children !== null &&
-                        <Theme.ExtendButton variant={isInfoCard?'info':'check'} open={isOpen?'yes':'no'} onClick={ToggleOpen} >
-                            <Theme.ExtendText>Show{isOpen?' less':' more'}</Theme.ExtendText>
-                            <Theme.ExtendSVG>{isOpen?<FiChevronUp />:<FiChevronDown />}</Theme.ExtendSVG>
-                        </Theme.ExtendButton>
-                            
-                    }
                 </Theme.InfoCardHeaderContainer>
                     <Theme.PreviewBlockContainer>
                         <Theme.PreviewText>
@@ -92,6 +113,12 @@ export const ExpandableCardComponent: React.FC<{
             <Theme.ExpandedContainer variants={cardExpansion} animate={isOpen ? "expanded":"collapsed"} initial={'collapsed'}>
                 <Theme.ExpandedText variants={textFade} animate={isOpen ? "visible":"hidden"} initial={'hidden'}>{children}</Theme.ExpandedText>
             </Theme.ExpandedContainer>
+            {children !== null && 
+                    <Theme.ExtendButton variant={isInfoCard?'info':'check'} open={isOpen?'yes':'no'} onClick={ToggleOpen}>
+                        <Theme.ExtendText>Show{isOpen?' less':' more'}</Theme.ExtendText>
+                        <Theme.ExtendSVG>{isOpen?<FiChevronUp />:<FiChevronDown />}</Theme.ExtendSVG>
+                    </Theme.ExtendButton>    
+            }
         </Theme.InfoCardContainer>
     );
 }
