@@ -98,7 +98,7 @@ export const ExpandableCardComponent: React.FC<{
     return (
         <Theme.InfoCardContainer variant={isInfoCard?'info':'check'}>
             <Theme.IconContainer variant={isInfoCard?'info':'check'}>
-                    <CornerIcon size={'2.5rem'}/>
+                <CornerIcon />
             </Theme.IconContainer>
             <Theme.InfoCard>
                 <Theme.InfoCardHeaderContainer>

@@ -49,7 +49,7 @@ export const ContentContainer = sstyled('div', {
     maxWidth: '1200px',
     justifyContent: 'space-between', 
     alignItems: 'flex-start', 
-    paddingTop: '7.5rem',
+    paddingTop: '5rem',
     '@iPad': {
         width: '90%',
         alignItems: 'center'
@@ -61,6 +61,7 @@ export const ContentContainer = sstyled('div', {
 export const AbstractPostContainer = sstyled('div', {
     display: 'flex',
     width: '65%', 
+    // border: '1px solid white',
     alignItems: 'center',
     justifyContent: 'flex-start',
     '@iPadPro': {
@@ -74,7 +75,7 @@ export const AbstractPostContainer = sstyled('div', {
 export const PostContainer = sstyled('article', {
     display: 'flex',
     flexDirection: 'column',
-    width: '95%',
+    width: '100%',
     alignItems: 'flex-start',
     justifyContent: 'center',
     fontSize: 'calc(1.25rem)',
@@ -230,7 +231,7 @@ export const InfoContainer = sstyled('div', {
     // paddingBottom: '2.5rem',
     '@iPad': {
         maxWidth: '75%',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     // border: '1px solid white'
 })
@@ -242,7 +243,7 @@ export const TopicsContainer = sstyled('div', {
     paddingBottom: '1rem',
     gap: '0.5rem',
     '@iPad': {
-        justifyContent: 'center'
+        justifyContent: 'flex-start'
     }
 })
 

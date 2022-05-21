@@ -198,18 +198,33 @@ export const ExtendButton = styled('div', {
 
 // ICON
 export const IconContainer = styled('div', {
+    position: 'absolute',
+    display: 'flex',
     backgroundColor: '$background',
     width: '3.5rem',
     height: '3.5rem',
     borderRadius: '10rem',
-    position: 'absolute',
-    display: 'flex',
     top: '-1.5rem',
     left: '-2rem',
     zIndex: 99,
     alignItems: 'center',
     justifyContent: 'center',
     transition: '.15s linear',
+    svg: {
+        height: '2.5rem',
+        width: '2.5rem',
+    },
+    '@iPhonePlus': {
+        width: '3rem',
+        height: '3rem',
+        borderRadius: '5rem',
+        top: '-1.15rem',
+        left: '-1.15rem',
+        svg: {
+            height: '2rem',
+            width: '2rem',
+        },
+    },
     variants: {
         variant: {
             info: {
